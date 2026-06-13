@@ -8,8 +8,16 @@
 	--font-mont: var(--font-montserrat, sans-serif);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-	font-family: var(--font-mont);
+  font-family: var(--font-mont);
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .montserrat-semibold {
