@@ -8,16 +8,11 @@ const members = [
 
 export default function ProjectLeadsPage() {
   return (
-    <div className="px-4 py-8">
-      <div className={`${styles.framePanel} ${styles.navy}`}>
-        <span className={styles.labelLeft}>(PROJECT LEADS)</span>
-        <div className={`${styles.framePanelInner} ${styles.navy}`}>
-          <div className={styles.leadsGrid}>
-            {members.map((member, i) => (
-              <TeamCard key={i} name={member.name} />
-            ))}
-          </div>
-        </div>
+    <div className={styles.panelWrapper} style={{ backgroundImage: "url('/panels/leads-panel.png')" }}>
+      <div className={styles.leadsGrid}>
+        {members.map((member, i) => (
+          <TeamCard key={i} name={member.name} />
+        ))}
       </div>
     </div>
   );
