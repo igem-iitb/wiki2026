@@ -1,5 +1,5 @@
-import styles from "../cards.module.css";
-import TeamCard from "../../components/TeamCard";
+import styles from "../../team/kyt/cards.module.css";
+import TeamCard from "../TeamCard";
 
 const members = [
   { name: "NAME" },
@@ -7,7 +7,7 @@ const members = [
   { name: "NAME" },
 ];
 
-export default function WebTeamPage() {
+export default function WebTeam() {
   return (
     <div className={styles.panelWrapper} style={{ backgroundImage: "url('/panels/web-panel.png')" }}>
       <div className={styles.memberGrid}>

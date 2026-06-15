@@ -1,5 +1,5 @@
-import styles from "../cards.module.css";
-import TeamCard from "../../components/TeamCard";
+import styles from "../../team/kyt/cards.module.css";
+import TeamCard from "../TeamCard";
 
 const members = [
   { name: "NAME" },
@@ -10,7 +10,7 @@ const members = [
   { name: "NAME" },
 ];
 
-export default function HumanPracticesPage() {
+export default function HumanPractices() {
   return (
     <div className={styles.panelWrapper} style={{ backgroundImage: "url('/panels/hp-panel.png')" }}>
       <div className={styles.memberGrid}>

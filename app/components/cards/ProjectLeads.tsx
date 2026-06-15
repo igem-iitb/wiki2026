@@ -1,5 +1,5 @@
-import styles from "../cards.module.css";
-import TeamCard from "../../components/TeamCard";
+import styles from "../../team/kyt/cards.module.css";
+import TeamCard from "../TeamCard";
 
 const members = [
   { name: "NAME" },
@@ -10,9 +10,9 @@ const members = [
   { name: "NAME" },
 ];
 
-export default function WetLabPage() {
+export default function ProjectLeads() {
   return (
-    <div className={styles.panelWrapper} style={{ backgroundImage: "url('/panels/wetlab-panel.png')" }}>
+    <div className={styles.panelWrapper} style={{ backgroundImage: "url('/panels/leads-panel.png')" }}>
       <div className={styles.memberGrid}>
         {members.map((member, i) => (
           <TeamCard key={i} name={member.name} />
