@@ -68,7 +68,7 @@ const navigation: NavItem[] = [
     label: "Team",
     href: "/team",
     subnav: [
-      { label: "Know Your Team", href: "/team#kyt" },
+      { label: "Know Your Team", href: "/team/kyt" },
       { label: "Attributions", href: "/team/attribution" },
     ],
   },
