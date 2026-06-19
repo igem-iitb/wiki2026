@@ -1,5 +1,5 @@
 import CardSection from "./components/CardSection";
-import WaveFooter from "./components/WaveFooter";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -23,8 +23,8 @@ export default function Home() {
       <section className="w-full min-h-[40vh] bg-[#d9d9d9]">
       </section>
 
-      {/* Footer: Animated Water Waves */}
-      <WaveFooter />
+      {/* Footer: Animated Water Waves + Contact */}
+      <Footer />
     </main>
   );
 }

@@ -1,50 +1,72 @@
 .waveContainer {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 75vh;
   overflow: hidden;
   background: transparent;
 }
 
-.waveWrapper {
+/* Each layer is ONE continuous shape: a wavy top edge with a gradient
+   fill that flows straight down to the bottom (no rectangle banding).
+   The wave shape is a horizontally-tiling mask scrolling over a fixed,
+   full-width gradient (so the gradient never seams). */
+.waveLayer {
   position: absolute;
-  bottom: 0;
   left: 0;
-  width: 200%;
-  height: 100%;
-}
-
-.waveSvg {
+  bottom: -60px;
   width: 100%;
-  height: 100%;
+  height: 60vh;
+
+  -webkit-mask-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0,40 C33,7 67,7 100,40 C133,73 167,73 200,40 L200,80 L0,80 Z'/%3E%3C/svg%3E"),
+    linear-gradient(#000, #000);
+  mask-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none'%3E%3Cpath fill='%23000' d='M0,40 C33,7 67,7 100,40 C133,73 167,73 200,40 L200,80 L0,80 Z'/%3E%3C/svg%3E"),
+    linear-gradient(#000, #000);
+  -webkit-mask-repeat: repeat-x, no-repeat;
+  mask-repeat: repeat-x, no-repeat;
+  -webkit-mask-size: 850px 80px, 100% calc(100% - 73px);
+  mask-size: 850px 80px, 100% calc(100% - 73px);
+  -webkit-mask-position: 0 0, 0 100%;
+  mask-position: 0 0, 0 100%;
+
+  animation: waveFlow 3.08s linear infinite, bob 5s ease-in-out infinite;
+  will-change: mask-position, transform;
 }
 
-.waveWrapper1 {
-  animation: waveFlow1 30s linear infinite;
+/* Layer 1 - back */
+.waveLayer1 {
+  background: linear-gradient(90deg, rgba(142, 216, 248, 0.5) 0%, rgba(15, 243, 255, 0.5) 100%);
   z-index: 1;
+  animation-delay: 0s, 0s;
 }
 
-.waveWrapper2 {
-  animation: waveFlow2 25s linear infinite;
+/* Layer 2 - middle */
+.waveLayer2 {
+  background: linear-gradient(90deg, rgba(15, 243, 255, 0.5) 0%, rgba(142, 216, 248, 0.5) 100%);
   z-index: 2;
+  animation-delay: -1.4s, -0.7s;
 }
 
-.waveWrapper3 {
-  animation: waveFlow3 35s linear infinite;
+/* Layer 3 - front */
+.waveLayer3 {
+  background: linear-gradient(90deg, rgba(26, 178, 239, 0.5) 0%, rgba(127, 170, 216, 0.5) 100%);
   z-index: 3;
+  animation-delay: -2.7s, -1.4s;
 }
 
-@keyframes waveFlow1 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes waveFlow {
+  from {
+    -webkit-mask-position: 0 0, 0 100%;
+    mask-position: 0 0, 0 100%;
+  }
+  to {
+    -webkit-mask-position: -850px 0, 0 100%;
+    mask-position: -850px 0, 0 100%;
+  }
 }
 
-@keyframes waveFlow2 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes waveFlow3 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
 }
