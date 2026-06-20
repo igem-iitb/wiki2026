@@ -1,0 +1,421 @@
+/* ============ Page ============ */
+.page {
+  min-height: 100vh;
+  background: #000000;
+  overflow-x: hidden;
+}
+
+/* ============ Hero Section ============ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #0f172a, #1e1b4b, #00003d);
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 24px 24px;
+  text-align: center;
+  z-index: 10;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+.heroDivider {
+  width: 96px;
+  height: 6px;
+  background: #6366f1;
+  margin: 24px 0;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+.heroSubtitle {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #f4f4f5;
+  max-width: 32rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scrollIndicator span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d4d4d8;
+}
+
+.scrollArrow {
+  width: 24px;
+  height: 24px;
+  color: #d4d4d8;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ============ Stacked Folders Section ============ */
+.stackSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6vh 0 6vh;
+  background: #000000;
+}
+
+.stackContainer {
+  position: relative;
+  width: 92%;
+  max-width: 1440px;
+  aspect-ratio: 1440 / 780;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.stackTitle {
+  position: absolute;
+  top: -8%;
+  left: 2%;
+  font-size: clamp(16px, 2.5vw, 32px);
+  font-weight: 500;
+  color: #666;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ============ Folder Image (in stack) ============ */
+.folderClip {
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.folderImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============ Click Button ============ */
+.clickButton {
+  margin-top: 5vh;
+  padding: 14px 52px;
+  background: #B8C4E8;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-mont);
+  font-weight: 500;
+  font-size: clamp(20px, 3vw, 48px);
+  color: #00003D;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.clickButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(184, 196, 232, 0.4);
+}
+
+/* ============ Fullscreen Overlay ============ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  animation: overlayIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.overlayClosing {
+  animation: overlayOut 0.4s ease-in forwards;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes overlayOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.closeButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1002;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ============ Sections Track ============ */
+.sectionsTrack {
+  width: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ============ Section ============ */
+.section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionPanel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionPanel img {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* ============ Cards Area ============ */
+.cardsArea {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* -- Two-card layout (PI, PL) -- */
+.twoGrid {
+  display: flex;
+  gap: 5.5vw;
+  align-items: center;
+  justify-content: center;
+  padding: 20vh 10vw 8vh;
+}
+
+/* -- Six-card layout (WL, DL, HP) -- */
+.sixGrid {
+  display: grid;
+  grid-template-columns: repeat(3, min(17.2vw, 22vh));
+  justify-content: center;
+  align-content: center;
+  gap: 2vh 5vw;
+  padding: 18vh 0 6vh;
+}
+
+/* -- Three-card layout (WEB) -- */
+.threeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, min(17.2vw, 22vh));
+  justify-content: center;
+  align-content: center;
+  gap: 2vh 5vw;
+  padding: 28vh 0 6vh;
+}
+
+/* ============ Team Card ============ */
+.card {
+  width: 100%;
+}
+
+.twoGrid .card {
+  width: min(25.14vw, 32vh);
+}
+
+.sixGrid .card,
+.threeGrid .card {
+  width: min(17.2vw, 22vh);
+}
+
+.cardOuter {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.twoGrid .cardOuter {
+  border-radius: 24px;
+  padding: 4%;
+}
+
+.cardPhoto {
+  width: 100%;
+  aspect-ratio: 227.74 / 300.23;
+  background: #000000;
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+.twoGrid .cardPhoto {
+  border-radius: 16px;
+  aspect-ratio: 333 / 439;
+}
+
+.cardPhotoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardName {
+  margin-top: 6px;
+  padding-bottom: 2px;
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(10px, 0.95vw, 14px);
+  color: #000000;
+}
+
+.twoGrid .cardName {
+  font-size: clamp(14px, 1.39vw, 20px);
+}
+
+/* ============ Swipe Text ============ */
+.swipeText {
+  position: absolute;
+  bottom: 2.5vh;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(16px, 2.2vw, 32px);
+  z-index: 3;
+}
+
+/* ============ Section Dots Navigation ============ */
+.dots {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  padding: 0;
+}
+
+.dotActive {
+  background: white;
+  border-color: white;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .sixGrid,
+  .threeGrid {
+    grid-template-columns: repeat(2, min(28vw, 18vh));
+    gap: 2vw 4vw;
+    padding: 16vh 0 6vh;
+  }
+
+  .twoGrid {
+    gap: 5vw;
+    padding: 22vh 6vw 8vh;
+  }
+
+  .twoGrid .card {
+    width: min(35vw, 45vh);
+  }
+
+  .swipeText {
+    font-size: clamp(14px, 3.5vw, 24px);
+  }
+
+  .closeButton {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .dots {
+    right: 12px;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
