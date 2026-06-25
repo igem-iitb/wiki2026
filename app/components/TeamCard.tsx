@@ -5,9 +5,11 @@ import { useState } from "react";
 type TeamCardProps = {
   name: string;
   photo?: string;
+  objectPosition?: string;
+  zoom?: number;
 };
 
-export default function TeamCard({ name, photo }: TeamCardProps) {
+export default function TeamCard({ name, photo, objectPosition, zoom }: TeamCardProps) {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -43,7 +45,16 @@ export default function TeamCard({ name, photo }: TeamCardProps) {
             style={{ borderRadius: "4.42cqw", aspectRatio: "227.74 / 300.23" }}
           >
             {photo ? (
-              <img src={photo} alt={name} className="h-full w-full object-cover" />
+              <img
+                src={photo}
+                alt={name}
+                className="h-full w-full object-cover"
+                style={{
+                  objectPosition: objectPosition || "center top",
+                  transform: zoom && zoom !== 1 ? `scale(${zoom})` : undefined,
+                  transformOrigin: "center center",
+                }}
+              />
             ) : null}
           </div>
           <p
@@ -70,7 +81,7 @@ export default function TeamCard({ name, photo }: TeamCardProps) {
             className="text-center text-gray-400 uppercase"
             style={{ fontSize: "5cqw" }}
           >
-            — Portugal For The Win —
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
           </p>
         </div>
       </div>
