@@ -86,7 +86,7 @@ const sections: Section[] = [
     members: [
       { name: "Sagnik Dey", photo: "/members/sagnik_dey.png", objectPosition: "center 0%", zoom: 1.0 },
       { name: "Nisarg Rathod", photo: "/members/nisarg-rathod.jpg", objectPosition: "center 3%" },
-      { name: "Aryan Prasad", photo: "/members/aryan-prasad.jpg", objectPosition: "center 35%" },
+      { name: "Aryan Prasad", photo: "/members/aryan-prasad.png", objectPosition: "center 35%" },
     ],
     layout: "six",
   },

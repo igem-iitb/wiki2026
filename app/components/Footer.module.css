@@ -1,5 +1,234 @@
 .footer {
   position: relative;
   width: 100%;
-  background: #181830;
+  overflow: hidden;
+}
+
+/* Waves fill the entire footer area, behind the content */
+.wavesArea {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Content flows normally over the waves; its height (plus the top padding)
+   defines the footer height, so the waves fill behind it at any size.
+   Large top padding keeps the "open water above the content" look. */
+.body {
+  position: relative;
+  z-index: 4;
+  padding: clamp(180px, 38vh, 480px) 5% 1.5rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2.5rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Left: iGEM IITB logo */
+.logoBox {
+  width: clamp(60px, 8vw, 100px);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.4);
+}
+
+/* Middle: Aureolyze + Sponsors */
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.aureolyzeBox {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 16 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aureolyzeLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sponsorsLabel {
+  font-weight: 600;
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sponsorsBox {
+  width: 100%;
+  max-width: 340px;
+  height: clamp(50px, 5vw, 75px);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Right: Contact + Socials */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.contactHeading {
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.address {
+  font-style: normal;
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.email {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.socialCircle {
+  width: clamp(36px, 3.5vw, 46px);
+  height: clamp(36px, 3.5vw, 46px);
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #181830;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s;
+}
+
+.socialCircle:hover {
+  transform: scale(1.1);
+}
+
+/* Bottom bar */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 0 0;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .body {
+    padding: clamp(100px, 20vh, 200px) 5% 1.5rem;
+  }
+
+  .content {
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .body {
+    padding: 30px 6% 1rem;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .logoBox {
+    width: 48px;
+    margin: 0 auto;
+  }
+
+  .middle {
+    display: none;
+  }
+
+  .right {
+    align-items: center;
+  }
+
+  .contactHeading {
+    font-size: 1rem;
+  }
+
+  .address {
+    font-size: 0.75rem;
+  }
+
+  .socials {
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .socialCircle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+    font-size: 0.55rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .body {
+    padding: 20px 4% 0.75rem;
+  }
+
+  .socialCircle {
+    width: 30px;
+    height: 30px;
+  }
 }
