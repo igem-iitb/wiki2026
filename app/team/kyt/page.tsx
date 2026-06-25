@@ -86,7 +86,7 @@ export default function KytPage() {
             key={section.id}
             className="w-full relative flex flex-col items-center"
             style={{
-              marginTop: idx === 0 ? "0" : "-14vw", // Overlap covers each folder tab seam
+              marginTop: idx === 0 ? "2vw" : "-14vw", // Small gap above the first panel, then overlap seams
               zIndex: idx + 1
             }}
           >
