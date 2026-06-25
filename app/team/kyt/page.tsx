@@ -1,82 +1,206 @@
 "use client";
 
-import styles from "./cards.module.css";
-import { ProjectLeads, WetLab, DryLab, HumanPractices, WebTeam } from "../../components/cards";
+import styles from "./kyt.module.css";
+import TeamCard from "../../components/TeamCard";
+import Footer from "../../components/Footer";
+
+type Member = { name: string; photo: string; objectPosition?: string; zoom?: number };
+
+type Section = {
+  id: string;
+  label: string;
+  panelImage: string;
+  members: Member[];
+  layout: "two" | "three" | "four" | "six";
+};
+
+const sections: Section[] = [
+  {
+    id: "pi",
+    label: "PROJECT INVESTIGATOR",
+    panelImage: "/knowurteam/investigator.png",
+    members: [
+      { name: "Prof. Saket Choudhary", photo: "/members/profSaket.png", objectPosition: "center 100%", zoom: 1.3 },
+      { name: "Prof. Rajesh Patkar", photo: "/members/profRajesh.png", objectPosition: "center 0%" },
+    ],
+    layout: "two",
+  },
+  {
+    id: "pl",
+    label: "PROJECT LEADS",
+    panelImage: "/knowurteam/teamlead.png",
+    members: [
+      { name: "Aarohi Gupta", photo: "/members/aaorhi.jpg", objectPosition: "center 0%", zoom: 1.0 },
+      { name: "Angel Singhvi", photo: "/members/angel-singhvi.jpg", objectPosition: "center -20%", zoom: 1 },
+    ],
+    layout: "two",
+  },
+  {
+    id: "wl",
+    label: "WET LAB",
+    panelImage: "/knowurteam/wetleb.png",
+    members: [
+      { name: "Durva Sachin Saraf", photo: "/members/durva.jpg", objectPosition: "center 0%" },
+      { name: "Madhur", photo: "/members/madhur.jpg", objectPosition: "center 60%", zoom: 1.1 },
+      { name: "Ranit S Sooraj", photo: "/members/ranit.jpg", objectPosition: "center 40%", zoom: 1.2 },
+      { name: "Hardika Jain", photo: "/members/hardika-jain.png", objectPosition: "center 40%", zoom: 1.1 },
+      { name: "Aayush Gupta", photo: "/members/aayush-gupta.jpg", objectPosition: "center 10%" },
+      { name: "Abhinav Gupta", photo: "/members/abhinav.jpg", objectPosition: "center 50%" },
+      { name: "Manish S", photo: "/members/manish.jpg", objectPosition: "center 30%", zoom: 1.1 },
+    ],
+    layout: "four",
+  },
+  {
+    id: "dl",
+    label: "DRY LAB",
+    panelImage: "/knowurteam/drylab.png",
+    members: [
+      { name: "Arhan Khade", photo: "/members/arhan.jpg", objectPosition: "center 0%" },
+      { name: "Bipra Bhanu Mohanty", photo: "/members/bipra-bhanu-mohanty.jpg", objectPosition: "center 15%" },
+      { name: "Ishaan Chhaya", photo: "/members/ishaan.jpg", objectPosition: "center 10%" },
+      { name: "Pratik Rahul Ingle", photo: "/members/pratik.jpeg", objectPosition: "center 10%" },
+      { name: "Siddhant Chowdhary", photo: "/members/siddhant.jpg", objectPosition: "center 50%", zoom: 2 },
+      { name: "Ekansh", photo: "/members/ekansh.jpg", objectPosition: "center 20%", zoom: 1.7 },
+      { name: "Gururatna Upadhyay", photo: "/members/guru.png", objectPosition: "center 20%", zoom: 1.2 },
+    ],
+    layout: "four",
+  },
+  {
+    id: "hp",
+    label: "HUMAN PRACTICES",
+    panelImage: "/knowurteam/human.png",
+    members: [
+      { name: "Yashika", photo: "/members/yashika.jpg", objectPosition: "center 40%", zoom: 1.3 },
+      { name: "Arnav Oza", photo: "/members/arnav.jpg", objectPosition: "center 30%" },
+      { name: "Tanish Jain", photo: "/members/tanish.jpg", objectPosition: "center 10%", zoom: 1.1 },
+      { name: "Shinjini Jain", photo: "/members/shinjini.jpg", objectPosition: "center top", zoom: 1 },
+      { name: "Latisha Meena", photo: "/members/latisha.jpg", objectPosition: "center top", zoom: 1 },
+      { name: "Mitali Arya", photo: "/members/mitali.jpg", objectPosition: "center 20%", zoom: 1 },
+    ],
+    layout: "six",
+  },
+  {
+    id: "web",
+    label: "WEB",
+    panelImage: "/knowurteam/web.png",
+    members: [
+      { name: "Sagnik Dey", photo: "/members/sagnik_dey.png", objectPosition: "center 0%", zoom: 1.0 },
+      { name: "Nisarg Rathod", photo: "/members/nisarg-rathod.jpg", objectPosition: "center 3%" },
+      { name: "Aryan Prasad", photo: "/members/aryan-prasad.jpg", objectPosition: "center 35%" },
+    ],
+    layout: "six",
+  },
+];
 
 export default function KytPage() {
   return (
-    <div className="relative min-h-screen bg-[#f1f1f1] text-white pb-16">
-      {/* Hero Section: 100vh Team Photo starting from top (sliding under sticky header) */}
-      <section className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-gradient-to-b from-slate-900 via-indigo-950 to-[#00003d] mt-[-72px]">
-        {/* Team photo */}
+    <div className="min-h-screen bg-white overflow-x-hidden flex flex-col">
+      {/* ── Hero Section ── */}
+      <section className={styles.hero}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/team_pic.png"
           alt="iGEM IIT Bombay Team"
-          className="absolute inset-0 w-full h-full object-cover opacity-85"
+          className={styles.heroImage}
           onError={(e) => {
-            // If the image fails to load, hide it so the CSS gradient fallback shows
             e.currentTarget.style.display = "none";
           }}
         />
-
-        {/* Dark overlay & Text Content (padded top to offset header) */}
-        <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center p-6 text-center z-10 pt-[72px]">
-          <h1
-            className="text-5xl md:text-8xl font-black tracking-widest uppercase drop-shadow-2xl text-white select-none"
-            style={{ fontFamily: "var(--font-mont), sans-serif" }}
-          >
-            Meet Our Team
+        <div className={styles.heroOverlay}>
+          <h1 className={styles.heroTitle} style={{ lineHeight: 1.1 }}>
+            TEAM<br />PHOTO
           </h1>
-          <div className="w-24 h-1.5 bg-indigo-500 my-6 rounded-full shadow-lg"></div>
-          <p className="text-lg md:text-2xl font-medium tracking-wide text-zinc-100 max-w-2xl drop-shadow-md">
-            iGEM IIT Bombay 2026
-          </p>
-
-          {/* Animated Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-            <span className="text-xs font-semibold tracking-widest text-zinc-300 uppercase mb-2">
-              Scroll Down
-            </span>
-            <svg
-              className="w-6 h-6 text-zinc-300 animate-bounce"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2.5}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </div>
         </div>
       </section>
 
+      {/* ── Folder Sections ── */}
+      <div className="w-full flex flex-col items-center">
+        {sections.map((section, idx) => (
+          <section
+            key={section.id}
+            className="w-full relative flex flex-col items-center"
+            style={{
+              marginTop: idx === 0 ? "2vw" : "-14vw",
+              zIndex: idx + 1
+            }}
+          >
+            {/* Background Panel Image */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={section.panelImage}
+                alt={`${section.label} Background`}
+                className="w-full h-full object-fill"
+              />
+            </div>
 
-      {/* Spacer */}
-      <div className="h-[10vw] w-full" />
-
-      {/* Team Details Sections */}
-      <div className="w-full relative z-20 aspect-[1440/1800]">
-        <div className="absolute top-[0%] left-0 w-full z-10">
-          <WebTeam />
-        </div>
-        <div className="absolute top-[3%] left-0 w-full z-20">
-          <HumanPractices />
-        </div>
-        <div className="absolute top-[8%] left-0 w-full z-30">
-          <DryLab />
-        </div>
-        <div className="absolute top-[17%] left-0 w-full z-40">
-          <WetLab />
-        </div>
-        <div className="absolute top-[22%] left-0 w-full z-50">
-          <ProjectLeads />
-        </div>
+            {/* Content Container */}
+            <div
+              className="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col items-center px-4 sm:px-8"
+              style={{
+                paddingTop: "clamp(120px, 24vw, 350px)",
+                paddingBottom: "clamp(80px, 16vw, 230px)"
+              }}
+            >
+              {section.layout === "two" ? (
+                <div className="mx-auto grid grid-cols-2 w-[80%] sm:w-[65%] md:w-[55.8%] gap-x-[8%]">
+                  {section.members.map((member, i) => (
+                    <TeamCard
+                      key={i}
+                      name={member.name}
+                      photo={member.photo}
+                      objectPosition={member.objectPosition}
+                      zoom={member.zoom}
+                    />
+                  ))}
+                </div>
+              ) : section.layout === "four" ? (
+                <div className="mx-auto w-[92%] sm:w-[85%] md:w-[80%] flex flex-col items-center gap-y-14">
+                  {/* Row 1: first 3 */}
+                  <div className="grid grid-cols-3 w-[75%] sm:w-[70%] md:w-[65%] gap-x-[6%]">
+                    {section.members.slice(0, 3).map((member, i) => (
+                      <TeamCard
+                        key={i}
+                        name={member.name}
+                        photo={member.photo}
+                        objectPosition={member.objectPosition}
+                        zoom={member.zoom}
+                      />
+                    ))}
+                  </div>
+                  {/* Row 2: remaining 4 */}
+                  <div className="grid grid-cols-4 w-[95%] sm:w-[92%] md:w-[90%] gap-x-[8%]">
+                    {section.members.slice(3).map((member, i) => (
+                      <TeamCard
+                        key={i + 3}
+                        name={member.name}
+                        photo={member.photo}
+                        objectPosition={member.objectPosition}
+                        zoom={member.zoom}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="mx-auto grid grid-cols-2 sm:grid-cols-3 w-[90%] sm:w-[80%] md:w-[74.5%] gap-x-[5%] sm:gap-x-[8%] md:gap-x-[15.4%] gap-y-[5%]">
+                  {section.members.map((member, i) => (
+                    <TeamCard
+                      key={i}
+                      name={member.name}
+                      photo={member.photo}
+                      objectPosition={member.objectPosition}
+                      zoom={member.zoom}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        ))}
       </div>
+
+      {/* Footer */}
+      <Footer bgColor="#ffffff" />
     </div>
   );
 }
