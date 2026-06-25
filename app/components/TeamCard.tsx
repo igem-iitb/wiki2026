@@ -1,50 +1,78 @@
+"use client";
+
+import { useState } from "react";
+
 type TeamCardProps = {
   name: string;
-  photo?: string; // path under /public, e.g. "/team/web/jane.jpg"
+  photo?: string;
 };
 
-/**
- * A single member card. It fills the width of its grid cell and sizes
- * everything proportionally with container-query units (cqw = 1% of the
- * card's own width), so the SAME component renders pixel-accurate for both
- * the large "leads" cards (362px) and the smaller team cards (247px).
- *
- * Ratios derived from the Figma spec:
- *   outer radius  16.41 / 247.57 = 6.63cqw
- *   white frame   (247.57-227.74)/2 / 247.57 = 4.0cqw
- *   photo radius  10.94 / 247.57 = 4.42cqw
- *   name size     13.68 / 247.57 = 5.52cqw
- *   photo aspect  227.74 / 300.23
- */
 export default function TeamCard({ name, photo }: TeamCardProps) {
+  const [flipped, setFlipped] = useState(false);
+
   return (
-    <div className="w-full" style={{ containerType: "inline-size" }}>
+    <div
+      className="w-full"
+      style={{ containerType: "inline-size", perspective: "1000px", cursor: "pointer" }}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
       <div
-        className="flex w-full flex-col bg-white shadow-md"
-        style={{ borderRadius: "6.63cqw", padding: "4cqw" }}
+        style={{
+          position: "relative",
+          width: "100%",
+          transformStyle: "preserve-3d",
+          transition: "transform 0.6s ease",
+          transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+          aspectRatio: "247 / 360",
+        }}
       >
-        {/* Black photo box */}
+        {/* FRONT */}
         <div
-          className="w-full overflow-hidden bg-black"
-          style={{ borderRadius: "4.42cqw", aspectRatio: "227.74 / 300.23" }}
+          className="flex w-full h-full flex-col bg-white shadow-md"
+          style={{
+            borderRadius: "6.63cqw",
+            padding: "4cqw",
+            position: "absolute",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+          }}
         >
-          {photo ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={photo}
-              alt={name}
-              className="h-full w-full object-cover"
-            />
-          ) : null}
+          <div
+            className="w-full overflow-hidden bg-black"
+            style={{ borderRadius: "4.42cqw", aspectRatio: "227.74 / 300.23" }}
+          >
+            {photo ? (
+              <img src={photo} alt={name} className="h-full w-full object-cover" />
+            ) : null}
+          </div>
+          <p
+            className="text-center font-medium uppercase text-black"
+            style={{ fontSize: "5.52cqw", marginTop: "4cqw", marginBottom: "1cqw" }}
+          >
+            {name}
+          </p>
         </div>
 
-        {/* Name */}
-        <p
-          className="text-center font-medium uppercase text-black"
-          style={{ fontSize: "5.52cqw", marginTop: "4cqw", marginBottom: "1cqw" }}
+        {/* BACK */}
+        <div
+          className="flex w-full h-full flex-col items-center justify-center bg-white shadow-md"
+          style={{
+            borderRadius: "6.63cqw",
+            padding: "4cqw",
+            position: "absolute",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
         >
-          {name}
-        </p>
+          <p
+            className="text-center text-gray-400 uppercase"
+            style={{ fontSize: "5cqw" }}
+          >
+            — Portugal For The Win —
+          </p>
+        </div>
       </div>
     </div>
   );
