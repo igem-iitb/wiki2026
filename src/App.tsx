@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import KytPage from './pages/KytPage';
 import AttributionPage from './pages/AttributionPage';
+import SustainabilityPage from './pages/SustainabilityPage';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/team/kyt" element={<KytPage />} />
         <Route path="/team/attribution" element={<AttributionPage />} />
+        <Route path="/sustainability" element={<SustainabilityPage />} />
       </Routes>
     </div>
   );
