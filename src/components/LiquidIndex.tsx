@@ -93,23 +93,7 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
   const progressRef = useRef(0);
   const targetRef = useRef(0);
 
-  // Intersection observer for active section
-  useEffect(() => {
-    const els = items.map((it) => document.getElementById(it.sectionId));
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            const idx = els.indexOf(e.target as HTMLElement);
-            if (idx !== -1) setActive(idx);
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-72px 0px -45% 0px' }
-    );
-    els.forEach((el) => el && obs.observe(el));
-    return () => obs.disconnect();
-  }, [items]);
+  // Active section tracking is handled in onScroll below
 
   // Measure path-length fractions
   useEffect(() => {
@@ -140,8 +124,18 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
     const lastEl = document.getElementById(items[items.length - 1].sectionId);
     const endPos = lastEl ? lastEl.getBoundingClientRect().bottom + window.scrollY : tops[tops.length - 1];
 
+    // Detect bottom of page — guarantee last item activates
+    const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
+    if (atBottom) {
+      setActive(items.length - 1);
+      targetRef.current = 1;
+      return;
+    }
+
     let i = 0;
     for (let k = 0; k < items.length; k++) { if (ref >= tops[k]) i = k; }
+
+    setActive(i);
 
     const fromFrac = fracs[i];
     const toFrac = i < items.length - 1 ? fracs[i + 1] : 1;
@@ -187,8 +181,47 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  // Auto-scroll mobile nav horizontally to keep active node centered
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const nav = mobileNavRef.current;
+    if (!nav) return;
+    const steps = nav.querySelectorAll('.mobile-step');
+    const activeStep = steps[active] as HTMLElement | undefined;
+    if (activeStep) {
+      const target = activeStep.offsetLeft + activeStep.offsetWidth / 2 - nav.clientWidth / 2;
+      nav.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    }
+  }, [active]);
+
   return (
     <div className="sust-page">
+      {/* MOBILE NAV — stepper with per-segment connecting lines */}
+      <nav className="mobile-index" ref={mobileNavRef}>
+        <div className="mobile-track">
+          {items.map((it, i) => {
+            const lit = i <= active;
+            const current = i === active;
+            return (
+              <div key={it.sectionId} className="mobile-step">
+                {/* segment connecting from previous node */}
+                {i > 0 && <span className={`mobile-seg ${i <= active ? 'seg-lit' : ''}`} />}
+                <button
+                  className={`mobile-node ${lit ? 'node-lit' : ''} ${current ? 'node-current' : ''}`}
+                  onClick={() => scrollTo(it.sectionId)}
+                  style={{ '--node-accent': it.accent } as React.CSSProperties}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mobile-node-icon">
+                    {it.icon}
+                  </svg>
+                </button>
+                <span className={`mobile-lbl ${lit ? 'lbl-lit' : ''}`}>{it.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </nav>
+
       <div className="sust-layout">
         <aside className="sust-index">
           <div className="sust-index-inner" ref={innerRef}>
