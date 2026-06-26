@@ -6,10 +6,6 @@
   background: transparent;
 }
 
-/* Each layer is ONE continuous shape: a wavy top edge with a gradient
-   fill that flows straight down to the bottom (no rectangle banding).
-   The wave shape is a horizontally-tiling mask scrolling over a fixed,
-   full-width gradient (so the gradient never seams). */
 .waveLayer {
   position: absolute;
   left: 0;

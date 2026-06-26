@@ -1,6 +1,4 @@
-"use client";
-
-import styles from "./WaveFooter.module.css";
+import styles from './WaveFooter.module.css';
 
 export default function WaveFooter() {
   return (

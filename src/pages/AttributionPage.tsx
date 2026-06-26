@@ -1,5 +1,3 @@
-"use client";
-
 export default function AttributionPage() {
   return (
     <main className="w-full min-h-screen mt-[-72px] pt-[72px] bg-[#f1f1f1] flex flex-col items-center py-12 px-0 relative">

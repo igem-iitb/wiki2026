@@ -1,11 +1,11 @@
-import styles from "./Footer.module.css";
-import WaveFooter from "./WaveFooter";
+import styles from './Footer.module.css';
+import WaveFooter from './WaveFooter';
 
 type FooterProps = {
   bgColor?: string;
 };
 
-export default function Footer({ bgColor = "#181830" }: FooterProps) {
+export default function Footer({ bgColor = '#181830' }: FooterProps) {
   return (
     <footer className={styles.footer} style={{ background: bgColor }}>
       {/* Animated water waves — positioned at the top of the footer */}
@@ -18,7 +18,6 @@ export default function Footer({ bgColor = "#181830" }: FooterProps) {
         <div className={styles.content}>
           {/* Left: iGEM IITB logo */}
           <div className={styles.logoBox}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/igem-iitb-logo.png"
               alt="iGEM IIT Bombay"
@@ -29,7 +28,6 @@ export default function Footer({ bgColor = "#181830" }: FooterProps) {
           {/* Center: Aureolyze logo + Sponsors */}
           <div className={styles.middle}>
             <div className={styles.aureolyzeBox}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/aureolyze-logo.png"
                 alt="Aureolyze"
