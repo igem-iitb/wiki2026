@@ -172,6 +172,10 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
   }, []);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
@@ -238,37 +242,37 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
                   <stop offset="80%" stopColor="#3B6FE8" />
                   <stop offset="100%" stopColor="#5B6BEF" />
                 </linearGradient>
-                <filter id="flowGlow" x="-80%" y="-80%" width="260%" height="260%">
+                <filter id="flowGlow" filterUnits="userSpaceOnUse" x="0" y="0" width={viewW} height={viewH}>
                   <feGaussianBlur stdDeviation="9" result="b" />
                   <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
                 </filter>
                 {items.map((_it, i) => (
                   <radialGradient key={`s-${i}`} id={`sphere-${i}`} cx="30%" cy="24%" r="82%">
-                    <stop offset="0%" stopColor="rgba(160,215,255,0.45)" />
-                    <stop offset="12%" stopColor="rgba(100,170,240,0.22)" />
-                    <stop offset="38%" stopColor="#0c1e38" />
-                    <stop offset="65%" stopColor="#060e1e" />
-                    <stop offset="100%" stopColor="#030810" />
+                    <stop offset="0%" stopColor="rgba(255,255,255,0.98)" stopOpacity="1.0" />
+                    <stop offset="12%" stopColor="rgba(240,242,255,0.95)" stopOpacity="0.98" />
+                    <stop offset="50%" stopColor="#7980f7" stopOpacity="0.92" />
+                    <stop offset="85%" stopColor="#5558e6" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#3c3eb8" stopOpacity="0.98" />
                   </radialGradient>
                 ))}
                 {items.map((it, i) => (
                   <radialGradient key={`sl-${i}`} id={`sphere-lit-${i}`} cx="30%" cy="24%" r="82%">
-                    <stop offset="0%" stopColor="rgba(210,245,255,0.75)" />
-                    <stop offset="12%" stopColor={it.accent} stopOpacity="0.5" />
-                    <stop offset="38%" stopColor="#0e2548" />
-                    <stop offset="65%" stopColor="#081428" />
-                    <stop offset="100%" stopColor="#040b16" />
+                    <stop offset="0%" stopColor="rgba(255,255,255,0.98)" stopOpacity="1.0" />
+                    <stop offset="12%" stopColor="rgba(245,248,255,0.95)" stopOpacity="0.98" />
+                    <stop offset="48%" stopColor={it.accent} stopOpacity="0.92" />
+                    <stop offset="80%" stopColor="#4f46e5" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#3730a3" stopOpacity="0.98" />
                   </radialGradient>
                 ))}
                 <radialGradient id="specHi" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.92)" />
-                  <stop offset="40%" stopColor="rgba(255,255,255,0.18)" />
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
+                  <stop offset="40%" stopColor="rgba(255,255,255,0.2)" />
                   <stop offset="100%" stopColor="rgba(255,255,255,0)" />
                 </radialGradient>
                 <radialGradient id="edgeVig" cx="50%" cy="50%" r="50%">
                   <stop offset="70%" stopColor="transparent" />
-                  <stop offset="95%" stopColor="rgba(0,4,12,0.6)" />
-                  <stop offset="100%" stopColor="rgba(0,4,12,0.85)" />
+                  <stop offset="95%" stopColor="rgba(30,27,75,0.4)" />
+                  <stop offset="100%" stopColor="rgba(30,27,75,0.6)" />
                 </radialGradient>
                 <filter id="iconGlow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="1.2" in="SourceGraphic" result="g1" />
@@ -284,10 +288,11 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
               {/* connectors */}
               {items.map((it, i) => {
                 const n = positions[i];
+                const lit = i <= active;
                 return (
-                  <g key={`con-${i}`} className="con-g" opacity={i <= active ? 1 : 0.28}>
-                    <line x1={n.cx + WRAP_R} y1={n.cy} x2={440} y2={n.cy} stroke={it.accent} strokeWidth={i <= active ? 1.8 : 1} strokeDasharray="1 6" strokeLinecap="round" />
-                    <circle cx={440} cy={n.cy} r={i <= active ? 5 : 3} fill={it.accent} />
+                  <g key={`con-${i}`} className="con-g" opacity={lit ? 1 : 0.45}>
+                    <line x1={n.cx + WRAP_R} y1={n.cy} x2={440} y2={n.cy} strokeDasharray="1 6" strokeLinecap="round" className={`con-line ${lit ? 'is-lit' : ''}`} />
+                    <circle cx={440} cy={n.cy} className={`con-dot ${lit ? 'is-lit' : ''}`} />
                   </g>
                 );
               })}
@@ -297,16 +302,17 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
                 const n = positions[i];
                 const lit = i <= active;
                 return (
-                  <g key={`bub-${i}`} className={`bubble-g ${lit ? 'is-active' : ''}`} onClick={() => scrollTo(it.sectionId)} opacity={lit ? 1 : 0.72}>
-                    {lit && <ellipse cx={n.cx} cy={n.cy + 22} rx={BUBBLE_R * 0.85} ry={BUBBLE_R * 0.5} fill={it.accent} opacity="0.18" filter="url(#flowGlow)" />}
-                    <circle cx={n.cx} cy={n.cy} r={BUBBLE_R} fill={lit ? `url(#sphere-lit-${i})` : `url(#sphere-${i})`} />
-                    <circle cx={n.cx} cy={n.cy} r={BUBBLE_R} fill="url(#edgeVig)" />
-                    <circle cx={n.cx} cy={n.cy} r={BUBBLE_R - 1} fill="none" stroke="rgba(0,6,20,0.55)" strokeWidth="3" />
-                    <ellipse cx={n.cx - 22} cy={n.cy - 26} rx="32" ry="20" fill="url(#specHi)" transform={`rotate(-25 ${n.cx - 22} ${n.cy - 26})`} opacity={lit ? 0.85 : 0.55} />
-                    <ellipse cx={n.cx - 30} cy={n.cy - 36} rx="8" ry="4" fill="rgba(240,252,255,0.95)" transform={`rotate(-30 ${n.cx - 30} ${n.cy - 36})`} opacity={lit ? 1 : 0.5} />
-                    <ellipse cx={n.cx + 20} cy={n.cy + 28} rx="18" ry="10" fill="rgba(100,180,255,0.10)" transform={`rotate(20 ${n.cx + 20} ${n.cy + 28})`} />
-                    <path d={`M ${n.cx + 50} ${n.cy + 55} A ${BUBBLE_R - 4} ${BUBBLE_R - 4} 0 0 1 ${n.cx + 68} ${n.cy + 20}`} fill="none" stroke="rgba(140,200,255,0.15)" strokeWidth="3" strokeLinecap="round" />
-                    <g className="bub-icon-svg" transform={`translate(${n.cx} ${n.cy}) scale(${ICON_SCALE}) translate(-12 -12)`} fill="none" stroke={lit ? '#eaf8ff' : 'rgba(170, 210, 245, 0.8)'} strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" filter="url(#iconGlow)">
+                  <g key={`bub-${i}`} className={`bubble-g ${lit ? 'is-active' : ''}`} onClick={() => scrollTo(it.sectionId)} opacity={lit ? 1 : 0.92}>
+                    <ellipse cx={n.cx} cy={n.cy + 22} rx={BUBBLE_R * 0.85} ry={BUBBLE_R * 0.5} fill="#6366f1" opacity={lit ? 0.38 : 0} filter="url(#flowGlow)" className="bub-glow-ellipse" />
+                    {/* Base inactive sphere */}
+                    <circle cx={n.cx} cy={n.cy} r={BUBBLE_R} fill={`url(#sphere-${i})`} />
+                    {/* Active sphere overlay that cross-fades smoothly */}
+                    <circle cx={n.cx} cy={n.cy} r={BUBBLE_R} fill={`url(#sphere-lit-${i})`} opacity={lit ? 1 : 0} className="bub-active-overlay" />
+                    <circle cx={n.cx} cy={n.cy} r={BUBBLE_R} fill="url(#edgeVig)" opacity="0.6" />
+                    <circle cx={n.cx} cy={n.cy} r={BUBBLE_R - 1} fill="none" stroke="rgba(30,27,75,0.12)" strokeWidth="2.5" />
+                    {/* Soft satin sheen for matte finish */}
+                    <ellipse cx={n.cx - 22} cy={n.cy - 26} rx="36" ry="24" fill="url(#specHi)" transform={`rotate(-25 ${n.cx - 22} ${n.cy - 26})`} opacity={lit ? 0.35 : 0.2} className="bub-sheen" />
+                    <g className="bub-icon-svg" transform={`translate(${n.cx} ${n.cy}) scale(${ICON_SCALE}) translate(-12 -12)`} fill="none" stroke="#ffffff" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" filter="url(#iconGlow)">
                       {it.icon}
                     </g>
                   </g>
@@ -319,10 +325,10 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
                 const lit = i <= active;
                 return (
                   <g key={`lab-${i}`} className={`label-g ${lit ? 'is-active' : ''}`} onClick={() => scrollTo(it.sectionId)}>
-                    <text x={460} y={n.cy - 4} className="lab-num" fill={it.accent}>{it.num}</text>
+                    <text x={460} y={n.cy - 4} className="lab-num" fill="#0d1738">{it.num}</text>
                     <text x={460} y={n.cy + 27} className="lab-text">{it.label}</text>
                     <text x={460} y={n.cy + 47} className="lab-sdg">{it.subtitle}</text>
-                    <line x1={460} y1={n.cy + 59} x2={460 + (lit ? 60 : 34)} y2={n.cy + 59} stroke={it.accent} strokeWidth="2.5" strokeLinecap="round" className="lab-underline" />
+                    <line x1={460} y1={n.cy + 59} x2={460 + (lit ? 60 : 34)} y2={n.cy + 59} stroke="#0d1738" strokeWidth="2.5" strokeLinecap="round" className="lab-underline" />
                   </g>
                 );
               })}
