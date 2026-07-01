@@ -3,26 +3,32 @@ import LiquidIndex, { LiquidIndexItem } from '../components/LiquidIndex';
 const items: LiquidIndexItem[] = [
   {
     num: '01', label: 'Clean Water', subtitle: 'SDG 6', sectionId: 'sdg-6', accent: '#38BDF8',
+    iconSrc: '/hp_sus_sdg/goal6.svg',
     icon: <><path d="M12 2.5C8 7.5 5 11 5 14.5a7 7 0 0 0 14 0C19 11 16 7.5 12 2.5Z" /><path d="M9.5 16a3.5 3.5 0 0 0 5 0" /></>,
   },
   {
     num: '02', label: 'Clean Energy', subtitle: 'SDG 7', sectionId: 'sdg-7', accent: '#22D3EE',
+    iconSrc: '/hp_sus_sdg/goal7.svg',
     icon: <path d="M13 2 4 13h5.5l-1 9L19 11h-5.5L15 2h-2Z" />,
   },
   {
     num: '03', label: 'Industry', subtitle: 'SDG 9', sectionId: 'sdg-9', accent: '#3B9EFF',
+    iconSrc: '/hp_sus_sdg/goal9.svg',
     icon: <><circle cx="12" cy="12" r="3.5" /><path d="M12 1v2.5M12 20.5V23M1 12h2.5M20.5 12H23M4.2 4.2l1.8 1.8M18 18l1.8 1.8M4.2 19.8l1.8-1.8M18 6l1.8-1.8" /></>,
   },
   {
     num: '04', label: 'Cities', subtitle: 'SDG 11', sectionId: 'sdg-11', accent: '#3B82F6',
+    iconSrc: '/hp_sus_sdg/goal11.svg',
     icon: <><path d="M2 22h20" /><path d="M6 22V6l4-3v19" /><path d="M10 22V9l5-2v15" /><path d="M15 22V10l4-2v14" /><path d="M8 10h0M8 13h0M8 16h0M12 12h0M12 15h0M12 18h0M17 13h0M17 16h0" /></>,
   },
   {
     num: '05', label: 'Consumption', subtitle: 'SDG 12', sectionId: 'sdg-12', accent: '#4F7BF0',
+    iconSrc: '/hp_sus_sdg/goal12.svg',
     icon: <><path d="M12 4l3 3-3 3" /><path d="M15 7a7.5 7.5 0 0 1-2 13" /><path d="M12 20l-3-3 3-3" /><path d="M9 17A7.5 7.5 0 0 1 11 4" /></>,
   },
   {
     num: '06', label: 'Climate', subtitle: 'SDG 13', sectionId: 'sdg-13', accent: '#6366F1',
+    iconSrc: '/hp_sus_sdg/goal13.svg',
     icon: <><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20" /><path d="M4.5 6.5h15M4.5 17.5h15" /></>,
   },
 ];
@@ -34,6 +40,11 @@ export default function SustainabilityPage() {
       <div className="mb-10 p-8 rounded-2xl border border-slate-200/80 bg-white shadow-[0_2px_8px_rgba(99,102,241,0.04)]">
         <h1 className="text-3xl font-bold text-[#0d1738] mb-2 font-['Space_Grotesk'] tracking-tight">Sustainability &amp; SDG Alignment</h1>
         <p className="text-xs font-semibold text-indigo-600 uppercase tracking-widest mb-6 font-mono">iGEM IIT Bombay 2026 — Biocoolant Overview</p>
+        <img
+          src="/hp_sustain.png"
+          alt="Sustainability & SDG alignment overview"
+          className="w-full h-auto rounded-xl border border-slate-200/80 shadow-[0_2px_8px_rgba(99,102,241,0.06)] mb-6"
+        />
         <div className="space-y-4 text-[#2d3b66] leading-relaxed text-[1.05rem]">
           <p>
             AI is the fastest-growing source of demand on two of Earth's most constrained resources: energy and freshwater. The infrastructure enabling this growth — high-density data centers — has a cooling problem it cannot solve with the fluids currently available. PFAS-based dielectric coolants are being phased out globally after 3M's 2022 exit from Novec manufacturing. Mineral oils require hazardous disposal. Evaporative air cooling wastes millions of litres of water per day and is thermally unworkable above ~30 kW/rack, while modern AI accelerator racks routinely exceed 100 kW.

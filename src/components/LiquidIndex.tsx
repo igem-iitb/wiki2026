@@ -15,8 +15,12 @@ export type LiquidIndexItem = {
   sectionId: string;
   /** Accent color for this bubble (hex) */
   accent: string;
-  /** SVG icon paths rendered inside the bubble (24x24 viewBox) */
+  /** SVG icon paths rendered inside the bubble (24x24 viewBox).
+   *  Used as a fallback when `iconSrc` is not provided. */
   icon: ReactNode;
+  /** Optional path to a standalone (white) pictogram SVG rendered as the
+   *  central image inside the bubble. Takes precedence over `icon`. */
+  iconSrc?: string;
 };
 
 export type LiquidIndexProps = {
@@ -32,6 +36,8 @@ export type LiquidIndexProps = {
 const BUBBLE_R = 80;
 const WRAP_R = 60;
 const ICON_SCALE = 2.8;
+/** Side length of the central pictogram image inside each bubble. */
+const ICON_IMG = 92;
 
 type NodePos = { cx: number; cy: number };
 
@@ -215,9 +221,13 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
                   onClick={() => scrollTo(it.sectionId)}
                   style={{ '--node-accent': it.accent } as React.CSSProperties}
                 >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mobile-node-icon">
-                    {it.icon}
-                  </svg>
+                  {it.iconSrc ? (
+                    <img src={it.iconSrc} alt="" className="mobile-node-icon" />
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mobile-node-icon">
+                      {it.icon}
+                    </svg>
+                  )}
                 </button>
                 <span className={`mobile-lbl ${lit ? 'lbl-lit' : ''}`}>{it.label}</span>
               </div>
@@ -312,9 +322,21 @@ export default function LiquidIndex({ items, children }: LiquidIndexProps) {
                     <circle cx={n.cx} cy={n.cy} r={BUBBLE_R - 1} fill="none" stroke="rgba(30,27,75,0.12)" strokeWidth="2.5" />
                     {/* Soft satin sheen for matte finish */}
                     <ellipse cx={n.cx - 22} cy={n.cy - 26} rx="36" ry="24" fill="url(#specHi)" transform={`rotate(-25 ${n.cx - 22} ${n.cy - 26})`} opacity={lit ? 0.35 : 0.2} className="bub-sheen" />
-                    <g className="bub-icon-svg" transform={`translate(${n.cx} ${n.cy}) scale(${ICON_SCALE}) translate(-12 -12)`} fill="none" stroke="#ffffff" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" filter="url(#iconGlow)">
-                      {it.icon}
-                    </g>
+                    {it.iconSrc ? (
+                      <image
+                        className="bub-icon-svg"
+                        href={it.iconSrc}
+                        x={n.cx - ICON_IMG / 2}
+                        y={n.cy - ICON_IMG / 2}
+                        width={ICON_IMG}
+                        height={ICON_IMG}
+                        preserveAspectRatio="xMidYMid meet"
+                      />
+                    ) : (
+                      <g className="bub-icon-svg" transform={`translate(${n.cx} ${n.cy}) scale(${ICON_SCALE}) translate(-12 -12)`} fill="none" stroke="#ffffff" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" filter="url(#iconGlow)">
+                        {it.icon}
+                      </g>
+                    )}
                   </g>
                 );
               })}
