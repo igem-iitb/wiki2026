@@ -54,7 +54,7 @@ const navigation: NavItem[] = [
     label: 'HumanPractices',
     href: '/human-practices',
     subnav: [
-      { label: 'Integrated Human Practices', href: '/human-practices#integrated-human-practices' },
+      { label: 'Integrated Human Practices', href: '/human-practices/ihp' },
       { label: 'Education', href: '/human-practices#education' },
       { label: 'Sustainability', href: '/sustainability' },
       { label: 'Entrepreneurship', href: '/human-practices#entrepreneurship' },
