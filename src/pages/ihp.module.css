@@ -1,0 +1,550 @@
+/* ==========================================================================
+   iHP page — Integrated Human Practices
+   Door opening, hero + ESTER reveal, ESTER timeline, radial network, write-ups.
+   ========================================================================== */
+
+.page {
+  --navy: #191834;
+  --lavender: #e5e0f1;
+  --blue: #8aa2e6;
+  --blue-2: #6d86d8;
+  --ink: #23213f;
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ------------------------------------------------------------------ Door */
+.door {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.door.opened {
+  pointer-events: none;
+  cursor: default;
+}
+.doorHalf {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: var(--lavender);
+  overflow: hidden;
+  transition: transform 1.15s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.doorTop {
+  top: 0;
+  align-items: flex-end;
+  padding-bottom: 42px;
+}
+.doorBottom {
+  bottom: 0;
+  align-items: flex-end;
+  padding-bottom: 8%;
+}
+.door.opened .doorTop {
+  transform: translateY(-100%);
+}
+.door.opened .doorBottom {
+  transform: translateY(100%);
+}
+.tribute {
+  max-width: 1100px;
+  padding: 0 32px;
+  text-align: center;
+  font-family: var(--font-mont);
+  font-weight: 700;
+  font-size: clamp(26px, 4.4vw, 52px);
+  line-height: 1.2;
+  color: var(--ink);
+}
+/* the line grows outward from the centre, along the door seam */
+.doorLine {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 50%;
+  height: 3px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: center;
+  z-index: 3;
+  animation: lineGrow 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.door.opened .doorLine {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.doorHint {
+  z-index: 2;
+  font-family: var(--font-mont);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #6b6786;
+  animation: pulse 1.8s ease-in-out infinite 1.6s both;
+}
+.door.opened .doorHint {
+  opacity: 0;
+  animation: none;
+  transition: opacity 0.3s;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Content fades in once the door starts opening. */
+.content {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.35s;
+}
+.content.revealed {
+  opacity: 1;
+}
+
+/* ------------------------------------------------------------------ Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  padding: 110px 24px 70px;
+  text-align: center;
+}
+.heroTribute {
+  max-width: 1000px;
+  font-family: var(--font-mont);
+  font-weight: 700;
+  font-size: clamp(22px, 3.2vw, 38px);
+  line-height: 1.25;
+  color: #efedfb;
+}
+.profRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.profCard {
+  margin: 0;
+  width: 300px;
+  max-width: 82vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  transition: transform 0.35s ease;
+}
+.profCard:hover {
+  transform: translateY(-8px);
+}
+.profPhotoWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.07;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #d9d9d9;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.35s ease;
+}
+.profCard:hover .profPhotoWrap {
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.45);
+}
+/* Blurred, scaled-up copy of the same photo sitting behind it — fills any
+   gap left at the edges/corners by the sharp photo on top without needing to
+   zoom the visible photo itself any further. */
+.profPhotoWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--photo-src);
+  background-size: cover;
+  background-position: 50% 20%;
+  filter: blur(20px) brightness(0.82) saturate(1.05);
+  transform: scale(1.3);
+}
+.profPhoto {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+/* Only Prof. Saket's source photo is shot wide — zoom just that one in on the
+   face. transform-origin anchored near the top so scaling grows downward
+   instead of expanding equally in all directions, which is what was clipping
+   the top of his head before. */
+.profPhotoZoom {
+  object-position: 50% 15%;
+  transform: scale(1.3);
+  transform-origin: 50% 12%;
+}
+.profName {
+  font-family: var(--font-mont);
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 18px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #ffffff 0%, #cdd7f0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ESTER reveal — auto-triggered when scrolled into view: the two lines slide
+   in from opposite edges and decelerate (ease-out) into the centre. overflow
+   hidden clips the off-screen text so nothing leaks past the edges. */
+.reveal {
+  margin-top: 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.revealTop {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-mont);
+  font-weight: 800;
+  font-size: clamp(22px, 3.4vw, 38px);
+  letter-spacing: 0.02em;
+  color: #fff;
+  transform: translateX(-105%);
+  opacity: 0;
+  transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 1.4s ease;
+}
+.revealWord {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-mont);
+  font-weight: 800;
+  font-size: clamp(40px, 8vw, 96px);
+  letter-spacing: 0.22em;
+  padding-left: 0.22em;
+  color: #b9e0c1;
+  transform: translateX(105%);
+  opacity: 0;
+  transition: transform 2.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+    opacity 1.4s ease 0.15s;
+}
+.reveal.inview .revealTop,
+.reveal.inview .revealWord {
+  transform: translateX(0);
+  opacity: 1;
+}
+.knowMore {
+  margin-top: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mont);
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #cfcaf0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.25s;
+}
+.knowMore:hover { color: #fff; }
+.knowMore .chevron {
+  font-size: 20px;
+  animation: bob 1.6s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* --------------------------------------------------------------- Panel */
+.panel {
+  background: #fdfcf8;
+  color: #1c1a33;
+  border-radius: 28px;
+  margin: 0 auto;
+  max-width: 1245px;
+  width: calc(100% - 48px);
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+.indexRail {
+  flex: 0 0 clamp(150px, 16vw, 240px);
+  background: #ffffff;
+  border-right: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+}
+.indexRail span {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(72px, 9vw, 128px);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: #000;
+  text-transform: lowercase;
+}
+.panelMain {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: clamp(40px, 6vw, 90px) clamp(24px, 5vw, 80px);
+}
+
+/* --------------------------------------------------------------- ESTER */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.2vw, 46px);
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: clamp(45px, 5vw, 60px);
+  top: 60px;
+  bottom: 60px;
+  width: 2px;
+  background: #000;
+  z-index: 0;
+}
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(90px, 10vw, 120px) 1fr clamp(120px, 13vw, 160px);
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+}
+.stepDot {
+  position: relative;
+  z-index: 1;
+  width: clamp(90px, 10vw, 120px);
+  height: clamp(90px, 10vw, 120px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(56px, 7vw, 90px);
+  color: #000;
+}
+.stepBody h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #000;
+}
+.stepBody p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #000;
+  font-size: clamp(15px, 1.6vw, 20px);
+  line-height: 1.25;
+  max-width: 470px;
+}
+.stepIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stepIcon img {
+  max-width: 150px;
+  max-height: 110px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------- Network */
+.networkHeading {
+  text-align: center;
+  font-family: var(--font-mont);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-size: clamp(20px, 3vw, 28px);
+  margin: 96px 0 6px;
+}
+.networkHint {
+  text-align: center;
+  color: #6a6880;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.networkWrap {
+  position: relative;
+  width: min(900px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+.networkSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.networkSvg circle {
+  fill: none;
+  stroke: #09347b;
+  stroke-width: 0.4;
+}
+.networkGlow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 26%;
+  height: 26%;
+  border-radius: 50%;
+  background: #ace5ac;
+  filter: blur(26px);
+  z-index: 0;
+}
+.networkCore {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding-left: 0.15em;
+  font-size: clamp(22px, 4vw, 44px);
+  color: #09347b;
+  z-index: 1;
+}
+.node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: #c6d2e6;
+  border: 1.5px solid #09347b;
+  color: #09347b;
+  border-radius: 50px;
+  padding: 8px 15px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: clamp(11px, 1.25vw, 16px);
+  line-height: 1.15;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(9, 52, 123, 0.15);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.2s ease, box-shadow 0.2s ease;
+}
+.node:hover {
+  background: #b7c8ec;
+  border-width: 2px;
+  box-shadow: 0 8px 20px rgba(9, 52, 123, 0.35);
+  transform: translate(-50%, -50%) scale(1.09);
+  z-index: 6;
+}
+.node:active {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+.networkOpenCue {
+  text-align: center;
+  font-family: var(--font-mont);
+  font-weight: 700;
+  font-size: clamp(16px, 2vw, 20px);
+  color: #1c1a33;
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------------------- Write-ups */
+.writeHeading {
+  font-family: var(--font-mont);
+  font-weight: 700;
+  font-size: clamp(24px, 3.4vw, 34px);
+  margin: 80px 0 24px;
+}
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.barItem {
+  scroll-margin-top: 90px;
+}
+
+/* --------------------------------------------------------------- Conclusion */
+.conclusion {
+  position: relative;
+  max-width: 1245px;
+  margin: 96px auto 40px;
+  padding: 40px clamp(24px, 5vw, 72px);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.conclusion h2 {
+  font-family: var(--font-mont);
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 30px);
+  margin-bottom: 16px;
+}
+.conclusion p {
+  max-width: 1000px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.7;
+  color: #d9d7ee;
+}
+.conclusion .bigI {
+  position: absolute;
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mont);
+  font-weight: 800;
+  font-size: clamp(120px, 16vw, 190px);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------- Responsive */
+@media (max-width: 860px) {
+  .indexRail { display: none; }
+  .step { grid-template-columns: 74px 1fr; }
+  .stepIcon { display: none; }
+  .timeline::before { left: 36px; }
+  .conclusion .bigI { font-size: 110px; }
+}
+@media (max-width: 520px) {
+  .stepDot { width: 64px; height: 64px; font-size: 34px; }
+  .step { grid-template-columns: 64px 1fr; }
+  .timeline::before { left: 31px; }
+}
