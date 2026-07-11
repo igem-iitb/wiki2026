@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Footer from '../components/Footer';
 import WriteUpCard from '../components/WriteUpCard';
 import { esterSteps, innerRingIds, writeUps } from './ihpData';
@@ -11,17 +11,23 @@ const CONCLUSION =
 const innerPeople = writeUps.filter((w) => innerRingIds.includes(w.id));
 const outerPeople = writeUps.filter((w) => !innerRingIds.includes(w.id));
 
-// Elliptical ring: a smaller horizontal radius keeps wide name pills from
-// spilling past the panel edges while still reading as a circle.
-function ringPositions(count: number, rx: number, ry: number) {
+// Perfect-circle rings. dx/dy are the unit direction from the centre.
+function ringPositions(count: number, r: number) {
   return Array.from({ length: count }, (_, i) => {
     const angle = (-90 + (360 / count) * i) * (Math.PI / 180);
-    return { x: 50 + rx * Math.cos(angle), y: 50 + ry * Math.sin(angle) };
+    return {
+      x: 50 + r * Math.cos(angle),
+      y: 50 + r * Math.sin(angle),
+      dx: Math.cos(angle),
+      dy: Math.sin(angle),
+    };
   });
 }
 
-const innerPos = ringPositions(innerPeople.length, 24, 28);
-const outerPos = ringPositions(outerPeople.length, 39, 46);
+const INNER_R = 24;
+const OUTER_R = 39;
+const innerPos = ringPositions(innerPeople.length, INNER_R);
+const outerPos = ringPositions(outerPeople.length, OUTER_R);
 const placedNodes = [
   ...innerPeople.map((p, i) => ({ ...p, ...innerPos[i] })),
   ...outerPeople.map((p, i) => ({ ...p, ...outerPos[i] })),
@@ -29,20 +35,63 @@ const placedNodes = [
 
 export default function IhpPage() {
   const [opened, setOpened] = useState(false);
-  const [openId, setOpenId] = useState<string | null>(null);
 
   const networkRef = useRef<HTMLDivElement>(null);
   const esterRef = useRef<HTMLDivElement>(null);
+  const revealRef = useRef<HTMLDivElement>(null);
+  const [revealIn, setRevealIn] = useState(false);
 
+  // Lock scroll behind the door so it can't be scrolled past before opening.
+  useEffect(() => {
+    document.documentElement.style.overflow = opened ? '' : 'hidden';
+    document.body.style.overflow = opened ? '' : 'hidden';
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
+  }, [opened]);
+
+  // ESTER reveal auto-plays once it scrolls into view: the two lines slide in
+  // from the edges and ease into the centre. Requires a minimum amount of
+  // scroll first (it sits inside the 100vh hero, so it's already in view on
+  // load — without this it would fire instantly with no scroll at all). Once
+  // both conditions are met it fires once and the animation runs to
+  // completion on its own, independent of further scrolling.
+  useEffect(() => {
+    const el = revealRef.current;
+    if (!el) return;
+    const MIN_SCROLL = 150;
+    let intersecting = false;
+    let triggered = false;
+    const tryTrigger = () => {
+      if (triggered || !intersecting || window.scrollY < MIN_SCROLL) return;
+      triggered = true;
+      setRevealIn(true);
+      observer.disconnect();
+      window.removeEventListener('scroll', tryTrigger);
+    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        intersecting = entry.isIntersecting;
+        tryTrigger();
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    window.addEventListener('scroll', tryTrigger, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', tryTrigger);
+    };
+  }, []);
+
+  // Every write-up is always fully expanded — no collapse/expand state — so
+  // clicking a node just scrolls straight to it.
   const scrollToWriteUp = (id: string) => {
-    setOpenId(id);
-    requestAnimationFrame(() => {
-      document.getElementById(`writeup-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    document.getElementById(`writeup-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const backToNetwork = () => {
-    setOpenId(null);
     networkRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
@@ -68,15 +117,34 @@ export default function IhpPage() {
         {/* Hero */}
         <section className={styles.hero}>
           <div className={styles.profRow}>
-            <div className={styles.profCard}>Prof. Rajesh Patkar</div>
-            <div className={styles.profCard}>Prof. Saket Choudhary</div>
+            <figure className={styles.profCard}>
+              <div
+                className={styles.profPhotoWrap}
+                style={{ ['--photo-src' as string]: "url('/members/profRajesh.png')" }}
+              >
+                <img src="/members/profRajesh.png" alt="Prof. Rajesh Patkar" className={styles.profPhoto} />
+              </div>
+              <figcaption className={styles.profName}>Prof. Rajesh Patkar</figcaption>
+            </figure>
+            <figure className={styles.profCard}>
+              <div
+                className={styles.profPhotoWrap}
+                style={{ ['--photo-src' as string]: "url('/members/profSaket.png')" }}
+              >
+                <img src="/members/profSaket.png" alt="Prof. Saket Choudhary" className={styles.profPhoto} />
+              </div>
+              <figcaption className={styles.profName}>Prof. Saket Choudhary</figcaption>
+            </figure>
           </div>
 
-          <div className={styles.contentBox}>CONTENT</div>
+          <div ref={revealRef} className={`${styles.reveal} ${revealIn ? styles.inview : ''}`}>
+            <div className={styles.revealTop}>FROM PEOPLE TO PROCESS</div>
+            <div className={styles.revealWord}>ESTER</div>
+          </div>
 
           <button
             className={styles.knowMore}
-            onClick={() => esterRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => esterRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
           >
             Click to know more
             <span className={styles.chevron}>⌄</span>
@@ -113,8 +181,8 @@ export default function IhpPage() {
             <p className={styles.networkHint}>Everyone we reached out to, orbiting the process.</p>
             <div className={styles.networkWrap} ref={networkRef}>
               <svg className={styles.networkSvg} viewBox="0 0 100 100">
-                <ellipse cx="50" cy="50" rx="24" ry="28" />
-                <ellipse cx="50" cy="50" rx="39" ry="46" />
+                <circle cx="50" cy="50" r={INNER_R} />
+                <circle cx="50" cy="50" r={OUTER_R} />
               </svg>
               <div className={styles.networkGlow} />
               <div className={styles.networkCore}>ESTER</div>
@@ -131,35 +199,14 @@ export default function IhpPage() {
             </div>
             <p className={styles.networkOpenCue}>Click to open full write up</p>
 
-            {/* Individual write-ups */}
+            {/* Individual write-ups — always fully expanded, no collapse */}
             <h2 className={styles.writeHeading}>Individual write-ups</h2>
             <div className={styles.bars}>
-              {writeUps.map((w) => {
-                const isOpen = openId === w.id;
-                return (
-                  <div key={w.id} id={`writeup-${w.id}`} className={styles.barItem}>
-                    {/* collapsed blue bar */}
-                    <div className={`${styles.region} ${isOpen ? '' : styles.regionShown}`}>
-                      <div className={styles.regionInner}>
-                        <button className={styles.barBtn} onClick={() => setOpenId(w.id)}>
-                          <span className={styles.barName}>{w.name}</span>
-                          <span className={styles.barCue}>click to open full write up</span>
-                        </button>
-                      </div>
-                    </div>
-                    {/* expanded card */}
-                    <div className={`${styles.region} ${isOpen ? styles.regionShown : ''}`}>
-                      <div className={styles.regionInner}>
-                        <WriteUpCard
-                          person={w}
-                          onToggle={() => setOpenId(null)}
-                          onBackToNetwork={backToNetwork}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {writeUps.map((w) => (
+                <div key={w.id} id={`writeup-${w.id}`} className={styles.barItem}>
+                  <WriteUpCard person={w} onBackToNetwork={backToNetwork} />
+                </div>
+              ))}
             </div>
           </div>
         </div>

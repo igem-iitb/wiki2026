@@ -28,11 +28,6 @@
   align-items: baseline;
   gap: 10px;
   flex-wrap: wrap;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-align: left;
   font-family: 'Outfit', sans-serif;
 }
 .name {
@@ -44,11 +39,6 @@
   font-weight: 500;
   font-size: clamp(13px, 1.6vw, 16px);
   color: #000;
-}
-.caret {
-  font-size: 11px;
-  color: var(--navy);
-  transition: transform 0.3s ease;
 }
 .back {
   background: none;
@@ -121,6 +111,7 @@
 }
 
 .answer {
+  position: relative;
   padding: 24px 21px;
   display: flex;
   min-width: 0;
@@ -140,6 +131,52 @@
 @keyframes answerIn {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* "Scroll down" indicator in the right gutter, shown only while the answer
+   overflows; fades out once the reader reaches the bottom. */
+.answerScrollable {
+  padding-right: 58px;
+}
+.scrollDown {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy);
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.scrollDownHidden {
+  opacity: 0;
+}
+.scrollDownText {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.scrollDownLine {
+  width: 1.5px;
+  height: 34px;
+  background: currentColor;
+  opacity: 0.65;
+}
+.scrollDownArrow {
+  font-size: 15px;
+  line-height: 1;
+  margin-top: -8px;
+  animation: scrollDownBob 1.5s ease-in-out infinite;
+}
+@keyframes scrollDownBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
 }
 
 @media (max-width: 720px) {

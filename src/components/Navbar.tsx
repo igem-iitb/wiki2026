@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 type SubnavItem = {
   label: string;
@@ -73,9 +73,13 @@ const navigation: NavItem[] = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileOpenTab, setMobileOpenTab] = useState<string | null>(null);
+  const { pathname } = useLocation();
+  const isIhpPage = pathname === '/human-practices/ihp';
 
   return (
-    <header className="sticky top-0 z-[999] w-full border-b border-white/5 bg-[#060a14] shadow-sm">
+    <header
+      className={`${isIhpPage ? 'relative' : 'sticky top-0'} ${isIhpPage ? 'z-[1001]' : 'z-[999]'} w-full border-b border-black/10 bg-zinc-200 shadow-sm`}
+    >
       <div className="mx-auto max-w-[1440px] w-full flex h-[72px] items-center justify-between px-8 sm:px-12 lg:px-16">
 
         {/* Logo */}
@@ -102,14 +106,14 @@ export default function Navbar() {
             {navigation.map((item) => (
               <li key={item.href} className="group relative">
                 {item.subnav?.length ? (
-                  <span className="flex items-center gap-1 rounded-md px-3 py-1.5 text-lg text-zinc-200 cursor-default montserrat-semibold select-none">
+                  <span className="flex items-center gap-1 rounded-md px-3 py-1.5 text-lg text-zinc-900 cursor-default montserrat-semibold select-none">
                     <span>{item.label}</span>
                     <span className="text-xs">▾</span>
                   </span>
                 ) : (
                   <Link
                     to={item.href}
-                    className="flex items-center gap-1 rounded-md px-3 py-1.5 text-lg text-zinc-200 transition hover:bg-zinc-300/60 hover:text-zinc-950 montserrat-semibold"
+                    className="flex items-center gap-1 rounded-md px-3 py-1.5 text-lg text-zinc-900 transition hover:bg-zinc-300/60 hover:text-zinc-950 montserrat-semibold"
                   >
                     <span>{item.label}</span>
                   </Link>
@@ -123,7 +127,7 @@ export default function Navbar() {
                           <li key={subItem.href}>
                             <Link
                               to={subItem.href}
-                              className="block rounded-lg py-2.5 text-base text-zinc-200 transition-all duration-200 hover:bg-zinc-50 hover:text-indigo-600 hover:translate-x-1 active:scale-[0.98] active:bg-zinc-100 montserrat-semibold"
+                              className="block rounded-lg py-2.5 text-base text-zinc-800 transition-all duration-200 hover:bg-zinc-50 hover:text-indigo-600 hover:translate-x-1 active:scale-[0.98] active:bg-zinc-100 montserrat-semibold"
                               style={{ paddingLeft: '24px', paddingRight: '24px' }}
                             >
                               {subItem.label}
@@ -144,7 +148,7 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
-          className="justify-self-end rounded-md p-2 text-zinc-200 hover:bg-zinc-300/50 lg:hidden"
+          className="justify-self-end rounded-md p-2 text-zinc-900 hover:bg-zinc-300/50 lg:hidden"
           style={{ marginRight: '24px' }}
         >
           <span className="sr-only">Open Menu</span>
