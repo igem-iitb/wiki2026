@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import KytPage from './pages/KytPage';
 import AttributionPage from './pages/AttributionPage';
 import SustainabilityPage from './pages/SustainabilityPage';
+import IhpPage from './pages/IhpPage';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/team/kyt" element={<KytPage />} />
         <Route path="/team/attribution" element={<AttributionPage />} />
         <Route path="/sustainability" element={<SustainabilityPage />} />
+        <Route path="/human-practices/ihp" element={<IhpPage />} />
       </Routes>
     </div>
   );

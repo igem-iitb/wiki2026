@@ -33,6 +33,11 @@ export default function SustainabilityPage() {
       {/* Overview Block */}
       <div className="mb-10 p-8 rounded-2xl border border-slate-200/80 bg-white shadow-[0_2px_8px_rgba(99,102,241,0.04)]">
         <h1 className="text-3xl font-bold text-[#0d1738] mb-6 font-['Space_Grotesk'] tracking-tight">Sustainability &amp; SDG Alignment</h1>
+        <img
+          src="/hp_sustain.png"
+          alt="Sustainability & SDG alignment overview"
+          className="w-full h-auto rounded-xl border border-slate-200/80 shadow-[0_2px_8px_rgba(99,102,241,0.06)] mb-6"
+        />
         <div className="space-y-4 text-[#2d3b66] leading-relaxed text-[1.05rem]">
           <p>
             AI is now the fastest-growing source of demand on two of Earth's most constrained resources: energy and freshwater. High-density data centers, the infrastructure enabling this growth, have a cooling problem that current fluids can't solve. PFAS-based dielectric coolants are being phased out globally after 3M's 2022 exit from Novec manufacturing. Mineral oils require hazardous disposal. Evaporative air cooling wastes millions of litres of water per day and stops working thermally above about 30 kW/rack, while modern AI accelerator racks routinely exceed 100 kW.
