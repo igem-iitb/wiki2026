@@ -215,7 +215,7 @@
   line-height: 1.85;
   color: #2d3b66;
   margin-bottom: 1.25rem;
-  max-width: 72ch;
+  max-width: 100%;
 }
 
 /* ---------- AMBIENT BUBBLES ---------- */
