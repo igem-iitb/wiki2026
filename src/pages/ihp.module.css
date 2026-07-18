@@ -293,26 +293,6 @@
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
 }
-.indexRail {
-  flex: 0 0 clamp(150px, 16vw, 240px);
-  background: #ffffff;
-  border-right: 4px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 0;
-}
-.indexRail span {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
-  font-size: clamp(72px, 9vw, 128px);
-  line-height: 1.05;
-  letter-spacing: 0.02em;
-  color: #000;
-  text-transform: lowercase;
-}
 .panelMain {
   flex: 1 1 auto;
   min-width: 0;
@@ -325,6 +305,7 @@
   display: flex;
   flex-direction: column;
   gap: clamp(24px, 3.2vw, 46px);
+  margin-left: 70px;
 }
 .timeline::before {
   content: '';
@@ -377,6 +358,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateX(-60px);
 }
 .stepIcon img {
   max-width: 150px;
@@ -537,7 +519,6 @@
 
 /* --------------------------------------------------------------- Responsive */
 @media (max-width: 860px) {
-  .indexRail { display: none; }
   .step { grid-template-columns: 74px 1fr; }
   .stepIcon { display: none; }
   .timeline::before { left: 36px; }

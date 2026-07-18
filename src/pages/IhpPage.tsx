@@ -85,14 +85,36 @@ export default function IhpPage() {
     };
   }, []);
 
+  // Native scrollIntoView({behavior:'smooth'}) covers long distances almost
+  // instantly in some browsers, which reads as a jarring jump rather than a
+  // scroll. This animates over a fixed duration so it always feels gradual,
+  // regardless of how far away the target is.
+  const smoothScrollTo = (el: HTMLElement | null, block: 'start' | 'center', duration = 900) => {
+    if (!el) return;
+    const targetY =
+      el.getBoundingClientRect().top +
+      window.scrollY -
+      (block === 'center' ? window.innerHeight / 2 - el.offsetHeight / 2 : 0);
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    const startTime = performance.now();
+    const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    const step = (now: number) => {
+      const elapsed = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOutCubic(elapsed));
+      if (elapsed < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
   // Every write-up is always fully expanded — no collapse/expand state — so
   // clicking a node just scrolls straight to it.
   const scrollToWriteUp = (id: string) => {
-    document.getElementById(`writeup-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    smoothScrollTo(document.getElementById(`writeup-${id}`), 'start');
   };
 
   const backToNetwork = () => {
-    networkRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    smoothScrollTo(networkRef.current, 'center');
   };
 
   return (
@@ -153,10 +175,6 @@ export default function IhpPage() {
 
         {/* White content slab */}
         <div className={styles.panel} ref={esterRef}>
-          <aside className={styles.indexRail}>
-            <span>index</span>
-          </aside>
-
           <div className={styles.panelMain}>
             {/* ESTER timeline */}
             <div className={styles.timeline}>
