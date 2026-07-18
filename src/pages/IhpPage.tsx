@@ -197,23 +197,25 @@ export default function IhpPage() {
             {/* Network summary */}
             <h2 className={styles.networkHeading}>Network Summary</h2>
             <p className={styles.networkHint}>Everyone we reached out to, orbiting the process.</p>
-            <div className={styles.networkWrap} ref={networkRef}>
-              <svg className={styles.networkSvg} viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r={INNER_R} />
-                <circle cx="50" cy="50" r={OUTER_R} />
-              </svg>
-              <div className={styles.networkGlow} />
-              <div className={styles.networkCore}>ESTER</div>
-              {placedNodes.map((n) => (
-                <button
-                  key={n.id}
-                  className={styles.node}
-                  style={{ left: `${n.x}%`, top: `${n.y}%` }}
-                  onClick={() => scrollToWriteUp(n.id)}
-                >
-                  {n.name}
-                </button>
-              ))}
+            <div className={styles.networkScroll}>
+              <div className={styles.networkWrap} ref={networkRef}>
+                <svg className={styles.networkSvg} viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r={INNER_R} />
+                  <circle cx="50" cy="50" r={OUTER_R} />
+                </svg>
+                <div className={styles.networkGlow} />
+                <div className={styles.networkCore}>ESTER</div>
+                {placedNodes.map((n) => (
+                  <button
+                    key={n.id}
+                    className={styles.node}
+                    style={{ left: `${n.x}%`, top: `${n.y}%` }}
+                    onClick={() => scrollToWriteUp(n.id)}
+                  >
+                    {n.name}
+                  </button>
+                ))}
+              </div>
             </div>
             <p className={styles.networkOpenCue}>Click to open full write up</p>
 

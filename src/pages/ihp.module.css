@@ -383,6 +383,9 @@
   font-size: 14px;
   margin-bottom: 20px;
 }
+.networkScroll {
+  width: 100%;
+}
 .networkWrap {
   position: relative;
   width: min(900px, 100%);
@@ -519,6 +522,7 @@
 
 /* --------------------------------------------------------------- Responsive */
 @media (max-width: 860px) {
+  .timeline { margin-left: 0; }
   .step { grid-template-columns: 74px 1fr; }
   .stepIcon { display: none; }
   .timeline::before { left: 36px; }
@@ -528,4 +532,22 @@
   .stepDot { width: 64px; height: 64px; font-size: 34px; }
   .step { grid-template-columns: 64px 1fr; }
   .timeline::before { left: 31px; }
+}
+
+/* Below this width the node pill labels (long names like "Pratik Makhija
+   (IISER Pune)") no longer fit around the circle without overlapping. Instead
+   of shrinking the diagram further, pin it to a legible fixed size and let
+   the user scroll it horizontally. */
+@media (max-width: 640px) {
+  .networkScroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 8px 0 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .networkWrap {
+    width: 600px;
+    min-width: 600px;
+    margin: 0;
+  }
 }

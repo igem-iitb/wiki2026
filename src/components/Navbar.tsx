@@ -86,7 +86,7 @@ export default function Navbar() {
         <Link
           to="/"
           className="flex items-center mr-12"
-          style={{ marginLeft: '40px' }}
+          style={{ marginLeft: '-24px' }}
         >
           <img
             src="/igem-iitb-logo.png"
@@ -149,7 +149,7 @@ export default function Navbar() {
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
           className="justify-self-end rounded-md p-2 text-zinc-900 hover:bg-zinc-300/50 lg:hidden"
-          style={{ marginRight: '24px' }}
+          style={{ marginRight: '-24px' }}
         >
           <span className="sr-only">Open Menu</span>
           <svg
