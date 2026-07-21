@@ -349,7 +349,11 @@
   .sust-index { display: none; }
   .sust-layout { flex-direction: column; }
   .sust-content { margin-left: 0; padding: 24px 16px 48px; }
-  .dummy-section { scroll-margin-top: 150px; }
+  .dummy-section { padding: 32px 0; scroll-margin-top: 150px; }
+  .dummy-section h2 { font-size: 1.65rem; margin-bottom: 1rem; }
+  .dummy-section h3 { font-size: 1.15rem; margin-top: 1.6rem; }
+  .dummy-section p { font-size: 1rem; line-height: 1.75; }
+  .dummy-section ul { font-size: 1rem; }
 
   .mobile-index {
     display: block;

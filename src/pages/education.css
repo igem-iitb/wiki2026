@@ -1,0 +1,415 @@
+/* ============ Educational Outreach — reuses LiquidIndex, themed ============ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Imprima&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --eo-navy: #191834;
+  --eo-cream: #FCFAF8;
+  --eo-blue: #089CFF;
+  --eo-panel-blue: #1190D5; /* exact accent used in the Figma LEARN panel */
+  --eo-panel-fill: #2C4268; /* exact steel/slate blue card color from Figma */
+  --eo-peri: #8BB0EE;
+  --eo-peri-2: #699EF5;
+  --eo-cyan: #7BCCED;
+}
+
+/* ============================================================= */
+/* THEME OVERRIDES for the reused LiquidIndex (root = .sust-page.eo-hp) */
+/* ============================================================= */
+
+.sust-page.eo-hp {
+  background: var(--eo-navy);
+  color: #eaf0ff;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: clip;
+}
+.sust-page.eo-hp::before { display: none; }
+
+.eo-hp .sust-layout { align-items: flex-start; }
+/* On mobile, .sust-layout switches to flex-direction:column (base CSS), where
+   align-items governs the HORIZONTAL axis instead — "flex-start" there was
+   silently shrinking .sust-content to its content's natural width rather
+   than stretching it full-width, which is what caused text to overflow /
+   get clipped by the page's overflow-x:clip. Restore proper full-width
+   stacking on mobile only; desktop's row layout is unaffected. */
+@media (max-width: 768px) {
+  .eo-hp .sust-layout { align-items: stretch; }
+}
+
+/* Rail: dark, no light panel — otherwise same footprint as the Sustainability
+   tab's rail (460px / 380px breakpoints, natural sphere size, native
+   translateY parallax scroll as the page scrolls — not force-shrunk to fit). */
+.eo-hp .sust-index {
+  position: sticky;
+  top: 72px;
+  left: auto;
+  align-self: flex-start;
+  width: 460px;
+  flex: 0 0 460px;
+  height: calc(100vh - 72px);
+  background: transparent;
+  border-right: 1px solid rgba(139, 176, 238, 0.14);
+}
+
+/* The sphere labels/connectors were designed for a light rail — re-theme for dark */
+.eo-hp .lab-num { fill: #ffffff; }
+.eo-hp .lab-text { fill: #b8c8ee; }
+.eo-hp .label-g.is-active .lab-text { fill: #ffffff; }
+.eo-hp .lab-sdg { fill: var(--eo-cyan); }
+.eo-hp .lab-underline { stroke: var(--eo-blue); }
+.eo-hp .con-line { stroke: rgba(139, 176, 238, 0.3); }
+.eo-hp .con-line.is-lit { stroke: var(--eo-cyan); }
+.eo-hp .con-dot { fill: rgba(139, 176, 238, 0.4); }
+.eo-hp .con-dot.is-lit { fill: var(--eo-blue); }
+
+/* Content: dark, shifted right to match the rail's full Sustainability-sized
+   width. min-width:0 is required — as a flex item this would otherwise
+   refuse to shrink below its content's natural width and silently
+   overflow/clip text on narrow screens instead of wrapping it. */
+.eo-hp .sust-content {
+  margin-left: 0;
+  min-width: 0;
+  background: var(--eo-navy);
+  color: #eaf0ff;
+  padding: 48px 56px 32px;
+}
+
+/* Mobile stepper themed dark */
+.eo-hp .mobile-index { background: var(--eo-navy); border-bottom-color: rgba(139, 176, 238, 0.16); }
+.eo-hp .mobile-lbl { color: #9fb2dd; overflow-wrap: break-word; }
+.eo-hp .mobile-lbl.lbl-lit { color: var(--eo-cyan); }
+
+/* On small screens the stepper floats over the bottom of the hero card,
+   instead of pushing it down as a separate block below. */
+.eo-hp .header-wrap { position: relative; }
+@media (max-width: 768px) {
+  .eo-hp .mobile-index {
+    position: sticky;
+    top: 72px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    background: rgba(10, 16, 34, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(139, 176, 238, 0.25);
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    padding: 12px 0 10px;
+    max-width: 100vw;
+  }
+}
+
+/* ---------- HERO (full-width header) ---------- */
+.eo-hero { width: 100%; background: var(--eo-cream); line-height: 0; }
+.eo-hero img { display: block; width: 100%; height: auto; }
+
+/* ============================================================= */
+/* SECTION COMPONENTS                                            */
+/* ============================================================= */
+
+/* team photo carousel */
+.eo-teamcard {
+  max-width: 860px;
+  margin: 8px auto 10px;
+  border: 3px solid var(--eo-blue);
+  border-radius: 28px;
+  padding: 16px;
+  background: rgba(20, 30, 60, 0.4);
+  box-shadow: 0 0 0 6px rgba(8, 156, 255, 0.08), 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+.eo-teamframe {
+  position: relative; width: 100%; aspect-ratio: 2 / 1;
+  border-radius: 18px; overflow: hidden; background: #0b1226;
+}
+.eo-teamframe img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0; transform: scale(1.03);
+  transition: opacity 0.6s ease-in-out, transform 0.7s ease-in-out;
+  z-index: 1;
+}
+.eo-teamframe img.is-current { opacity: 1; transform: scale(1); z-index: 2; }
+.eo-carousel { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 18px; }
+.eo-carousel button {
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.55); background: transparent;
+  color: #eaf0ff; font-size: 19px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s ease;
+}
+.eo-carousel button:hover { background: rgba(255, 255, 255, 0.12); border-color: #fff; }
+.eo-carousel button:disabled { opacity: 0.35; cursor: not-allowed; }
+.eo-carousel button:disabled:hover { background: transparent; border-color: rgba(255, 255, 255, 0.55); }
+.eo-dot {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #e9e9ee; color: var(--eo-navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem;
+}
+
+.eo-know-more {
+  display: block; margin: 44px auto 72px; padding: 8px 12px;
+  background: none; border: none; cursor: pointer;
+  text-align: center; color: #9fb2dd; font-family: 'Outfit', sans-serif; font-size: 1.05rem;
+  transition: color 0.2s ease;
+}
+.eo-know-more:hover { color: var(--eo-cyan); }
+.eo-know-more span { display: block; font-size: 20px; margin-top: 8px; animation: eoBob 1.8s ease-in-out infinite; }
+.eo-know-more:hover span { color: var(--eo-cyan); }
+@keyframes eoBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+#learn-process, #constellation-heading { scroll-margin-top: 84px; }
+
+/* LEARN heading + selector */
+.eo-learn-heading {
+  text-align: center; font-family: 'Inter', sans-serif; font-weight: 700;
+  font-size: clamp(1.5rem, 3.2vw, 2.3rem); color: var(--eo-cream); margin: 18px 0 34px; line-height: 1.3;
+}
+.eo-learn-heading b { color: var(--eo-blue); letter-spacing: 0.14em; }
+
+.eo-learn-select {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  background: rgba(255, 255, 255, 0.015); border: 1.5px solid var(--eo-panel-blue);
+  border-radius: 20px; overflow: hidden;
+}
+.eo-ls-cell {
+  position: relative; padding: 26px 10px 30px; text-align: center; cursor: pointer;
+  border-right: 1px solid rgba(17, 144, 213, 0.32);
+}
+.eo-ls-cell:last-child { border-right: none; }
+/* Letter always stays the same color — selection is shown only by the
+   underline dash and the small name-label switching to cream. */
+.eo-ls-letter {
+  font-family: 'Outfit', sans-serif; font-weight: 500;
+  font-size: clamp(2rem, 4vw, 3.4rem); color: var(--eo-panel-blue); line-height: 1;
+}
+.eo-ls-sub { margin-top: 8px; font-size: 0.92rem; font-weight: 500; color: var(--eo-panel-blue); transition: color 0.25s ease; }
+.eo-ls-cell.active .eo-ls-sub { color: var(--eo-cream); }
+.eo-ls-underline {
+  position: absolute; left: 22%; right: 22%; bottom: 14px; height: 3px; border-radius: 2px;
+  background: var(--eo-panel-blue); opacity: 0; transform: scaleX(0.4);
+  box-shadow: 0 0 4px 0px rgba(17, 144, 213, 0.5);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.eo-ls-cell.active .eo-ls-underline { opacity: 1; transform: scaleX(1); }
+
+.eo-learn-panel {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px;
+  margin-top: 20px; padding: 14px 16px 14px 32px; border-radius: 24px;
+  background: var(--eo-panel-fill);
+  border: 1.5px solid var(--eo-panel-blue);
+  box-shadow: 0 3px 8px rgba(17, 144, 213, 0.25), 0 10px 26px rgba(0, 0, 0, 0.25);
+  color: #cdd9f0;
+  overflow: hidden;
+}
+.eo-lp-letter { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 180px; line-height: 0.75; color: var(--eo-panel-blue); }
+.eo-lp-body h3 { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.7rem; color: var(--eo-cream); margin-bottom: 8px; }
+.eo-lp-body p { font-family: 'Outfit', sans-serif; font-weight: 300; font-size: 1.05rem; line-height: 1.55; color: rgba(220, 232, 255, 0.82); }
+.eo-lp-icon {
+  width: 250px; height: 250px; object-fit: contain; flex-shrink: 0; justify-self: end;
+  margin-right: -45px; transform: scale(1.4); transform-origin: center right;
+}
+
+/* Constellation intro */
+.eo-const-heading { font-family: 'Imprima', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); color: var(--eo-cream); text-align: center; margin: 84px 0 14px; }
+.eo-const-sub { font-family: 'Imprima', sans-serif; font-size: clamp(0.95rem, 1.6vw, 1.12rem); color: #a9bbe0; text-align: center; max-width: 760px; margin: 0 auto 10px; line-height: 1.6; }
+.eo-const-hint {
+  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem;
+  letter-spacing: 0.04em; color: var(--eo-cream); text-align: center; margin: 28px 0 0;
+}
+
+/* All five constellations, stacked one after another. No divider lines
+   between them — just vertical spacing. */
+.eo-const-block {
+  scroll-margin-top: 88px;
+  padding: 34px 0;
+}
+
+/* Then, separately, the five LEARN-strip + initiative-cards sections */
+.eo-hub-section {
+  scroll-margin-top: 88px;
+  padding: 28px 0 8px;
+  margin-top: 36px;
+}
+.eo-hub-section:first-of-type { margin-top: 0; }
+
+.eo-constellation { position: relative; width: 100%; max-width: 680px; margin: 6px auto 34px; aspect-ratio: 1 / 0.8; }
+.eo-constellation svg { width: 100%; height: 100%; overflow: visible; display: block; }
+.eo-orbit {
+  fill: none; stroke: #38bdf8; stroke-width: 2.2; opacity: 0.95;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.9))
+          drop-shadow(0 4px 16px rgba(14, 116, 233, 0.75))
+          drop-shadow(0 8px 30px rgba(15, 65, 170, 0.6));
+}
+.eo-hp .flow-track {
+  stroke: rgba(56, 189, 248, 0.35); stroke-width: 9;
+  filter: drop-shadow(0 4px 20px rgba(14, 116, 233, 0.6));
+}
+.eo-hp .flow-fill {
+  stroke-width: 7;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.9))
+          drop-shadow(0 6px 24px rgba(14, 116, 233, 0.75))
+          drop-shadow(0 10px 36px rgba(15, 65, 170, 0.6));
+}
+.eo-hp .flow-spark {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95))
+          drop-shadow(0 0 16px rgba(56, 189, 248, 0.9))
+          drop-shadow(0 6px 24px rgba(14, 116, 233, 0.75));
+}
+.eo-const-core { fill: var(--eo-blue); filter: drop-shadow(0 0 34px rgba(8, 156, 255, 0.65)) drop-shadow(0 0 14px rgba(8, 156, 255, 0.9)); }
+.eo-const-core-letter { fill: #fff; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 66px; text-anchor: middle; }
+.eo-const-core-letter.is-two-lines { font-size: 56px; }
+.eo-const-core-label { fill: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14.5px; text-anchor: middle; }
+.eo-cnode {
+  position: absolute; display: flex; align-items: center; gap: 10px;
+  transform: translateY(-50%);
+  background: none; border: none; padding: 4px; margin: -4px;
+  font: inherit; text-align: left; cursor: pointer;
+}
+.eo-cnode.left { transform: translate(-100%, -50%); flex-direction: row-reverse; text-align: right; }
+.eo-cdot {
+  width: 12px; height: 12px; border-radius: 50%; background: #A855F7;
+  flex-shrink: 0;
+}
+.eo-clbl {
+  color: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem;
+  line-height: 1.22; overflow-wrap: break-word;
+  transition: opacity 0.2s ease;
+}
+@media (max-width: 420px) { .eo-clbl { font-size: 0.82rem; } }
+.eo-cnode:hover .eo-clbl {
+  background: linear-gradient(180deg, #ffffff 0%, #d8b4fe 20%, #b98cf5 55%, #a855f7 100%);
+  background-size: 100% 1.22em;
+  background-position: top left;
+  background-repeat: repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* LEARN progress strip — small circles, current letter lit */
+.eo-strip {
+  display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+  gap: 28px; margin: 8px 0 36px;
+}
+.eo-strip-dot {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 87px; height: 87px; border-radius: 50%;
+  border: 3px solid rgba(105, 158, 245, 0.65); background: transparent;
+  color: #ffffff; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 2.25rem;
+  line-height: 1; cursor: default; transition: all 0.25s ease;
+}
+.eo-strip-dot.active {
+  background: var(--eo-peri-2); border-color: var(--eo-peri-2); color: #ffffff;
+  box-shadow: 0 0 18px rgba(105, 158, 245, 0.55);
+}
+
+/* Cards — all expanded, stacked */
+.eo-cards { display: flex; flex-direction: column; gap: 22px; }
+.eo-acc-detail { background: var(--eo-peri); border-radius: 28px; padding: 24px 28px; }
+.eo-acc-detail-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.eo-acc-detail-head h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.4rem; color: #16295a; }
+.eo-back-network {
+  background: none; border: none; cursor: pointer; white-space: nowrap;
+  color: #16295a; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem; text-decoration: underline;
+}
+.eo-back-network:hover { color: #0d1738; }
+
+/* Inner frame containing top tab bar and white content box */
+.eo-card-frame {
+  border: 1.5px solid #33528c;
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+.eo-subtabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1.5px solid #33528c;
+  padding: 8px 12px;
+  background: transparent;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.eo-subtabs::-webkit-scrollbar { display: none; }
+.eo-subtab {
+  position: relative;
+  border: 1.5px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.96rem;
+  color: #16295a;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.eo-subtab:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 1px;
+  background: #33528c;
+}
+.eo-subtab.active::after,
+.eo-subtab:has(+ .eo-subtab.active)::after {
+  display: none;
+}
+.eo-subtab:hover { background: rgba(255, 255, 255, 0.2); }
+.eo-subtab.active { border-color: #16295a; background: transparent; }
+
+.eo-subpanel {
+  background: #FAFAF7;
+  border-radius: 14px;
+  margin: 16px;
+  min-height: 200px;
+  padding: 36px 40px;
+  color: #1a1a1a;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.eo-subpanel p { max-width: 38ch; font-weight: 500; color: #1a1a1a; }
+
+.eo-more-note { text-align: center; color: #7f92bd; font-size: 1.1rem; margin-top: 56px; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .eo-hp .sust-index { width: 380px; flex-basis: 380px; }
+  .eo-hp .sust-content { padding: 36px 32px 28px; }
+  .eo-lp-letter { font-size: 112px; }
+  .eo-lp-icon { width: 200px; height: 200px; }
+}
+@media (max-width: 768px) {
+  .eo-hp .sust-content { margin-left: 0; padding: 20px 16px 24px; }
+  .eo-learn-panel { grid-template-columns: 1fr; text-align: center; gap: 10px; padding: 24px; }
+  .eo-lp-icon { width: 140px; height: 140px; margin: 0 auto; }
+  .eo-lp-letter { font-size: 84px; }
+  .eo-lp-body p { margin: 0 auto; }
+  .eo-strip-dot { width: 48px; height: 48px; font-size: 1.25rem; }
+  .eo-strip { gap: 14px; }
+}
+@media (max-width: 560px) {
+  .eo-learn-select { border-radius: 14px; }
+  .eo-ls-cell { padding: 16px 4px 20px; }
+  .eo-ls-sub { font-size: 0.66rem; overflow-wrap: break-word; }
+  .eo-subpanel { font-size: 1rem; padding: 22px; }
+  .eo-acc-detail { padding: 18px; }
+  .eo-strip-dot { width: 42px; height: 42px; font-size: 1.1rem; }
+  .eo-strip { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .eo-know-more span { animation: none; }
+}
