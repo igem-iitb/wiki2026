@@ -236,37 +236,37 @@ export default function LiquidIndex({ items, header, className, geometry, childr
 
   return (
     <div className={`sust-page ${className ?? ''}`}>
-      <div className="header-wrap">
-        {/* MOBILE NAV — stepper with per-segment connecting lines */}
-        <nav className="mobile-index" ref={mobileNavRef}>
-          <div className="mobile-track">
-            {items.map((it, i) => {
-              const lit = i <= active;
-              const current = i === active;
-              return (
-                <div key={it.sectionId} className="mobile-step">
-                  {/* segment connecting from previous node */}
-                  {i > 0 && <span className={`mobile-seg ${i <= active ? 'seg-lit' : ''}`} />}
-                  <button
-                    className={`mobile-node ${lit ? 'node-lit' : ''} ${current ? 'node-current' : ''}`}
-                    onClick={() => scrollTo(it.sectionId)}
-                    style={{ '--node-accent': it.accent } as React.CSSProperties}
-                  >
-                    {it.iconSrc ? (
-                      <img src={it.iconSrc} alt="" className="mobile-node-icon" />
-                    ) : (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mobile-node-icon">
-                        {it.icon}
-                      </svg>
-                    )}
-                  </button>
-                  <span className={`mobile-lbl ${lit ? 'lbl-lit' : ''}`}>{it.label}</span>
-                </div>
-              );
-            })}
-          </div>
-        </nav>
+      {/* MOBILE NAV — stepper with per-segment connecting lines */}
+      <nav className="mobile-index" ref={mobileNavRef}>
+        <div className="mobile-track">
+          {items.map((it, i) => {
+            const lit = i <= active;
+            const current = i === active;
+            return (
+              <div key={it.sectionId} className="mobile-step">
+                {/* segment connecting from previous node */}
+                {i > 0 && <span className={`mobile-seg ${i <= active ? 'seg-lit' : ''}`} />}
+                <button
+                  className={`mobile-node ${lit ? 'node-lit' : ''} ${current ? 'node-current' : ''}`}
+                  onClick={() => scrollTo(it.sectionId)}
+                  style={{ '--node-accent': it.accent } as React.CSSProperties}
+                >
+                  {it.iconSrc ? (
+                    <img src={it.iconSrc} alt="" className="mobile-node-icon" />
+                  ) : (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mobile-node-icon">
+                      {it.icon}
+                    </svg>
+                  )}
+                </button>
+                <span className={`mobile-lbl ${lit ? 'lbl-lit' : ''}`}>{it.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </nav>
 
+      <div className="header-wrap">
         {header}
       </div>
 
