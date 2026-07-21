@@ -78,7 +78,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`${isIhpPage ? 'relative' : 'sticky top-0'} ${isIhpPage ? 'z-[1001]' : 'z-[999]'} w-full border-b border-black/10 bg-zinc-200 shadow-sm`}
+      className={`${isIhpPage ? 'relative' : 'max-md:relative md:sticky md:top-0'} ${isIhpPage ? 'z-[1001]' : 'z-[999]'} w-full border-b border-black/10 bg-zinc-200 shadow-sm`}
     >
       <div className="mx-auto max-w-[1440px] w-full flex h-[72px] items-center justify-between px-8 sm:px-12 lg:px-16">
 

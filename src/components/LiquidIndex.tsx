@@ -237,8 +237,6 @@ export default function LiquidIndex({ items, header, className, geometry, childr
   return (
     <div className={`sust-page ${className ?? ''}`}>
       <div className="header-wrap">
-        {header}
-
         {/* MOBILE NAV — stepper with per-segment connecting lines */}
         <nav className="mobile-index" ref={mobileNavRef}>
           <div className="mobile-track">
@@ -268,6 +266,8 @@ export default function LiquidIndex({ items, header, className, geometry, childr
             })}
           </div>
         </nav>
+
+        {header}
       </div>
 
       <div className="sust-layout">

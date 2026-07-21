@@ -84,17 +84,17 @@
 @media (max-width: 768px) {
   .eo-hp .mobile-index {
     position: sticky;
-    top: 72px;
+    top: 0;
     bottom: auto;
     left: 0;
     right: 0;
-    z-index: 998;
-    background: rgba(10, 16, 34, 0.92);
+    z-index: 999;
+    background: rgba(10, 16, 34, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(139, 176, 238, 0.25);
     border-radius: 0;
-    margin: 0;
+    margin: 0 0 16px 0;
     width: 100%;
     padding: 12px 0 10px;
     max-width: 100vw;
