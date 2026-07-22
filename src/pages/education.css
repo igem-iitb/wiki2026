@@ -397,10 +397,28 @@
 }
 @media (max-width: 768px) {
   .eo-hp .sust-content { margin-left: 0; padding: 20px 16px 24px; }
-  .eo-learn-panel { grid-template-columns: 1fr; text-align: center; gap: 10px; padding: 24px; }
-  .eo-lp-icon { width: 140px; height: 140px; margin: 0 auto; }
-  .eo-lp-letter { font-size: 84px; }
-  .eo-lp-body p { margin: 0 auto; }
+  .eo-learn-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    padding: 28px 24px;
+  }
+  .eo-lp-letter { font-size: 84px; margin: 0 auto; }
+  .eo-lp-body { max-width: 100%; text-align: center; }
+  .eo-lp-body h3 { text-align: center; }
+  .eo-lp-body p { text-align: center; margin: 0 auto; max-width: 48ch; }
+  .eo-lp-icon {
+    width: 160px;
+    height: 160px;
+    margin: 8px auto 0;
+    justify-self: center;
+    align-self: center;
+    transform: none;
+    transform-origin: center center;
+  }
   .eo-strip-dot { width: 48px; height: 48px; font-size: 1.25rem; }
   .eo-strip { gap: 14px; }
 }
