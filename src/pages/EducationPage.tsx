@@ -178,19 +178,28 @@ function Constellation({ hub }: { hub: Hub }) {
         {orbits.map((o, i) => (
           <ellipse key={i} className="eo-orbit" cx={360} cy={280} rx={o.rx} ry={o.ry} transform={`rotate(${o.rot} 360 280)`} />
         ))}
-        <circle className="eo-const-core" cx={360} cy={280} r={72} />
-        {(hub.nameLines?.length ?? 1) > 1 ? (
-          <>
-            <text className="eo-const-core-letter is-two-lines" x={360} y={267}>{hub.letter}</text>
-            <text className="eo-const-core-label" x={360} y={302}>{hub.nameLines![0]}</text>
-            <text className="eo-const-core-label" x={360} y={322}>{hub.nameLines![1]}</text>
-          </>
-        ) : (
-          <>
-            <text className="eo-const-core-letter" x={360} y={284}>{hub.letter}</text>
-            <text className="eo-const-core-label" x={360} y={320}>{hub.name}</text>
-          </>
-        )}
+        <g
+          className="eo-const-core-btn"
+          onClick={() => smoothScrollTo(`${hub.sectionId}-cards`, 84, 1100)}
+          role="button"
+          tabIndex={0}
+          aria-label={`Scroll to ${hub.name} section`}
+          style={{ cursor: 'pointer' }}
+        >
+          <circle className="eo-const-core" cx={360} cy={280} r={72} />
+          {(hub.nameLines?.length ?? 1) > 1 ? (
+            <>
+              <text className="eo-const-core-letter is-two-lines" x={360} y={267}>{hub.letter}</text>
+              <text className="eo-const-core-label" x={360} y={302}>{hub.nameLines![0]}</text>
+              <text className="eo-const-core-label" x={360} y={322}>{hub.nameLines![1]}</text>
+            </>
+          ) : (
+            <>
+              <text className="eo-const-core-letter" x={360} y={284}>{hub.letter}</text>
+              <text className="eo-const-core-label" x={360} y={320}>{hub.name}</text>
+            </>
+          )}
+        </g>
       </svg>
       {nodes.map((nd) => (
         <button
