@@ -68,15 +68,10 @@ const OVERVIEW_ITEMS: LiquidIndexItem[] = [
     icon: <><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="8.5" y="14" width="7" height="7" rx="1.5" /><path d="M6.5 10v2a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2" /></>,
   },
   {
-    num: '', label: 'Constellation', subtitle: 'The network', sectionId: 'constellation-heading', accent: '#38BDF8',
+    num: '', label: 'Initiatives', subtitle: 'The Network', sectionId: 'constellation-heading', accent: '#38BDF8',
     icon: (
       <>
-        <path d="M12 12L6.2 7.9 M12 12L17.8 7.9 M12 12L6.2 16.1 M12 12L17.8 16.1" />
-        <circle cx="12" cy="12" r="2.8" fill="currentColor" stroke="none" />
-        <circle cx="5" cy="7" r="2.5" fill="currentColor" stroke="none" />
-        <circle cx="19" cy="7" r="2.5" fill="currentColor" stroke="none" />
-        <circle cx="5" cy="17" r="2.5" fill="currentColor" stroke="none" />
-        <circle cx="19" cy="17" r="2.5" fill="currentColor" stroke="none" />
+        <polygon points="12 2 14.8 8.1 21.6 8.8 16.5 13.3 18 20.1 12 16.6 6 20.1 7.5 13.3 2.4 8.8 9.2 8.1 12 2" fill="currentColor" stroke="none" />
       </>
     ),
   },
@@ -155,12 +150,12 @@ function Constellation({ hub }: { hub: Hub }) {
   // Spread and label width are chosen together so a label anchored at the
   // node's edge position can never reach past the container's own edge.
   const { spreadX, spreadY, labelMax } = vw < 340
-    ? { spreadX: 14, spreadY: 24, labelMax: 64 }
+    ? { spreadX: 14, spreadY: 19, labelMax: 64 }
     : vw < 420
-    ? { spreadX: 17, spreadY: 28, labelMax: 80 }
+    ? { spreadX: 17, spreadY: 23, labelMax: 80 }
     : vw < 700
-    ? { spreadX: 25, spreadY: 36, labelMax: 120 }
-    : { spreadX: 32, spreadY: 42, labelMax: 160 };
+    ? { spreadX: 24, spreadY: 28, labelMax: 120 }
+    : { spreadX: 28, spreadY: 31, labelMax: 160 };
 
   const n = hub.initiatives.length;
   const nodes = hub.initiatives.map((label, i) => {
