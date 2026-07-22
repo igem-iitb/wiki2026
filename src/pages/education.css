@@ -403,20 +403,21 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 16px;
-    padding: 28px 24px;
+    gap: 4px;
+    padding: 24px 20px 8px;
   }
-  .eo-lp-letter { font-size: 84px; margin: 0 auto; }
+  .eo-lp-letter { font-size: 80px; margin: 0 auto; line-height: 0.85; }
   .eo-lp-body { max-width: 100%; text-align: center; }
-  .eo-lp-body h3 { text-align: center; }
+  .eo-lp-body h3 { text-align: center; margin-bottom: 6px; }
   .eo-lp-body p { text-align: center; margin: 0 auto; max-width: 48ch; }
   .eo-lp-icon {
-    width: 160px;
-    height: 160px;
-    margin: 8px auto 0;
+    width: 260px;
+    height: 260px;
+    max-width: 90vw;
+    margin: -12px auto -24px;
     justify-self: center;
     align-self: center;
-    transform: none;
+    transform: scale(1.25);
     transform-origin: center center;
   }
   .eo-strip-dot { width: 48px; height: 48px; font-size: 1.25rem; }
