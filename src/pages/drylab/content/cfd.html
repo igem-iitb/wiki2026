@@ -1,0 +1,36 @@
+<div class="alert alert-secondary" role="alert">
+<p>Downstream of the <a href="/dry-lab/model">strain-design model</a>. Status labels: <strong>[computed]</strong> produced in this study; <strong>[literature]</strong> taken from a published source; <strong>[hypothesis]</strong> reasoned but untested; <strong>[pending]</strong> not completed. <strong>None of the values on this page has been validated by experiment.</strong></p>
+</div>
+<details class="acc" open><summary><h2 id="cfd-heat-flow">Heat-flow simulation of the coolant (CFD)</h2></summary><div class="acc-body">
+<div class="brief">
+<div class="brief-h">In brief</div>
+<p>Heat-flow simulations suggest that methyl myristate, the candidate coolant, keeps a 1,200 W server below 85 &deg;C at a lower flow than two reference coolants. This is modelled only and has not been tested on hardware. <strong>[computed]</strong></p>
+</div>
+<ul>
+<li><strong>Method.</strong> Seventeen OpenFOAM simulations (chtMultiRegionFoam, steady state, three-dimensional conjugate heat transfer, constant fluid properties) were run for a 1,200 W server immersed in each coolant. <strong>[computed]</strong></li>
+<li><strong>Same flow (0.42 m/s).</strong> The hottest component reached 78.1 &deg;C with methyl myristate, compared with 87.2 &deg;C (mineral oil) and 88.0 &deg;C (ester-based coolant).</li>
+<li><strong>Flow needed to stay below 85 &deg;C.</strong> Methyl myristate remained below 85 &deg;C at 0.27 m/s, whereas the other two coolants required 0.80 m/s.</li>
+<li><strong>Limits.</strong> Steady-state conditions and constant fluid properties were assumed, and no measurement on a physical immersion tank has been made.</li>
+</ul>
+</div></details>
+<details class="acc" open><summary><h2 id="coolant-selection">Coolant selection</h2></summary><div class="acc-body">
+<div class="brief">
+<div class="brief-h">In brief</div>
+<p>A separate comparison of two candidate esters rated methyl myristate slightly higher on thermal figures of merit, but within the uncertainty, and recommended isopropyl myristate on practical grounds. The choice has not been recorded. <strong>[pending]</strong></p>
+</div>
+<ul>
+<li><strong>Thermal figures of merit [computed, data-limited].</strong> Methyl myristate was rated about 9 % higher than isopropyl myristate, a difference within the estimated uncertainty.</li>
+<li><strong>Operability.</strong> Isopropyl myristate was recommended because methyl myristate melts at about 18 &deg;C, which leaves about 2 &deg;C of margin at a 20 &deg;C inlet.</li>
+<li><strong>Certification.</strong> Neither ester can be certified for energised immersion until dielectric breakdown voltage, volume resistivity and pour point have been measured. <strong>[pending]</strong></li>
+<li><strong>Decision.</strong> The team&rsquo;s choice between the two has not been recorded on this site. <strong>[pending]</strong></li>
+</ul>
+</div></details>
+<details class="acc" open><summary><h2 id="cfd-lca-link">How this connects to the life cycle assessment</h2></summary><div class="acc-body">
+<div class="brief">
+<div class="brief-h">In brief</div>
+<p>The heat-flow result sets how much pumping the coolant needs; the life cycle assessment asks whether the production footprint is repaid in use. The net result depends on the grid carbon factor. <strong>[computed, screening level]</strong></p>
+</div>
+<p>The production footprint of methyl myristate per kilogram was far higher than that of the commercial coolants at present, whereas in use it can reduce cooling electricity. Whether the net result favours methyl myristate depends on the grid carbon factor. The caveats are given on the <a href="/dry-lab/lca">Life Cycle Assessment</a> page.</p>
+</div></details>
+<hr />
+<p><strong>Previous:</strong> <a href="/dry-lab/model/trust">Step 5 Trust</a> &middot; <strong>Next:</strong> <a href="/dry-lab/lca">Life Cycle Assessment</a></p>

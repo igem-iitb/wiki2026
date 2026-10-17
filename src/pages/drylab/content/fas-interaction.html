@@ -1,6 +1,11 @@
 <div class="alert alert-secondary" role="alert">
 <p>Part of the <a href="/dry-lab/model">model</a>. Status labels: <strong>[computed]</strong> produced in this study; <strong>[literature]</strong> taken from a published source; <strong>[hypothesis]</strong> reasoned but untested; <strong>[pending]</strong> not completed. <strong>None of the values on this page has been validated against wet-lab data.</strong></p>
 </div>
+<figure class="figure my-4 key">
+  <img src="/drylab/figures/explainer_experiment_flow.png" loading="lazy" class="figure-img img-fluid" alt="Flow chart of five rounds of Boltz-2 runs, from top to bottom. Round 1, first runs on Google Colab: unconstrained ligand ipTM 0.511, constrained 0.80 to 0.83, an M1251 overlap of 0.96 to 1.77 angstrom reported. Round 2, repeat on laboratory GPUs, 7 runs: baseline placed 3.0 to 4.6 angstrom from C1305, M1251 no closer than 3.3, M1260 at 15 to 17. Round 3, forced contacts on M1251 and M1260, 8 runs: M1260 at 3.9 to 6.5 angstrom, no overlap. Round 4, first control batch, 4 runs: same-seed repeat identical, plug mutant moved the ligand 1.25 angstrom, V1254W 5.88 against 6.33 angstrom. Round 5, second control batch, 6 runs: seed 43 against seed 42 changed the median V1254 distance by 0.82 angstrom and the ligand RMSD by a median 2.14 angstrom; C22 reached M1260 at 6.9 angstrom against 15.5 for C14. Arrows between rounds state what was carried forward.">
+  <figcaption class="figure-caption"><strong>Figure A.</strong> Sequence of Boltz-2 experiments for the KS domain. Each round was designed from the result of the previous one; the text between rounds states what was carried forward. Rounds 2 to 5 comprised 25 runs (125 models). All values are model outputs <strong>[computed]</strong> and are not validated against wet-lab data. Details of each round follow below.</figcaption>
+</figure>
+
 <details class="acc" open><summary><h2 id="structure">Step 2. Ligand placement in the ketoacyl synthase domain</h2></summary><div class="acc-body">
 <div class="brief">
 <div class="brief-h">In brief</div>
@@ -11,7 +16,8 @@
 <p><strong>Ligand placement without distance constraints was setup-dependent.</strong> In the initial run (single sample, no constraints), Boltz-2 positioned myristic acid away from the pocket (baseline ligand ipTM 0.511; interface position error 9.1 Å). In a repeat run on the laboratory server (five samples, fixed alignment), the ligand was placed 3.0–4.6 Å from the catalytic cysteine C1305 without constraints (ligand ipTM 0.80). Failure of Boltz-2 without constraints is therefore not claimed; the outcome depended on the setup. Subsequent runs used explicit distance constraints.</p>
 <p><strong>Constrained runs.</strong> Five models were generated and compared (Table 1). Confidence scores for the earlier C14 runs, taken from the KS-domain report, are given in Table 2.</p>
 <p><em>Table 1. Models compared. All ligands were modelled in the ScFAS2 KS domain; C16 and C22 serve as chain-length controls.</em></p>
-<div class="table-wrap"><table>
+<div class="table-wrap">
+<table>
 <thead>
 <tr>
 <th>Model</th>
@@ -40,9 +46,11 @@
 <td>C14</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 <p><em>Table 2. Boltz-2 confidence scores for the earlier C14 runs (one sample each). Interface position error is given in Å. Model-implied; not validated against wet-lab data.</em></p>
-<div class="table-wrap"><table>
+<div class="table-wrap">
+<table>
 <thead>
 <tr>
 <th>Run</th>
@@ -95,9 +103,7 @@
 <td>0.831</td>
 </tr>
 </tbody>
-</table></div>
-<div class="alert alert-secondary" role="alert">
-<p><strong>[pending]</strong> The confidence values in Table 2 originate from the first constrained runs. Per-residue confidence for the final three-residue constrained models has not been extracted, and the pairwise comparison of all five models (backbone and ligand RMSD) has not been computed.</p>
+</table>
 </div>
 <p><strong>Structural quality.</strong> The protein-fold RMSD of the constrained C14 model against chain A of the KS3 domain of PDB 8PRW<sup class="r"><a href="#ref-2">2</a></sup> was 1.39 Å (PyMOL <code>cealign</code>). Against <em>Escherichia coli</em> β-ketoacyl-ACP synthase I (KAS I; PDB 1F91<sup class="r"><a href="#ref-3">3</a></sup>), the RMSD was 2.38 Å over 232 aligned residues, which indicates fold-level agreement between distant homologues. This agreement supports the use of 1F91 as a reference for how an acyl chain occupies a KS tunnel, but not the transfer of ligand coordinates atom by atom. Ligand placement was obtained from Boltz-2 and not from 1F91.</p>
 </div></details>
@@ -109,7 +115,8 @@
 <p>All three residues line the acyl tunnel, have an equivalent in <em>Yarrowia lipolytica</em> FAS (YlFAS), and were examined in every constrained model (Table 3).</p>
 <div class="key">
 <p><em>Table 3. Closest-atom distance between each residue and the C14 chain in the constrained models. Distances in Å. Model-implied; not validated against wet-lab data.</em></p>
-<div class="table-wrap"><table>
+<div class="table-wrap">
+<table>
 <thead>
 <tr>
 <th>Residue</th>
@@ -138,7 +145,8 @@
 <td>Retained as secondary candidate</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </div>
 <p>The first-run distances were taken from team comments on the constrained run; the rerun distances are closest-atom distances measured across the models of the reruns. The two sets differ because the constraints differ (see the rerun section below). The proximity criterion remains informal.</p>
 </div></details>
@@ -150,7 +158,8 @@
 <p><strong>[literature]</strong> The exclusions are based on the cerulenin-inhibited ScFAS structure (PDB 2VKZ)<sup class="r"><a href="#ref-4">4</a></sup> (Table 4).</p>
 <div class="key">
 <p><em>Table 4. Residues excluded from mutagenesis and the basis for exclusion. Entries marked &lsquo;Interpretation&rsquo; are inferences made in this study, not reported observations.</em></p>
-<div class="table-wrap"><table>
+<div class="table-wrap">
+<table>
 <thead>
 <tr>
 <th>Residue</th>
@@ -185,7 +194,8 @@
 <td>Interpretation: not catalytic, but excluded as a precaution</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </div>
 </div></details>
 <details class="acc" open><summary><h2 id="the-m1251-clash-reported-in-the-first-runs-not-reproduced">The reported M1251 clash was not reproduced</h2></summary><div class="acc-body">
@@ -194,24 +204,19 @@
 <p>The first runs suggested that the fatty-acid chain collides with a residue called M1251. Repeat runs did not show this collision, so the idea remains an untested hypothesis. <strong>[hypothesis]</strong></p>
 </div>
 <p><strong>[hypothesis]</strong> In the first constrained runs, the acyl chain overlapped M1251 at a distance of 0.96–1.77 Å, and the overlap was also present in the raw structural superposition constructed from 8PRW. In the reruns (next section) no model showed the overlap. The superposition is the remaining evidence that a closed gate is incompatible with the chain. Attempted remedies in the first round did not resolve the overlap: OpenBabel UFF minimisation, PyMOL sculpting, and the PyMOL mutagenesis wizard (which ranks pre-enumerated rotamers only and cannot identify an intermediate side-chain geometry).</p>
-<p><strong>Working interpretation.</strong> M1251 is a conformational gate in the cerulenin-bound structure<sup class="r"><a href="#ref-4">4</a></sup>, which is the basis for excluding it from mutagenesis on mechanistic grounds. Whether a closed gate collides with a C14 chain in the ligand-bound state was not tested: the superposition suggests that it does, whereas the Boltz-2 reruns do not. Molecular dynamics (GROMACS or Amber) would test the interpretation; it has not been run.</p>
+<p><strong>Working interpretation.</strong> M1251 is a conformational gate in the cerulenin-bound structure<sup class="r"><a href="#ref-4">4</a></sup>, which is the basis for excluding it from mutagenesis on mechanistic grounds. Whether a closed gate collides with a C14 chain in the ligand-bound state is not resolved by these data: the superposition suggests that it does, whereas the Boltz-2 reruns do not.</p>
 </div></details>
 <details class="acc" open><summary><h2 id="reruns-on-the-lab-gpu-server">Reruns on the laboratory GPU server</h2></summary><div class="acc-body">
 <div class="brief">
 <div class="brief-h">In brief</div>
-<p>The calculation was repeated 15 times on laboratory graphics processors, giving 75 predicted structures. The ligand position changed with the constraints chosen, the earlier collision was not seen, and the confidence scores were uniformly high, so they could not separate the setups or chain lengths. <strong>[computed]</strong></p>
+<p>The calculation was repeated 15 times on laboratory graphics processors in two rounds, giving 75 predicted structures. The ligand position changed with the constraints chosen, the earlier collision was not seen, and the confidence scores were uniformly high, so they could not separate the setups. <strong>[computed]</strong></p>
 </div>
 <p><strong>[computed]</strong> After the first runs, the experiment was repeated on three RTX A6000 GPUs with one setup throughout: the same 535-residue KS-domain input, Boltz-2 with five samples per run, seed 42, a fixed multiple-sequence alignment, and myristic acid (C14) unless stated. Two constraint designs were compared:</p>
 <ul>
 <li><strong>C1305 contact (soft cutoff).</strong> One pocket contact on the catalytic cysteine C1305 with a cutoff of 6, 8 or 10 Å, plus an unconstrained baseline, a V1254W variant, and C16 and C22 ligands at 8 Å (7 runs).</li>
 <li><strong>Forced gate contacts.</strong> Pocket contacts on M1251 and M1260 (and in one run also V1254) with <code>force: true</code>, with and without the Boltz steering potentials (8 runs).</li>
 </ul>
-<p>In total, 75 models were generated. The earlier Colab runs used one sample and constraints that were not fully recorded, so they are not directly comparable. Figure A outlines the workflow and Figure B the two constraint designs. Figure 1 shows the distances obtained, Figure 2 the confidence scores and Figure 3 the comparison across chain lengths. Figure 4 shows one model as an example.</p>
-<figure class="figure my-4">
-  <img src="/drylab/figures/explainer_boltz_pipeline.png" loading="lazy" class="figure-img img-fluid" alt="Flow chart. Row 1: inputs (535-residue KS domain, myristic acid), constraint design, Boltz-2 run (15 runs, 75 models) and outputs, each marked computed. Then measurement of distances and confidence, a grey diamond gate labelled pending that asks whether controls behave, and a comparison of setups. A grey box of proposed controls, marked pending and not run, feeds the gate; a no branch says to fix the setup.">
-  <figcaption class="figure-caption"><strong>Figure A.</strong> Boltz-2 workflow for the KS domain. Inputs, constraint design, 15 runs (75 models), measurement and comparison were done <strong>[computed]</strong>. Positive and negative controls and a gate that would decide whether poses are interpreted are planned and have not been run <strong>[pending]</strong>; no numeric thresholds exist yet, and the comparison reported here was made without the gate. The C16 and C22 chain-length runs described below were done and are separate from these planned controls. Model-implied; not validated against wet-lab data.</figcaption>
-</figure>
-
+<p>In these two rounds, 75 models were generated. The earlier Colab runs used one sample and constraints that were not fully recorded, so they are not directly comparable. Figure A (top of the page) outlines the sequence of experiments and Figure B the two constraint designs. Figure 1 shows the distances obtained, Figure 2 the confidence scores and Figure 3 the comparison across chain lengths. Figure 4 shows one model as an example.</p>
 <figure class="figure my-4">
   <img src="/drylab/figures/explainer_constraint_designs.png" loading="lazy" class="figure-img img-fluid" alt="Two panels. Design A, soft contact on C1305 (7 runs): M1251 at 3.1 to 6.3 angstrom and M1260 at 15 to 17 angstrom from the C14 chain, neither constrained. Design B, forced contacts on M1251 and M1260 (8 runs): M1251 at 3.1 to 6.3 angstrom and M1260 at 3.9 to 6.5 angstrom.">
   <figcaption class="figure-caption"><strong>Figure B.</strong> Two constraint designs on the same KS-domain input. With a soft contact on C1305 (7 runs) the C14 chain lay 15–17 Å from M1260; with forced contacts on M1251 and M1260 (8 runs) it lay 3.9–6.5 Å. M1251 stayed 3.1–6.3 Å away in both, no clash was seen, and confidence (0.90–0.94) did not separate the designs. Schematic of constraints and measured distances, not of geometry. Model-implied; not validated against wet-lab data.</figcaption>
@@ -234,28 +239,167 @@
 </figure>
 
 <figure class="figure my-4">
-  <img src="/drylab/figures/boltz_chain_length.png" loading="lazy" class="figure-img img-fluid" alt="Two panels of distance from C14, C16 and C22 to M1251, V1254 and M1260. In both constraint designs the three ligands reach the same residues at similar distances.">
-  <figcaption class="figure-caption"><strong>Figure 3.</strong> Closest-atom distances for C14, C16 and C22 under the two constraint designs (five models per run). All three ligands reached the same residues, so this KS-only setup did not discriminate by chain length. Model-implied; not validated against wet-lab data.</figcaption>
+  <img src="/drylab/figures/boltz_chain_length.png" loading="lazy" class="figure-img img-fluid" alt="Two panels of distance from C14, C16 and C22 to M1251, V1254 and M1260. With a soft contact on C1305, C22 and three of five C16 models lie about 7 angstrom from M1260 while C14 lies about 15 angstrom away. With forced contacts on M1251 and M1260, the three ligands lie at similar distances from all three residues.">
+  <figcaption class="figure-caption"><strong>Figure 3.</strong> Closest-atom distances for C14, C16 and C22 under the two constraint designs (five models per run). With the soft contact on C1305, the C22 chain and three of five C16 models came within about 7 Å of M1260, whereas C14 remained about 15 Å away; with forced contacts the three ligands reached the same residues. A longer chain spans further, so these distances do not by themselves indicate a preference of the pocket for chain length. Model-implied; not validated against wet-lab data.</figcaption>
 </figure>
 
+</div></details>
+<details class="acc" open><summary><h2 id="control-batch">Control batches: repeatability, seed variation, pocket mutation and decoy ligands</h2></summary><div class="acc-body">
+<div class="brief">
+<div class="brief-h">In brief</div>
+<p>Ten further runs tested whether the model gave repeatable results, how much the result varied with the random seed, and whether it responded to changes in the pocket or in the ligand. Repeating a run with the same seed gave an identical result, but a different seed moved the ligand by as much as the amino-acid substitutions did, and decoy ligands were not separated by the confidence scores. <strong>[computed]</strong></p>
+</div>
+<p><strong>[computed]</strong> Two control batches of 30 minutes each were performed under the settings of the second round (soft contact on C1305 at 8 Å, five samples) with the binding-probability output of Boltz-2 enabled (Table 5). The first batch (four runs, 20 models) comprised a repeat of the wild-type C14 run (repeatability), a variant carrying four tryptophan substitutions in the pocket (M1251W, A1304W, A1348W and A1548W; sensitivity to pocket mutation), caffeine in place of myristic acid (decoy ligand), and V1254W. The second batch (six runs, 30 models) comprised the wild-type run with a different random seed (43 instead of 42; seed variation), M1251W, V1254A, C22 and C8 acids, and glucose (second decoy). Expected outcomes and thresholds were recorded and hashed before each batch; the thresholds were provisional, and the results are therefore reported as measurements and not as pass or fail verdicts.</p>
+<div class="key">
+<p><em>Table 5. Control batches (medians of five models per run; seed 42 unless stated). Distances are closest-atom distances in Å. Displacement is the distance between ligand centroids after superposition of the protein on the stored wild-type model (C14 runs only). The binding probability is the binary output of the Boltz-2 affinity module (one value per run). Model-implied; not validated against wet-lab data.</em></p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Run</th>
+<th>Ligand ipTM</th>
+<th>M1251</th>
+<th>V1254</th>
+<th>M1260</th>
+<th>C1305</th>
+<th>Displacement (Å)</th>
+<th>Binding probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wild type, C14</td>
+<td>0.861</td>
+<td>3.53</td>
+<td>6.33</td>
+<td>15.46</td>
+<td>3.16</td>
+<td>1.32</td>
+<td>0.270</td>
+</tr>
+<tr>
+<td>Wild type, C14, seed 43</td>
+<td>0.862</td>
+<td>3.76</td>
+<td>7.15</td>
+<td>16.00</td>
+<td>3.22</td>
+<td>3.42</td>
+<td>0.274</td>
+</tr>
+<tr>
+<td>Plug mutant, C14</td>
+<td>0.870</td>
+<td>3.30</td>
+<td>6.79</td>
+<td>15.18</td>
+<td>3.55</td>
+<td>1.25</td>
+<td>0.297</td>
+</tr>
+<tr>
+<td>M1251W, C14</td>
+<td>0.863</td>
+<td>4.16</td>
+<td>8.29</td>
+<td>16.67</td>
+<td>2.99</td>
+<td>2.95</td>
+<td>0.252</td>
+</tr>
+<tr>
+<td>V1254A, C14</td>
+<td>0.873</td>
+<td>3.93</td>
+<td>8.25</td>
+<td>15.59</td>
+<td>3.15</td>
+<td>2.11</td>
+<td>0.279</td>
+</tr>
+<tr>
+<td>V1254W, C14</td>
+<td>0.847</td>
+<td>4.15</td>
+<td>5.88</td>
+<td>15.99</td>
+<td>3.00</td>
+<td>2.30</td>
+<td>0.290</td>
+</tr>
+<tr>
+<td>Wild type, C22</td>
+<td>0.855</td>
+<td>3.64</td>
+<td>4.07</td>
+<td>6.92</td>
+<td>2.96</td>
+<td>–</td>
+<td>0.251</td>
+</tr>
+<tr>
+<td>Wild type, C8</td>
+<td>0.889</td>
+<td>9.65</td>
+<td>13.99</td>
+<td>22.51</td>
+<td>3.19</td>
+<td>–</td>
+<td>0.275</td>
+</tr>
+<tr>
+<td>Wild type, caffeine</td>
+<td>0.894</td>
+<td>9.14</td>
+<td>14.01</td>
+<td>21.96</td>
+<td>3.19</td>
+<td>–</td>
+<td>0.211</td>
+</tr>
+<tr>
+<td>Wild type, glucose</td>
+<td>0.909</td>
+<td>8.38</td>
+<td>12.72</td>
+<td>21.77</td>
+<td>2.79</td>
+<td>–</td>
+<td>0.202</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Six observations were made:</p>
+<ul>
+<li><strong>A repeat with the same seed was identical.</strong> For all five matched models, the ligand RMSD to the stored wild-type model was 0.00 Å and all distances were unchanged, so the stored numbers are a valid baseline for this setup.</li>
+<li><strong>A different seed changed the pose.</strong> With seed 43 in place of 42 and otherwise identical inputs, the median distances differed by 0.06–0.82 Å (V1254, +0.82 Å); the ligand RMSD between matched models had a median of 2.14 Å (range 1.46–12.34 Å); and the displacement from the stored model was 3.42 Å against 1.32 Å. Overall confidence (+0.004), ligand ipTM (+0.001) and the distance to C1305 (+0.06 Å) were stable.</li>
+<li><strong>The substitutions moved the ligand no more than the seed did.</strong> The displacement was 1.25 Å for the plug mutant, 2.11 Å for V1254A, 2.30 Å for V1254W and 2.95 Å for M1251W, against 3.42 Å between two seeds of the wild type. The median distance to residue 1254 was 5.88 Å for V1254W and 8.25 Å for V1254A, against 6.33 Å and 7.15 Å for the wild type with seeds 42 and 43; the V1254W difference (−0.45 Å) is smaller than the seed difference (+0.82 Å). Within single runs, two of the five V1254W models and some models of V1254A and M1251W placed the ligand 8–10 Å from V1254, so the medians do not describe a typical model.</li>
+<li><strong>Chain length changed how far the ligand reached.</strong> The C22 chain lay 6.9 Å from M1260, against 15.5–16.0 Å for C14 with either seed, as expected for a longer chain; C8 lay 22.5 Å from M1260. The predicted affinity values fell with chain length (C8, 2.12; C14, 1.53; C22, 1.41) but the two ensemble members of each run overlapped, and the binding probability was nearly flat (0.251–0.275), so the values are not interpreted as selectivity.</li>
+<li><strong>Decoy ligands were not separated.</strong> The caffeine, glucose and C8 models lay 8–11 Å from M1251 while satisfying the restrained contact with C1305 (2.8–3.2 Å). The binding probability was 0.211 for caffeine and 0.202 for glucose against 0.270 for C14, and the ligand ipTM was higher for both (0.894 and 0.909) than for C14 (0.861), so the confidence scores did not distinguish the decoys from myristic acid.</li>
+<li><strong>No model contained an atom pair closer than 2 Å.</strong> This held for all runs of both batches.</li>
+</ul>
+<p>Under this setup the pose of the ligand varied between seeds by about as much as the substitutions tested, and differences of 1–2 Å between wild-type and mutant models are therefore not interpreted. The V1254W and V1254A results are reported as descriptions of the models and do not support or refute the proposed effect of the substitution. The weak response may reflect the contact restraint on C1305 or the unchanged alignment as well as the model itself; these factors were not separated. The binding-probability and affinity values are Boltz-2 scores and not binding constants.</p>
 </div></details>
 <details class="acc" open><summary><h2 id="controls">Chain-length controls</h2></summary><div class="acc-body">
 <div class="brief">
 <div class="brief-h">In brief</div>
-<p>Longer and shorter fatty acids were modelled as controls. If the pocket preferred one chain length, they should have behaved differently; they did not, so these runs do not show that the pocket distinguishes chain length. <strong>[computed]</strong></p>
+<p>Longer and shorter fatty acids were modelled as controls. A longer chain reached further into the pocket, as geometry predicts, but the distances do not show that the pocket prefers one chain length. <strong>[computed]</strong></p>
 </div>
-<p>C16 and C22 runs were included as controls: if the pocket discriminated on chain length, the ligands would be expected to behave differently within it. A preliminary team comparison reported C14 at about 6 Å from the two target residues, whereas the C16 distances were non-uniform (about 5 Å and 8 Å). In the reruns, C14, C16 and C22 reached the same residues at similar distances (Figure 3), so these controls do not show chain-length discrimination in a KS-only setup. A formal positive control (a system known to bind) is lacking, and the unconstrained baseline is not a clean negative control because it also located the pocket.</p>
+<p>C8, C16 and C22 runs were included as controls: if the pocket discriminated on chain length, the ligands would be expected to behave differently within it. A preliminary team comparison reported C14 at about 6 Å from the two target residues, whereas the C16 distances were non-uniform (about 5 Å and 8 Å). In the reruns with a soft contact on C1305, the C22 chain (and three of five C16 models) came within about 7 Å of M1260, whereas C14 remained about 15 Å away; with forced contacts the three ligands reached the same residues (Figure 3). A longer chain spans further, so these distances do not by themselves indicate a preference of the pocket for chain length. The unconstrained baseline also located the pocket and therefore does not serve as a negative control; a decoy ligand (caffeine and glucose), a repeat of the wild-type run, a second seed and a pocket-plug variant were used instead (previous section).</p>
 </div></details>
 <details class="acc" open><summary><h2 id="limits-of-this-step">Limitations of this step</h2></summary><div class="acc-body">
 <div class="brief">
 <div class="brief-h">In brief</div>
-<p>No agreed distance threshold, per-residue confidence, consensus rule or relaxed ligand-bound structure exists for this step, so the results indicate plausible geometry only. <strong>[pending]</strong></p>
+<p>The results rest on one random seed per condition, on constraints that influence the pose, and on model-derived scores, so they indicate plausible geometry only. <strong>[computed]</strong></p>
 </div>
 <ul>
 <li>No formal proximity criterion was defined. The cutoff was varied (6, 8 and 10 Å) and the spread across five models is reported, but no threshold was adopted.</li>
-<li><strong>[pending]</strong> Per-residue confidence was not extracted for the final constrained models.</li>
-<li>No cross-model consensus rule was defined; the spread across five models is the only internal measure of pose stability.</li>
-<li><strong>[pending]</strong> No energy-minimised ligand-bound state was produced, so no model represents a relaxed pocket.</li>
+<li>Five samples drawn with one seed are not independent replicates. The spread across the five models describes the variability of the sampling; run-to-run variability was measured by one additional seed of the wild-type C14 condition only (Table 5).</li>
+<li>The pose depended on the constraint design (Figure B); distances measured to residues that were themselves constrained partly reflect the constraint.</li>
+<li>Free myristic acid was modelled in place of the covalent acyl-enzyme intermediate (assumption A3 on the model overview).</li>
+<li>The binding-probability and affinity outputs of Boltz-2 are model-derived scores, not binding constants.</li>
 </ul>
 <figure class="figure my-4">
   <img src="/drylab/figures/boltz_pocket_c14.png" loading="lazy" class="figure-img img-fluid" alt="Cartoon of the KS pocket with C14 in blue sticks. M1251 (orange), V1254 (red) and M1260 (green) are drawn as sticks with dashed distance lines of 4.3, 8.9 and 4.6 angstrom.">
@@ -263,10 +407,47 @@
 </figure>
 
 </div></details>
+<details class="acc" open><summary><h2 id="reproducing-the-boltz-2-runs">Reproducing the Boltz-2 runs</h2></summary><div class="acc-body">
+<div class="brief">
+<div class="brief-h">In brief</div>
+<p>The software, inputs, commands and measurements needed to repeat the runs and recompute the reported distances and scores are listed here. <strong>[computed]</strong></p>
+</div>
+<p><strong>Software and hardware.</strong> Rounds 2 to 4 were run with Boltz-2<sup class="r"><a href="#ref-1">1</a></sup> (Python package <code>boltz</code> 2.2.1 with the Boltz-2 weights) on Linux with NVIDIA RTX A6000 GPUs (48 GB), one GPU per run. Round 1 used Google Colab with a T4 GPU. A run with five samples took about 7 min on an idle GPU and 13–15 min on a heavily shared one. The output of one run (structures and confidence files) occupied about 13 MB.</p>
+<p><strong>Input.</strong> The protein was residues 1123–1657 of <em>S. cerevisiae</em> FAS2 (UniProt P19097; 535 residues). Residue indices in the inputs are local: UniProt number minus 1122, so that M1251, V1254, M1260 and C1305 are residues 129, 132, 138 and 183. The ligand was given as a SMILES string (myristic acid, <code>CCCCCCCCCCCCCC(=O)O</code>; C8 <code>CCCCCCCC(=O)O</code>; C16 and C22 by extending the chain; the decoys caffeine <code>Cn1cnc2c1c(=O)n(C)c(=O)n2C</code> and glucose <code>OC[C@H]1OC(O)[C@H](O)[C@@H](O)[C@@H]1O</code>). Variants were made by substituting the residue in the input sequence: V1254W and V1254A at residue 132, M1251W at residue 129, and the plug mutant at residues 129, 182, 226 and 426 (M1251W, A1304W, A1348W, A1548W). The constraint designs were a soft contact on C1305 (<code>contacts: [[A, 183]]</code>, <code>max_distance: 8.0</code>; 6 or 10 in the sweep) and forced contacts on M1251 and M1260 (<code>contacts: [[A, 129], [A, 138]]</code>, with residue 132 added in one run, and <code>force: true</code>). The binding-probability output was requested with a <code>properties</code> block.</p>
+<pre><code class="language-yaml">version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: &lt;535-residue KS-domain sequence, P19097 residues 1123-1657&gt;
+      msa: &lt;path to the alignment file&gt;   # omitted when the public alignment server is used
+  - ligand:
+      id: B
+      smiles: 'CCCCCCCCCCCCCC(=O)O'
+constraints:
+  - pocket:
+      binder: B
+      contacts: [[A, 183]]
+      max_distance: 8.0            # forced design: contacts [[A, 129], [A, 138]] and force: true
+properties:
+  - affinity:
+      binder: B
+</code></pre>
+<p><strong>Alignments.</strong> Round 2 used the public alignment server of Boltz (<code>--use_msa_server</code>). Rounds 3 and 4 read a fixed alignment file (<code>msa:</code> field) generated for the wild-type sequence in round 2. For variants, the first row of that file must be the variant sequence: in the installed version, an alignment whose first row differed from the input sequence was replaced by a single-sequence placeholder.</p>
+<p><strong>Command.</strong></p>
+<pre><code class="language-bash">boltz predict inputs/&lt;run&gt;.yaml --cache &lt;cache_dir&gt; --out_dir runs/&lt;run&gt; \
+  --accelerator gpu --devices 1 --diffusion_samples 5 --recycling_steps 3 \
+  --sampling_steps 200 --use_potentials --output_format mmcif --seed 42 --override
+</code></pre>
+<p>Round 2 additionally used <code>--use_msa_server</code>; the comparison without steering potentials in round 3 omitted <code>--use_potentials</code>; the seed-variation run used <code>--seed 43</code>. The runs of rounds 4 and 5 included the <code>properties</code> block shown above. Up to three runs were executed concurrently, one per GPU; a run took 8–9 min on an otherwise idle GPU.</p>
+<p><strong>Measurements.</strong> For each of the five models of a run, the closest heavy-atom distance between the ligand and each residue of interest (local residues 129, 132, 138 and 183) and the closest ligand–protein atom pair were computed from the structure file. Overall confidence (<code>confidence_score</code>), ligand ipTM (<code>ligand_iptm</code>) and complex ipLDDT (<code>complex_iplddt</code>) were read from the <code>confidence_*.json</code> files. Ligand displacement was the distance between the centroids of the ligand heavy atoms after superposing the protein Cα atoms on the reference model. Medians over the five models are reported unless stated.</p>
+<p><strong>Expected agreement.</strong> With the same seed, alignment, settings and software on the same server, a rerun reproduced the stored wild-type models exactly (matched-model ligand RMSD 0.00 Å). A different seed did not reproduce the poses (median matched-model ligand RMSD 2.14 Å), so comparisons between runs require the same seed or a distribution over several seeds.</p>
+</div></details>
 <details class="acc refs" open><summary><h2 id="references">References</h2></summary><div class="acc-body">
 <ol class="ref-list"><li id="ref-1">Passaro S, Corso G, Wohlwend J, et al. (2025). Boltz-2: towards accurate and efficient binding affinity prediction. <em>bioRxiv (preprint)</em>. <a href="https://doi.org/10.1101/2025.06.14.659707">doi:10.1101/2025.06.14.659707</a></li><li id="ref-2">Singh K, Bunzel G, Graf B, Yip KM, Neumann-Schaal M, Stark H, Chari A (2023). Reconstruction of a fatty acid synthesis cycle from acyl carrier protein and cofactor structural snapshots. <em>Cell</em> 186:5054-5067.e16. Cryo-EM structure PDB 8PRW. <a href="https://doi.org/10.1016/j.cell.2023.10.009">doi:10.1016/j.cell.2023.10.009</a></li><li id="ref-3">Olsen JG, Kadziola A, von Wettstein-Knowles P, Siggaard-Andersen M, Larsen S (2001). Structures of β-ketoacyl-acyl carrier protein synthase I complexed with fatty acids elucidate its catalytic machinery. <em>Structure</em> 9:233-243. <a href="https://doi.org/10.1016/S0969-2126(01)00583-4">doi:10.1016/S0969-2126(01)00583-4</a></li><li id="ref-4">Johansson P, Wiltschi B, Kumari P, Kessler B, Vonrhein C, Vonck J, Oesterhelt D, Grininger M (2008). Inhibition of the fungal fatty acid synthase type I multienzyme complex. <em>Proceedings of the National Academy of Sciences USA</em> 105:12803-12808. <a href="https://doi.org/10.1073/pnas.0805827105">doi:10.1073/pnas.0805827105</a></li></ol>
 <h3 id="source-table">Source table</h3>
-<div class="table-wrap"><table class="table table-sm ref-table"><thead><tr><th>#</th><th>Reference</th><th>Supports (where in this page)</th></tr></thead><tbody><tr><td>1</td><td>Passaro S (2025)</td><td><a href="#structure">Step 2. Ligand placement in the ketoacyl synthase domain</a> &mdash; Boltz-2 used for ligand placement</td></tr><tr><td>2</td><td>Singh K (2023)</td><td><a href="#structure">Step 2. Ligand placement in the ketoacyl synthase domain</a> &mdash; template structure for the KS3 domain</td></tr><tr><td>3</td><td>Olsen JG (2001)</td><td><a href="#structure">Step 2. Ligand placement in the ketoacyl synthase domain</a> &mdash; PDB 1F91 identified as E. coli KAS I with a C10 fatty acid</td></tr><tr><td>4</td><td>Johansson P (2008)</td><td><a href="#catalytic-and-mechanistic-exclusions">Catalytic and mechanistic exclusions</a>; <a href="#the-m1251-clash-reported-in-the-first-runs-not-reproduced">The reported M1251 clash was not reproduced</a> &mdash; roles of C1305, M1251, F1646, G1250 and the K1413–K1423 loop</td></tr></tbody></table></div>
+<div class="table-wrap">
+<table class="table table-sm ref-table"><thead><tr><th>#</th><th>Reference</th><th>Supports (where in this page)</th></tr></thead><tbody><tr><td>1</td><td>Passaro S (2025)</td><td><a href="#structure">Step 2. Ligand placement in the ketoacyl synthase domain</a>; <a href="#reproducing-the-boltz-2-runs">Reproducing the Boltz-2 runs</a> &mdash; Boltz-2 used for ligand placement</td></tr><tr><td>2</td><td>Singh K (2023)</td><td><a href="#structure">Step 2. Ligand placement in the ketoacyl synthase domain</a> &mdash; template structure for the KS3 domain</td></tr><tr><td>3</td><td>Olsen JG (2001)</td><td><a href="#structure">Step 2. Ligand placement in the ketoacyl synthase domain</a> &mdash; PDB 1F91 identified as E. coli KAS I with a C10 fatty acid</td></tr><tr><td>4</td><td>Johansson P (2008)</td><td><a href="#catalytic-and-mechanistic-exclusions">Catalytic and mechanistic exclusions</a>; <a href="#the-m1251-clash-reported-in-the-first-runs-not-reproduced">The reported M1251 clash was not reproduced</a> &mdash; roles of C1305, M1251, F1646, G1250 and the K1413–K1423 loop</td></tr></tbody></table>
+</div>
 </div></details>
 <hr />
 <p><strong>Previous:</strong> <a href="/dry-lab/model/sequence">Step 1 Sequence</a> · <strong>Next:</strong> <a href="/dry-lab/model/bridge">Step 3 Bridge</a></p>

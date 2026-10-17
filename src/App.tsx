@@ -38,6 +38,9 @@ export default function App() {
         <Route path="/dry-lab" element={<DryLabPage slug="home" />} />
         <Route path="/dry-lab/model" element={<DryLabPage slug="model" />} />
         <Route path="/dry-lab/model/:slug" element={<DryLabModelRoute />} />
+        <Route path="/dry-lab/cfd" element={<DryLabPage slug="cfd" />} />
+        <Route path="/dry-lab/lca" element={<DryLabPage slug="lca" />} />
+        <Route path="/dry-lab/dbtl" element={<DryLabPage slug="dbtl" />} />
         <Route path="/dry-lab/software" element={<DryLabPage slug="software" />} />
         <Route path="/dry-lab/contribution" element={<DryLabPage slug="contribution" />} />
       </Routes>

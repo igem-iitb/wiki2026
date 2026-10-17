@@ -7,10 +7,10 @@
 <p>The project asks whether baker&rsquo;s yeast could be engineered to make myristic acid, a 14-carbon fatty acid, for use in a bio-based data-centre coolant. Six linked computer models were built, none tested in the laboratory. The central assumption, that a single mutation (V1254W) releases this fatty acid early, is a hypothesis. <strong>[hypothesis]</strong></p>
 </div>
 <ul>
-<li>The work was organised in six steps, each passing one result to the next: sequence → fatty acid synthase (FAS) interaction → bridge → metabolism → trust → process (figure on the <a href="/dry-lab">home page</a>).</li>
+<li>The synthetic-biology work was organised in five steps, each passing one result to the next: sequence → fatty acid synthase (FAS) interaction → bridge → metabolism → trust, followed by two downstream analyses of the product as a coolant (CFD and LCA, each on its own tab) (figure on the <a href="/dry-lab">home page</a>).</li>
 <li><strong>Central assumption:</strong> a point mutation in <em>Saccharomyces cerevisiae</em> FAS2 (V1254W, by analogy with <em>Yarrowia lipolytica</em> I1220W) can release C14 early. This is a <strong>[hypothesis]</strong> and has not been established.</li>
 <li><strong>Main findings:</strong> the model forms C14:0 only by shortening C16:0 through β-oxidation; no knockout set exceeded wild type; an early-release reaction increased C14 export by only 2.6 % and is limited by NADPH; the team&rsquo;s scoring setup did not satisfy its own checks.</li>
-<li><strong>Navigation:</strong> <a href="#m3">Data</a> · <a href="#m4">Assumptions</a> · <a href="/dry-lab/model/sequence">1 Sequence</a> · <a href="/dry-lab/model/fas-interaction">2 FAS interaction</a> · <a href="/dry-lab/model/bridge">3 Bridge</a> · <a href="/dry-lab/model/metabolism">4 Metabolism</a> · <a href="/dry-lab/model/trust">5 Trust</a> · <a href="/dry-lab/model/process">6 Process</a> · <a href="#m6">Effect on design</a> · <a href="#m7">Limits</a> · <a href="#m8">Reproducibility</a> · <a href="#references">References</a>. Further pages under Model: <a href="/dry-lab/model/engineering">Engineering</a>, <a href="/dry-lab/model/results">Results</a>, <a href="/dry-lab/model/life-cycle-assessment">Life Cycle Assessment</a>.</li>
+<li><strong>Navigation:</strong> <a href="#m3">Data</a> · <a href="#m4">Assumptions</a> · <a href="/dry-lab/model/sequence">1 Sequence</a> · <a href="/dry-lab/model/fas-interaction">2 FAS interaction</a> · <a href="/dry-lab/model/bridge">3 Bridge</a> · <a href="/dry-lab/model/metabolism">4 Metabolism</a> · <a href="/dry-lab/model/trust">5 Trust</a> · <a href="#m6">Effect on design</a> · <a href="#m7">Limits</a> · <a href="#m8">Reproducibility</a> · <a href="#references">References</a>. Further pages under Model: <a href="/dry-lab/model/engineering">Engineering</a>, <a href="/dry-lab/model/results">Results</a>. The downstream coolant analyses have their own tabs: <a href="/dry-lab/cfd">CFD</a> and <a href="/dry-lab/lca">Life Cycle Assessment</a>; the <a href="/dry-lab/dbtl">DBTL</a> tab records the design cycles, including failures.</li>
 </ul>
 </div></details>
 <details class="acc" open><summary><h2 id="m1">Approach and outputs of each step</h2></summary><div class="acc-body">
@@ -61,7 +61,7 @@
 <td>Rankings that may be relied on</td>
 </tr>
 <tr>
-<td><a href="/dry-lab/model/process">6 Process</a></td>
+<td><a href="/dry-lab/cfd">CFD</a> and <a href="/dry-lab/lca">LCA</a> (separate tabs)</td>
 <td>Is the product suitable for its intended use?</td>
 <td>Computational fluid dynamics (CFD) of an immersion tank; screening life cycle assessment (LCA)</td>
 <td>Use-phase and production footprint</td>
@@ -271,7 +271,7 @@
 <td>Tank CFD uses constant fluid properties</td>
 <td>Simplification</td>
 <td>Temperature-dependent viscosity is not captured</td>
-<td>See <a href="/dry-lab/model/life-cycle-assessment">Life Cycle Assessment</a></td>
+<td>See <a href="/dry-lab/lca">Life Cycle Assessment</a></td>
 </tr>
 </tbody>
 </table></div>
