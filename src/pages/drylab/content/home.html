@@ -1,11 +1,11 @@
-<p><strong>Welcome to the Dry Lab.</strong> This is the computational half of our project: the modelling behind a yeast that could make myristic acid for a bio-based data-centre coolant. The work starts from one residue of fatty acid synthase and ends at a coolant&rsquo;s life cycle, and the pages follow that order. The wet lab built the V1254W construct that these models point to; <a href="#integration">Integration</a> below shows how the two labs fit together. Start with the <a href="/dry-lab/model">Model</a> overview, then read <a href="/dry-lab/cfd">CFD</a> for the cooling performance and <a href="/dry-lab/lca">LCA</a> for the footprint. The <a href="/dry-lab/model/engineering">Engineering</a> page lists every cycle we ran and what each changed. Each section opens on a short summary and expands on click.</p>
+<p><strong>Welcome to the Dry Lab.</strong> This is the computational half of our project: the modelling behind a yeast that could make myristic acid for a bio-based data-centre coolant. The work starts from one residue of fatty acid synthase and ends at a coolant&rsquo;s life cycle, and the pages follow that order. The wet lab built the V1254W construct that these models point to; <a href="#integration">Integration</a> below shows how the two labs fit together. Start with the <a href="/dry-lab/model">Model</a> overview, then read <a href="/dry-lab/cfd">CFD</a> for the cooling performance and <a href="/dry-lab/lca">LCA</a> for the footprint. The <a href="/project/engineering">Engineering</a> page lists every cycle we ran and what each changed. Each section opens on a short summary and expands on click.</p>
 <p><strong>Summary.</strong> The IIT Bombay iGEM 2026 dry-lab team modelled the engineering of <em>Saccharomyces cerevisiae</em> to produce a C14:0-rich fatty-acid product (myristic acid) that can be esterified to methyl myristate, a bio-based immersion coolant for data centres. Five linked modelling steps and two downstream analyses (CFD and LCA) were built, from a single residue of fatty acid synthase to a coolant life cycle assessment. Sequence alignment identified V1254 as the residue equivalent to the <em>Yarrowia</em> chain-length residue, and that is the mutation the wet lab built. In the metabolic model, an early-release reaction increased C14 export by 2.6 %, limited by NADPH; none of the 175 knockout sets of up to three of ten named genes exceeded the wild type, so effort went into the single mutation. In use, methyl myristate keeps a 1,200 W server below 85 &deg;C at about a third of the flow of commercial coolants and emits 17 % less CO&#8322;-eq per server-year.</p>
 <details class="acc" open><summary><h2 id="integration">Integration with the wet lab</h2></summary><div class="acc-body">
 <div class="brief">
 <div class="brief-h">In brief</div>
 <p>Dry lab and wet lab work through the same five design cycles, A to E. Each model feeds a wet-lab step, and the measured C14 profile closes the loop back to the models and the life cycle assessment.</p>
 </div>
-<p>The two labs share one project question: can a single FAS2 mutation shift yeast fatty acids toward C14? The models chose the site and set the expectations; the wet lab built the construct and measures the result. Our structure-validation rounds are the Design and Test detail of cycles A and B (see <a href="/dry-lab/model/engineering#shared-cycles">Engineering</a>).</p>
+<p>The two labs share one project question: can a single FAS2 mutation shift yeast fatty acids toward C14? The models chose the site and set the expectations; the wet lab built the construct and measures the result. Our structure-validation rounds are the Design and Test detail of cycles A and B (see <a href="/project/engineering#shared-cycles">Engineering</a>).</p>
 <figure class="figure my-4 key">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 690" role="img" aria-labelledby="int-t int-d" style="width:100%;height:auto;font-family:Arial,Helvetica,sans-serif">
 <title id="int-t">How the dry-lab models and the wet-lab experiments connect</title>
@@ -168,11 +168,11 @@
 </tr>
 <tr>
 <td>Headline findings and the changes they prompted</td>
-<td><a href="/dry-lab/model/results">Results</a></td>
+<td><a href="/project/results">Results</a></td>
 </tr>
 <tr>
 <td>The design cycles, including every structural round and failure</td>
-<td><a href="/dry-lab/model/engineering">Engineering</a> (strain-design and structure-validation cycles)</td>
+<td><a href="/project/engineering">Engineering</a> (strain-design and structure-validation cycles)</td>
 </tr>
 <tr>
 <td>The tool that other teams can run on their own models</td>

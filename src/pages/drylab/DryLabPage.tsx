@@ -256,6 +256,10 @@ export default function DryLabPage({ slug }: { slug: string }) {
 /** /dry-lab/model/:slug, one of the model sub-pages; anything else goes to the overview. */
 export function DryLabModelRoute() {
   const { slug = '' } = useParams();
+  // these three live elsewhere now
+  if (slug === 'engineering') return <Navigate to="/project/engineering" replace />;
+  if (slug === 'results') return <Navigate to="/project/results" replace />;
+  if (slug === 'life-cycle-assessment') return <Navigate to="/dry-lab/lca" replace />;
   if (slug === 'model' || !MODEL_SLUGS.has(slug)) return <Navigate to="/dry-lab/model" replace />;
   return <DryLabPage slug={slug} />;
 }
