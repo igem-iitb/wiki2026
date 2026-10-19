@@ -39,17 +39,6 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
         )}
       </div>
 
-      {(person.date || person.summary) && (
-        <div className={styles.meta}>
-          {person.date && (
-            <p className={styles.date}>
-              <span>Met:</span> {person.date}
-            </p>
-          )}
-          {person.summary && <p className={styles.summary}>{person.summary}</p>}
-        </div>
-      )}
-
       {/* Section tabs, laid out across the card */}
       <div className={styles.tabs} role="tablist" aria-label={`${person.name} write-up sections`}>
         {SECTIONS.map((s) => (
@@ -80,10 +69,16 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
                 .join('')}
             </div>
           )}
+          {person.date && (
+            <p className={styles.date}>
+              <span>Met:</span> {person.date}
+            </p>
+          )}
         </div>
         <p className={styles.answer} key={active as string}>
           {person[active]}
         </p>
+        {person.summary && <p className={styles.summary}>{person.summary}</p>}
       </div>
     </div>
   );

@@ -132,7 +132,9 @@
   font-weight: 600;
 }
 .summary {
+  flex: 0 0 100%;
   margin: 0;
+  padding-top: 4px;
   font-size: 15px;
   line-height: 1.5;
   color: #1d2a3f;
@@ -203,15 +205,4 @@
   .answer {
     height: 190px;
   }
-}
-
-/* when we met and what they advised on, right under the name */
-.meta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 12px 0 2px;
-}
-.meta .date {
-  font-size: 14px;
 }
