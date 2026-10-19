@@ -74,11 +74,11 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
               <span>Met:</span> {person.date}
             </p>
           )}
-          {person.summary && <p className={styles.summary}>{person.summary}</p>}
         </div>
         <p className={styles.answer} key={active as string}>
           {person[active]}
         </p>
+        {person.summary && <p className={styles.summary}>{person.summary}</p>}
       </div>
     </div>
   );

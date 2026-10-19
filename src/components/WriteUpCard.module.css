@@ -92,6 +92,7 @@
 /* --- photo + answer --- */
 .box {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: 18px;
   border: 1px solid var(--line);
@@ -131,9 +132,11 @@
   font-weight: 600;
 }
 .summary {
+  flex: 0 0 100%;
   margin: 0;
-  font-size: 13.5px;
-  line-height: 1.45;
+  padding-top: 4px;
+  font-size: 15px;
+  line-height: 1.5;
   color: #1d2a3f;
 }
 .image {
