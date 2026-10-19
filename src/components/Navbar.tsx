@@ -50,7 +50,6 @@ const navigation: NavItem[] = [
       { label: 'Software', href: '/dry-lab/software' },
       { label: 'CFD', href: '/dry-lab/cfd' },
       { label: 'LCA', href: '/dry-lab/lca' },
-      { label: 'Contribution', href: '/dry-lab/contribution' },
     ],
   },
   {

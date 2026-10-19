@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import KytPage from './pages/KytPage';
@@ -47,7 +47,7 @@ export default function App() {
         <Route path="/dry-lab/software" element={<DryLabPage slug="software" />} />
         <Route path="/dry-lab/cfd" element={<DryLabPage slug="cfd" />} />
         <Route path="/dry-lab/lca" element={<DryLabPage slug="lca" />} />
-        <Route path="/dry-lab/contribution" element={<DryLabPage slug="contribution" />} />
+        <Route path="/dry-lab/contribution" element={<Navigate to="/project/contribution" replace />} />
       </Routes>
     </div>
   );
