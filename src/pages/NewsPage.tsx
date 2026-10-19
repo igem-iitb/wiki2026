@@ -43,8 +43,8 @@ const boxes: { left: number; top: number; width: number; height: number; bg?: st
   { left: 86, top: 2647, width: 705, height: 116, bg: '#F0FEB6' }, // Texas
   { left: 86, top: 2763, width: 705, height: 104, bg: '#9FFBD3' }, // Amsterdam
   { left: 86, top: 2867, width: 705, height: 104, bg: '#EED1FB' }, // Singapore
-  { left: 1165, top: 1474, width: 187, height: 208, bg: '#FC8448', border: true }, // Modi quote box
-  { left: 1018, top: 2378, width: 325, height: 325, border: true }, // chart frame
+  { left: 1165, top: 1474, width: 207, height: 208, bg: '#FC8448', border: true }, // Modi quote box
+  { left: 1012, top: 2372, width: 360, height: 337, border: true }, // chart frame
 ];
 
 // Rules (Figma lines): horizontal unless marked vertical.
