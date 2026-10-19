@@ -19,7 +19,7 @@
 .sust-page.eo-hp {
   background: var(--eo-navy);
   color: #eaf0ff;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   overflow-x: clip;
 }
 .sust-page.eo-hp::before { display: none; }
@@ -145,13 +145,13 @@
   width: 46px; height: 46px; border-radius: 50%;
   background: #e9e9ee; color: var(--eo-navy);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.15rem;
+  font-family: var(--font-mont); font-weight: 700; font-size: 1.15rem;
 }
 
 .eo-know-more {
   display: block; margin: 44px auto 72px; padding: 8px 12px;
   background: none; border: none; cursor: pointer;
-  text-align: center; color: #9fb2dd; font-family: 'Outfit', sans-serif; font-size: 1.05rem;
+  text-align: center; color: #9fb2dd; font-family: var(--font-mont); font-size: 1.05rem;
   transition: color 0.2s ease;
 }
 .eo-know-more:hover { color: var(--eo-cyan); }
@@ -180,7 +180,7 @@
 /* Letter always stays the same color — selection is shown only by the
    underline dash and the small name-label switching to cream. */
 .eo-ls-letter {
-  font-family: 'Outfit', sans-serif; font-weight: 500;
+  font-family: var(--font-mont); font-weight: 500;
   font-size: clamp(2rem, 4vw, 3.4rem); color: var(--eo-panel-blue); line-height: 1;
 }
 .eo-ls-sub { margin-top: 8px; font-size: 0.92rem; font-weight: 500; color: var(--eo-panel-blue); transition: color 0.25s ease; }
@@ -202,19 +202,19 @@
   color: #cdd9f0;
   overflow: hidden;
 }
-.eo-lp-letter { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 180px; line-height: 0.75; color: var(--eo-panel-blue); }
-.eo-lp-body h3 { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.7rem; color: var(--eo-cream); margin-bottom: 8px; }
-.eo-lp-body p { font-family: 'Outfit', sans-serif; font-weight: 300; font-size: 1.05rem; line-height: 1.55; color: rgba(220, 232, 255, 0.82); }
+.eo-lp-letter { font-family: var(--font-mont); font-weight: 700; font-size: 180px; line-height: 0.75; color: var(--eo-panel-blue); }
+.eo-lp-body h3 { font-family: var(--font-mont); font-weight: 600; font-size: 1.7rem; color: var(--eo-cream); margin-bottom: 8px; }
+.eo-lp-body p { font-family: var(--font-mont); font-weight: 300; font-size: 1.05rem; line-height: 1.55; color: rgba(220, 232, 255, 0.82); }
 .eo-lp-icon {
   width: 250px; height: 250px; object-fit: contain; flex-shrink: 0; justify-self: end;
   margin-right: -45px; transform: scale(1.4); transform-origin: center right;
 }
 
 /* Constellation intro */
-.eo-const-heading { font-family: 'Imprima', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); color: var(--eo-cream); text-align: center; margin: 84px 0 14px; }
-.eo-const-sub { font-family: 'Imprima', sans-serif; font-size: clamp(0.95rem, 1.6vw, 1.12rem); color: #a9bbe0; text-align: center; max-width: 760px; margin: 0 auto 10px; line-height: 1.6; }
+.eo-const-heading { font-family: var(--font-mont); font-size: clamp(1.8rem, 4vw, 3rem); color: var(--eo-cream); text-align: center; margin: 84px 0 14px; }
+.eo-const-sub { font-family: var(--font-mont); font-size: clamp(0.95rem, 1.6vw, 1.12rem); color: #a9bbe0; text-align: center; max-width: 760px; margin: 0 auto 10px; line-height: 1.6; }
 .eo-const-hint {
-  font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.95rem;
+  font-family: var(--font-mont); font-weight: 700; font-size: 0.95rem;
   letter-spacing: 0.04em; color: var(--eo-cream); text-align: center; margin: 28px 0 0;
 }
 
@@ -261,9 +261,9 @@
 .eo-const-core-btn:hover { transform: scale(1.04); }
 .eo-const-core { fill: var(--eo-blue); filter: drop-shadow(0 0 34px rgba(8, 156, 255, 0.65)) drop-shadow(0 0 14px rgba(8, 156, 255, 0.9)); transition: filter 0.25s ease; }
 .eo-const-core-btn:hover .eo-const-core { filter: drop-shadow(0 0 45px rgba(8, 156, 255, 0.95)) drop-shadow(0 0 20px rgba(56, 189, 248, 1)); }
-.eo-const-core-letter { fill: #fff; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 66px; text-anchor: middle; pointer-events: none; }
+.eo-const-core-letter { fill: #fff; font-family: var(--font-mont); font-weight: 700; font-size: 66px; text-anchor: middle; pointer-events: none; }
 .eo-const-core-letter.is-two-lines { font-size: 56px; }
-.eo-const-core-label { fill: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 14.5px; text-anchor: middle; pointer-events: none; }
+.eo-const-core-label { fill: #fff; font-family: var(--font-mont); font-weight: 600; font-size: 14.5px; text-anchor: middle; pointer-events: none; }
 .eo-cnode {
   position: absolute; display: flex; align-items: center; gap: 10px;
   transform: translateY(-50%);
@@ -276,7 +276,7 @@
   flex-shrink: 0;
 }
 .eo-clbl {
-  color: #fff; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem;
+  color: #fff; font-family: var(--font-mont); font-weight: 600; font-size: 0.95rem;
   line-height: 1.22; overflow-wrap: break-word;
   transition: opacity 0.2s ease;
 }
@@ -300,7 +300,7 @@
   display: inline-flex; align-items: center; justify-content: center;
   width: 87px; height: 87px; border-radius: 50%;
   border: 3px solid rgba(105, 158, 245, 0.65); background: transparent;
-  color: #ffffff; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 2.25rem;
+  color: #ffffff; font-family: var(--font-mont); font-weight: 700; font-size: 2.25rem;
   line-height: 1; cursor: default; transition: all 0.25s ease;
 }
 .eo-strip-dot.active {
@@ -312,10 +312,10 @@
 .eo-cards { display: flex; flex-direction: column; gap: 22px; }
 .eo-acc-detail { background: var(--eo-peri); border-radius: 28px; padding: 24px 28px; }
 .eo-acc-detail-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
-.eo-acc-detail-head h3 { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.4rem; color: #16295a; }
+.eo-acc-detail-head h3 { font-family: var(--font-mont); font-weight: 700; font-size: 1.4rem; color: #16295a; }
 .eo-back-network {
   background: none; border: none; cursor: pointer; white-space: nowrap;
-  color: #16295a; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem; text-decoration: underline;
+  color: #16295a; font-family: var(--font-mont); font-weight: 600; font-size: 0.95rem; text-decoration: underline;
 }
 .eo-back-network:hover { color: #0d1738; }
 
@@ -347,7 +347,7 @@
   cursor: pointer;
   padding: 6px 18px;
   border-radius: 999px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: 0.96rem;
   color: #16295a;

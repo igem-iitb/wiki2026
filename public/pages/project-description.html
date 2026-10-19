@@ -7,10 +7,10 @@
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--ink:#343A40;--blue:#3F94D2;--panel:#FAFAFA;--line:#8FBCE6;--sph:#7B7FE8;--sphA:#4A3FD8}
 html{scroll-behavior:smooth;scroll-padding-top:20px}
 *,*:before,*:after{box-sizing:inherit}
-body{margin:0;font-family:Montserrat,system-ui,sans-serif;font-size:20px;line-height:1.65;color:var(--ink);background:linear-gradient(180deg,#F6F8FB 0%,#D6E6F5 45%,#A5CBEC 100%) fixed;min-height:100vh}
+body{margin:0;font-family:Montserrat,system-ui,sans-serif;font-size:19px;line-height:1.65;color:var(--ink);background:linear-gradient(to bottom,#fafafa 0%,#6db8ea 101.6%);background-attachment:scroll;min-height:100vh}
 .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 60px}
 .title{background:#FAFAFA;border:7px solid #88C0E6;border-radius:70px;box-shadow:2px 4px 10px #88C0E6;padding:22px 32px;margin:0 auto 22px;max-width:900px;text-align:center}
-.title h1{margin:0;font-size:32px;line-height:1.2;color:#1E1E1E;font-weight:400;font-family:'Inria Serif',Georgia,serif}
+.title h1{margin:0;font-size:32px;line-height:1.2;color:#1E1E1E;font-weight:400;font-family:Montserrat,system-ui,sans-serif}
 .layout{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
 .rail{position:sticky;top:16px;background:var(--panel);padding:18px 0;display:flex;flex-direction:column;align-items:center;gap:0}
 .node{border:0;background:none;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;font:inherit;color:#9097A3}
@@ -28,7 +28,7 @@ h3{margin-top:36px}
 p{margin:0 0 16px}
 section{padding:8px 0 40px}
 hr{border:0;border-top:2px solid #E3EEF8;margin:0 0 32px}
-.abs{font-style:italic}
+.abs{font-style:normal}
 .hero{margin:10px 0 34px;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#EAF4FC,#CFE5F7)}
 .hero svg{display:block;width:100%;height:auto}
 ul{padding-left:22px;margin:0 0 16px}li{margin-bottom:8px}
@@ -148,6 +148,12 @@ summary{display:block!important;position:relative;padding-right:56px!important}
 summary::-webkit-details-marker{display:none}
 summary::after{position:absolute;right:22px;top:50%;translate:0 -50%;transform-origin:center}
 #fq{width:100%!important;max-width:none!important;align-self:stretch!important;box-sizing:border-box}
+/* shared title frame */
+.title{background:url('/wetlab/protocols/title-card.svg') center/100% 100% no-repeat!important;border:0!important;border-radius:0!important;box-shadow:none!important;max-width:620px!important;aspect-ratio:1103/250;display:flex;align-items:center;justify-content:center;padding:0 70px!important;margin:36px auto 30px!important}
+.title h1{font-family:Montserrat,system-ui,sans-serif!important;font-weight:700!important;font-size:34px!important;color:#1f3a6e!important}
+body,p,li,td,th,summary,figcaption{font-family:Montserrat,system-ui,sans-serif!important;font-size:19px;line-height:1.65;font-weight:400}
+b,strong,th{font-weight:700}
+figcaption{font-size:16px}
 </style><link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400&display=swap" rel="stylesheet">
 </head>
 <body><div class="wrap">

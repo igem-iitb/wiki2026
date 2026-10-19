@@ -215,7 +215,7 @@
   width: 150px;
   margin-left: 30px;
   text-align: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: 210px;
   line-height: 1.26;
@@ -225,7 +225,7 @@
 .detailBody {
   flex: 1;
   padding: 0 118px 0 10px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   color: #02122d;
 }
 
@@ -288,7 +288,7 @@
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: 13cqw;
   line-height: 1;
@@ -326,7 +326,7 @@
   transform: translateY(-50%);
   width: max-content;
   max-width: 40cqw;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: max(9px, 4.7cqw);
   line-height: 1.15;
@@ -380,7 +380,7 @@
   border: 1.5px solid #93ccff;
   background: #fafafa;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: clamp(26px, 4.3vw, 62px);
   line-height: 1;
@@ -404,7 +404,7 @@
 }
 
 .init {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
 }
 
 .initBar {
@@ -419,7 +419,7 @@
   background: #93ccff;
   cursor: pointer;
   text-align: left;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: clamp(18px, 2.2vw, 32px);
   line-height: 1.2;
@@ -458,7 +458,7 @@
   background: none;
   cursor: pointer;
   text-align: left;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: 24px;
   line-height: 1.25;
@@ -471,7 +471,7 @@
   border: 0;
   background: none;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: 15px;
   text-decoration: underline;
@@ -512,7 +512,7 @@
   background: none;
   cursor: pointer;
   white-space: nowrap;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 500;
   font-size: clamp(13px, 1.4vw, 20px);
   color: #1e1e1e;
@@ -550,7 +550,7 @@
   max-width: 520px;
   margin: 0;
   padding: 45px 73px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 400;
   font-size: clamp(18px, 2vw, 27px);
   line-height: 1.25;
@@ -559,7 +559,7 @@
 
 .rich {
   padding: 30px 34px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-size: 18px;
   line-height: 1.55;
   color: #02122d;
@@ -682,7 +682,7 @@
   max-width: 640px !important;
   margin: 0 auto 30px;
   text-align: center;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-size: 17px;
   line-height: 1.55;
   color: #3c5a80;
@@ -698,7 +698,7 @@
   border-radius: 50%;
   background: #09347b;
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: 19px;
   line-height: 1;
@@ -739,7 +739,7 @@
 
 .initMeta {
   margin: 10px 48px 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-size: 15px;
   line-height: 1.5;
   color: #3c5a80;
@@ -927,7 +927,7 @@
 
 .starTitle {
   margin: 2px 0 12px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: clamp(20px, 2vw, 26px);
   line-height: 1.2;
@@ -940,7 +940,7 @@
 
 .starNote {
   margin: 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-size: 16px;
   line-height: 1.5;
   color: #4a3a12;
@@ -990,7 +990,7 @@
   border-radius: 999px;
   background: #fff;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-size: 15px;
   color: #17365d;
   text-align: left;

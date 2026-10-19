@@ -1,5 +1,5 @@
 .viewer {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   color: #09347b;
 }
 

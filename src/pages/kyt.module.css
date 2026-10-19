@@ -9,7 +9,7 @@
   overflow-x: hidden;
   font-family: var(--font-mont);
   color: #12243a;
-  background: linear-gradient(180deg, #f9fafd 0, #e9f1f9 14%, #b9d6f2 50%, #7fb4e8 100%);
+  background: linear-gradient(180deg, #fafafa 0, #e9f1f9 14%, #b9d6f2 50%, #7fb4e8 100%);
 }
 
 /* ---------- Title bubble ---------- */
@@ -41,7 +41,7 @@
   top: 54%;
   transform: translateY(-50%);
   margin: 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 400;
   font-size: 9.4cqw;
   line-height: 1;
@@ -194,7 +194,7 @@
 
 .polar h3 {
   margin: 14px 0 0;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 500;
   font-size: 1.5rem;
 }

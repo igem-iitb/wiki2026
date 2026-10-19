@@ -30,7 +30,7 @@
   left: 459.5px;
   top: 248px;
   transform: translateX(-50%);
-  font-family: 'Inria Serif', serif;
+  font-family: var(--font-mont);
   font-weight: 400;
   font-size: 70px;
   line-height: normal;
@@ -106,7 +106,7 @@
   transform: translate(-50%, -50%);
   margin: 0;
   pointer-events: none;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: max(15px, 2.9cqw);
   line-height: 1.25;
@@ -127,7 +127,7 @@
   border: 0;
   padding: 0;
   cursor: pointer;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: max(11px, 1.8cqw);
   line-height: 1.2;
@@ -462,7 +462,7 @@
   border: 0;
   background: url('/wetlab/safety/circle.svg') center / 100% 100% no-repeat;
   cursor: pointer;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: 32px;
   line-height: 1;

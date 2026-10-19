@@ -426,7 +426,7 @@
   margin: 0 -14px 10px;
 }
 .groupLabel {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: clamp(15px, 1.9vw, 24px);
   letter-spacing: 0.02em;
@@ -505,7 +505,7 @@
   color: #09347b;
   border-radius: 50px;
   padding: 8px 15px;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: clamp(11px, 1.25vw, 16px);
   line-height: 1.15;

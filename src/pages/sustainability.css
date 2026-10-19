@@ -150,7 +150,7 @@
 .label-g.is-active { opacity: 1; }
 
 .lab-num {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: 36px;
   letter-spacing: 0.02em;
@@ -158,7 +158,7 @@
 .label-g.is-active .lab-num { }
 
 .lab-text {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 600;
   font-size: 20px;
   fill: #475569;
@@ -195,7 +195,7 @@
 .dummy-section:last-child { border-bottom: none; }
 
 .dummy-section h2 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: 2.15rem;
   color: #0d1738;
@@ -204,7 +204,7 @@
 }
 
 .dummy-section h3 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-mont);
   font-weight: 700;
   font-size: 1.35rem;
   color: #1a2b5c;
@@ -330,7 +330,7 @@
 }
 .mobile-index--visible .mobile-lbl {
   margin-top: 7px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-mont);
   font-size: 0.62rem;
   font-weight: 500;
   color: #2e4a64;
@@ -445,7 +445,7 @@
 
   .mobile-lbl {
     margin-top: 7px;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-mont);
     font-size: 0.62rem;
     font-weight: 600;
     color: #64748b;

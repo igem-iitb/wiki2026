@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import Footer from '../components/Footer';
+import TitleCard from '../components/TitleCard';
 import styles from './kyt.module.css';
 
 type Member = { name: string; photo: string; objectPosition?: string; zoom?: number };
@@ -136,21 +137,7 @@ export default function KytPage() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.title}>
-        <div className={styles.bubble}>
-          <svg viewBox="0 0 970 330" preserveAspectRatio="none" aria-hidden>
-            <path
-              d="M58 46L925 8Q954 6 957 34C976 110 976 205 932 306Q926 324 904 324L58 313Q40 312 38 295C-2 225 6 118 36 62Q42 47 58 46Z"
-              fill="#fbfbfc"
-              stroke="#94c1e6"
-              strokeWidth="8"
-              strokeLinejoin="round"
-              vectorEffect="non-scaling-stroke"
-            />
-          </svg>
-          <h1>meet our team</h1>
-        </div>
-      </div>
+      <TitleCard title="Meet Our Team" />
 
       <div className={styles.photo}>
         <img src="/team_pic.webp" alt="The iGEM IIT Bombay 2026 team" />
