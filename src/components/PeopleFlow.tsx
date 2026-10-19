@@ -19,8 +19,9 @@ const BOXES: Box[] = [
   {
     id: 'wetlab', label: 'WETLABS', x: 75, y: 82, w: 280, h: 240, head: '#fcd96a', body: '#fff4d1', edge: '#2a2f55',
     people: [
-      ['Parth', 'parth'], ['Prachita', 'prachita'], ['Professor Phale', 'prof-phale'], ['Professor Santanu', 'prof-santanu'],
+      ['Parth', 'parth'], ['Prachita', 'prachita'], ['Professor Phale', 'prof-phale'], ['Professor Shantanu', 'prof-santanu'],
       ['Anushka Alikar', 'anushka-alikar'], ['Professor Balaji', 'balaji'], ['Pratik Makhija', 'pratik-makhija'],
+      ['Sayali Bokare', 'sayali'],
     ],
   },
   {
@@ -31,7 +32,7 @@ const BOXES: Box[] = [
     id: 'drylab', label: 'DRY LABS', x: 750, y: 100, w: 295, h: 220, head: '#cfa8f5', body: '#ece0fb', edge: '#2a2f55',
     people: [
       ['Professor Yogendra Shastri', 'yogendra-shastri'], ['Professor Sandip', 'prof-sandeep'], ['Professor Suyash', 'prof-suyash'],
-      ['Shubham', 'shubham'], ['Rutuja Maam', 'rutuja'],
+      ['Shubham', 'shubham'], ['Rutuja Maam', 'rutuja'], ['Professor Shivasubramanian', 'prof-shiva'],
     ],
   },
   {

@@ -69,14 +69,14 @@ export const peopleGroups: PeopleGroup[] = [
     label: 'Wetlabs',
     accent: '#E0A93C',
     tint: '#FBDFAE',
-    memberIds: ['parth', 'prachita', 'prof-phale', 'prof-santanu', 'anushka-alikar', 'balaji', 'pratik-makhija'],
+    memberIds: ['parth', 'prachita', 'prof-phale', 'prof-santanu', 'anushka-alikar', 'balaji', 'pratik-makhija', 'sayali'],
   },
   {
     id: 'drylab',
     label: 'Dry Labs',
     accent: '#C77FD6',
     tint: '#E8CDF5',
-    memberIds: ['yogendra-shastri', 'prof-sandeep', 'prof-suyash', 'shubham', 'rutuja'],
+    memberIds: ['yogendra-shastri', 'prof-sandeep', 'prof-suyash', 'shubham', 'rutuja', 'prof-shiva'],
   },
   {
     id: 'product-dev',
@@ -112,7 +112,14 @@ export const peopleGroups: PeopleGroup[] = [
 export type WriteUp = {
   id: string;
   name: string;
+  /** Designation, shown under the photo. */
   affiliation?: string;
+  /** Photo under /public/ihp-photos. */
+  photo?: string;
+  /** One line under the photo: what they helped with. */
+  summary?: string;
+  /** When we met, as recorded by the team. */
+  date?: string;
   purpose: string;
   keyTakeaway: string;
   contribution: string;
@@ -128,6 +135,9 @@ export const writeUps: WriteUp[] = [
     id: 'balaji',
     name: 'Prof. Balaji',
     affiliation: 'Professor, Department of Biosciences and Bioengineering, IIT Bombay',
+    photo: '/ihp-photos/balaji.jpg',
+    summary: 'Assessed the feasibility of the chitinase project',
+    date: '10/12/26',
     purpose:
       'At the start of the cycle we were choosing between two candidate projects and were not sure which was more feasible for a first-time undergraduate team. One of them was an enzymatic approach using a chitinase to degrade chitin waste into chitooligosaccharides. We lacked a clear sense of its scope, its biochemical risks, and how realistic it was to execute within one iGEM cycle. We wanted an expert view on the technical soundness and feasibility of the chitinase idea so we could compare it against our other candidate.',
     keyTakeaway:
@@ -142,6 +152,8 @@ export const writeUps: WriteUp[] = [
     id: 'husayn',
     name: 'Husayn',
     affiliation: 'Senior from iGEM IIT Bombay',
+    summary: 'Gave feedback on the problem statement and wetlab plan',
+    date: 'Monthly',
     purpose: 'Sought senior feedback on the problem statement and the feasibility of the wetlab plan.',
     keyTakeaway: 'The biocoolant idea is relevant and strong as a problem statement; check the wetlab feasibility and the amount of synbio.',
     contribution: 'Along with Kadambari, gave feedback on framing the problem and validating feasibility.',
@@ -152,6 +164,9 @@ export const writeUps: WriteUp[] = [
     id: 'anushka-alikar',
     name: 'Anushka Alikar',
     affiliation: 'PhD researcher',
+    photo: '/ihp-photos/anushka-alikar.jpg',
+    summary: 'Advised on chassis comparison, promoter systems and lipid metabolism',
+    date: '19/12/26',
     purpose:
       'During the initial stages of BiFROST we were exploring metabolic engineering strategies for a yeast-based production platform for lipid-derived compounds. The host chassis, genetic targets and pathway engineering strategy were all still under evaluation. We sought expert input on identifying metabolic bottlenecks, selecting suitable genetic modifications, and balancing pathway optimisation against host viability, assessing the feasibility of knockout and overexpression strategies, exploring promoter systems and comparative genomics, and identifying interventions that fit our experimental and infrastructural constraints.',
     keyTakeaway:
@@ -166,6 +181,8 @@ export const writeUps: WriteUp[] = [
     id: 'prachita',
     name: 'Prachita',
     affiliation: 'PhD researcher in yeast experiments',
+    summary: 'Advised on host selection (S. cerevisiae vs Y. lipolytica) and pathway engineering',
+    date: '20/12/2025, 19/01/2026, 3/02/2026',
     purpose:
       'These consultations addressed key scientific and experimental uncertainties in engineering yeast for fatty acid production, particularly methyl myristate as a sustainable dielectric coolant. At the initial stage we were uncertain about selecting a host organism between Saccharomyces cerevisiae and Yarrowia lipolytica. We also needed to understand suitable genetic engineering strategies, identify relevant genetic targets, and determine feasible transformation and expression protocols, so as to establish a scientifically sound and practically feasible workflow.',
     keyTakeaway:
@@ -183,6 +200,9 @@ export const writeUps: WriteUp[] = [
     id: 'pratik-makhija',
     name: 'Pratik Makhija',
     affiliation: 'IISER Pune team member who ran the Jetropha project',
+    photo: '/ihp-photos/pratik-makhija.jpg',
+    summary: 'Advised on strains, vectors and protocols for working with Yarrowia',
+    date: '10/01/26, 28/10/26',
     purpose: 'Asked how his team ran their Jetropha project, strains, vectors, kits and protocols, to assess feasibility for our own work with Yarrowia lipolytica.',
     keyTakeaway:
       'The team emphasised that for reliable results the Y. lipolytica strain should be sourced from IMTECH (MTCC), Chandigarh, specifically the Po1g strain, a derivative of the W29 lineage, and that it is particularly effective with the pYLEX vector series for genomic integration. On vectors, they highlighted the Yeastern BioKit as an all-in-one solution: pYLEX is the "home" for the gene of interest, designed for precise homologous recombination into the genome, and the kit includes pre-optimised components that simplify transformation, which can otherwise be tricky with non-conventional yeasts. They mentioned using restriction enzymes such as BamHI and PmlI for cloning into the pYLEX backbone, following advice from experts including Dr. Catherine Madzak. On media and growth, cultivation is handled in distinct stages to balance biomass growth against gene induction: standard YPD for general maintenance, then a medium protocol sheet specific to pYLEX for expression and selection, typically YNB without amino acids to maintain selection pressure. They noted pH (around 5.5) and aeration are critical, and explored using perfluorodecalin to enhance oxygen availability, which significantly boosted their lipid and enzyme yields. They also suggested keeping a strict components table for consistency across batches, glucose for normal growth and glycerol for induction, ammonium sulfate or urea as nitrogen source (limitation triggers lipids), EDTA, ZnSO4, MnSO4 and FeSO4 as trace elements, and leucine (LEU2) or uracil (URA3) as selection marker depending on the pYLEX variant. Their mentors, including Dr. Sunish Radhakrishnan, advised that codon optimisation for the Y. lipolytica bias is essential, as rare codons from other species often lead to failed western blots or low protein expression.',
@@ -194,6 +214,9 @@ export const writeUps: WriteUp[] = [
     id: 'dawar',
     name: 'Dawar',
     affiliation: 'Ex-iHP Lead of iGEM IIT Bombay and founder of Erdos AI',
+    photo: '/ihp-photos/dawar.jpg',
+    summary: 'Advised on meaningful iHP, project selection and pitching sponsors',
+    date: '08/11/2025',
     purpose:
       'We reached out to Dawar because, as a former iHP lead from our own institute who has since founded a company, he had hands-on experience with exactly the problems we were navigating, how to run iHP meaningfully rather than as a checkbox activity, how to manage team momentum and friction between subteams, how to approach project selection without chasing novelty, and how to pitch sponsors and the institute effectively.',
     keyTakeaway:
@@ -208,6 +231,9 @@ export const writeUps: WriteUp[] = [
     id: 'deepan',
     name: 'Deepan',
     affiliation: 'Senior member of iGEM IIT Bombay (ex-iHP and Wet Lab)',
+    photo: '/ihp-photos/deepan.jpg',
+    summary: 'Advised on institute funding and experimental budgeting',
+    date: '04/11/2025',
     purpose:
       'We needed to secure funding from the Institute but did not know how the administration works or whom to approach. We were also planning our first cycle working with yeast, so we had no basis for how much budget to set aside for failed experiments. Our Human Practices approach also needed direction on how to engage stakeholders and validate our progress. We wanted to learn from a senior with both iHP and wet lab experience how to approach IIT Bombay administration for funding, how to structure our outreach, and how to design a realistic experimental budget.',
     keyTakeaway:
@@ -222,6 +248,9 @@ export const writeUps: WriteUp[] = [
     id: 'anagdha',
     name: 'Anagdha',
     affiliation: 'BioCompute (bacterial DNA data storage)',
+    photo: '/ihp-photos/anagdha.jpg',
+    summary: 'Explored synergy between our bio-coolant and bacterial DNA data storage',
+    date: '18/10/2026, 22/01/2026',
     purpose:
       'Our bio-coolant project is designed around conventional data centre cooling. We wanted to know whether the idea could apply to newer computing infrastructure, and we had not yet explored bacterial or DNA-based data centres as an application area. The aim was to explore potential synergies between our bio-coolant and her work on using bacterial DNA for data storage, and to gauge whether a formal collaboration was feasible.',
     keyTakeaway:
@@ -236,6 +265,9 @@ export const writeUps: WriteUp[] = [
     id: 'prof-sandeep',
     name: 'Prof. Sandip Saha',
     affiliation: 'Professor, Department of Mechanical Engineering, IIT Bombay',
+    photo: '/ihp-photos/prof-sandeep.jpg',
+    summary: 'Advised on immersion cooling fundamentals and testing roadmap',
+    date: '03/03/26',
     purpose:
       'This was our first consultation on immersion cooling. As a team we were new to the field and did not know which thermophysical, electrical and system-level factors decide whether a coolant works for immersion cooling, or which to evaluate first. We also had not yet narrowed down which ester, and which carbon chain length, to pursue. We wanted an expert view on what to evaluate when considering a bio-derived ester as an immersion coolant, and what a realistic system and testing roadmap looks like.',
     keyTakeaway:
@@ -252,6 +284,9 @@ export const writeUps: WriteUp[] = [
     id: 'parth',
     name: 'Parth',
     affiliation: 'PhD in Yeast Engineering',
+    photo: '/ihp-photos/parth.jpg',
+    summary: 'PhD Mentor',
+    date: 'Weekly',
     purpose: TODO,
     keyTakeaway: TODO,
     contribution: TODO,
@@ -262,6 +297,9 @@ export const writeUps: WriteUp[] = [
     id: 'prof-phale',
     name: 'Prof. Phale',
     affiliation: 'Professor in metabolic engineering',
+    photo: '/ihp-photos/prof-phale.jpg',
+    summary: 'Advised on gene modifications, metabolic flux and the thioesterase route to C14 fatty acids',
+    date: '2/03/26',
     // TODO (team): an earlier version of this write-up also recorded advice on alternatives to
     // cuphea, ordering mutated yeast strains from the reference papers rather than mutating from
     // scratch, and the feasibility of a metazoan FAS. Those points are not in the Drive document -
@@ -280,6 +318,9 @@ export const writeUps: WriteUp[] = [
     id: 'dr-navratna',
     name: 'Dr. Navratna',
     affiliation: 'CEO, WITC: Wadhwani Innovation Technology Centre',
+    photo: '/ihp-photos/dr-navratna.jpg',
+    summary: 'Advised on framing research for national impact and building a strong team',
+    date: 'Biweekly',
     purpose: 'To understand how to frame research so it helps build something for the country, and how to build a strong team.',
     keyTakeaway:
       'He helped us think about research direction and team-building, and reflected on the problems with our previous project and how to avoid similar mistakes this time.',
@@ -293,6 +334,9 @@ export const writeUps: WriteUp[] = [
     id: 'aditya-ict',
     name: 'Aditya',
     affiliation: 'Team Lead, ICT Mumbai',
+    photo: '/ihp-photos/aditya-ict.jpg',
+    summary: 'Advised on sponsorship outreach',
+    date: '2/06/26',
     purpose:
       'Our sponsorship outreach had stalled, cold emails and LinkedIn messages were yielding almost no response (roughly 1–2 replies per 50–60 contacts), and we needed practical, insider guidance on who to target, how to frame the pitch, and when companies are actually receptive.',
     keyTakeaway:
@@ -307,6 +351,9 @@ export const writeUps: WriteUp[] = [
     id: 'vaibhav-sai',
     name: 'Vaibhav Sai',
     affiliation: 'Bioentrepreneur, DiagnoBac',
+    photo: '/ihp-photos/vaibhav-sai.jpg',
+    summary: 'Advised on stakeholder outreach, scale-up and networking',
+    date: '24/05/2026',
     purpose:
       'We wanted to identify and reach stakeholders relevant to the project, especially those involved in sustainable infrastructure and data centres; to understand strategies for industrial scale-up and improving product yield; to re-evaluate our outreach and event strategies so they aligned with the project’s goals and target audience; to explore integrating computational biology and optimisation models into the project; and to build meaningful industry and research connections through targeted networking.',
     keyTakeaway:
@@ -320,6 +367,9 @@ export const writeUps: WriteUp[] = [
     id: 'rutuja',
     name: 'Rutuja',
     affiliation: 'Systems biology researcher',
+    photo: '/ihp-photos/rutuja.jpg',
+    summary: 'Advised on FAS simulations and yeast metabolic models',
+    date: '2/06/26',
     purpose:
       'We needed guidance on our computational work: whether to simulate the entire FAS complex or only the relevant domains, which yeast metabolic model to build on and how to constrain it, and how to identify errors in our results.',
     keyTakeaway:
@@ -332,6 +382,9 @@ export const writeUps: WriteUp[] = [
     id: 'rajesh-vagdama',
     name: 'Dr. Rajesh Vagdama',
     affiliation: 'Green Bio Synthesis Group, L’Oréal',
+    photo: '/ihp-photos/rajesh-vagdama.jpg',
+    summary: 'Advised on bio-ester formulation, sustainability certification and scale-up',
+    date: '05/06/26',
     purpose:
       'Having validated broad feasibility with Prof. Vikram, we needed deeper technical guidance on formulation chemistry, how to turn a hydrophobic bio-ester into a functional, homogeneous coolant, plus wetlab strategy for engineering yeast to make our target C14 fatty acid and scaling to viable yields. His role in L’Oréal’s Green Bio Synthesis Group made him ideal on bio-based formulation, sustainability certification and scale-up.',
     keyTakeaway:
@@ -348,6 +401,9 @@ export const writeUps: WriteUp[] = [
     id: 'prof-suyash',
     name: 'Prof. Suyash Vikram',
     affiliation: 'Assistant Professor, Mechanical Engineering, Government Engineering College Vaishali',
+    photo: '/ihp-photos/prof-suyash.jpg',
+    summary: 'Advised on coolant reliability, material compatibility and additives',
+    date: '5/07/26',
     purpose:
       'Our project centres on a myristate ester-based immersion coolant for data-centre and battery thermal management, and we needed expert grounding in what actually makes an immersion coolant viable beyond lab-scale thermal performance, long-term reliability, material compatibility, and how industry validates coolants without waiting years for real-time data. We were also unsure whether additive strategies from conventional dielectric fluids transfer to ester-based systems.',
     keyTakeaway:
@@ -361,6 +417,9 @@ export const writeUps: WriteUp[] = [
     id: 'subhendhu',
     name: 'Subhendu',
     affiliation: 'Researcher at Shell working on immersion coolants',
+    photo: '/ihp-photos/subhendhu.jpg',
+    summary: 'Gave the industry view on competing with PAO and GTL fluids',
+    date: '7/06/26, 28/07/26',
     purpose:
       'We were developing a sustainable, ester-based, PFAS-free immersion cooling fluid for data centres. We had the technical idea but lacked an industry view on how it would compete against established synthetics (PAO, GTL), what data centre customers actually value, and which technical trade-offs would decide success. We wanted an industry researcher’s view on the market landscape and barriers to adoption, the fluid property targets and formulation strategies, and how to validate and position the product commercially.',
     keyTakeaway:
@@ -369,6 +428,30 @@ export const writeUps: WriteUp[] = [
       'It shifted our focus from "can we make a PFAS-free ester coolant" to "why would a data centre operator switch to it, and is it really more sustainable?" It made us confront why existing "sustainable" coolants struggle commercially and whether our product avoids the same problems, and made market positioning, cost analysis and quantitative sustainability benchmarking priorities for the project. It also gave us a clear technical framework, the viscosity and heat capacity trade-off, additive limits, and stability testing, and a realistic view of the validation timeline we would face in industry.',
     implementation:
       'Following this meeting we began five workstreams: market positioning, reframing the pitch around user-focused value rather than general societal benefit and examining where we sit against PAO, GTL and other cooling approaches; understanding why current "sustainable" coolants fall short, by examining the limitations of existing bio-based and natural coolants; cost analysis, covering cost of production and how far the sustainability benefit outweighs the cost premium; a life cycle analysis of our product’s carbon footprint compared with natural coolants and conventional oils; and sustainability validation, testing whether our product is actually sustainable and assembling the full case for it. The work appears in the Know Your Coolant tab (market positioning, cost analysis, comparison with other coolants), the LCA Analysis tab (carbon footprint and comparison with natural coolants) and the Sustainability tab.',
+    references: 'None',
+  },
+  {
+    id: 'sayali',
+    name: 'Sayali Bokare',
+    affiliation: 'PhD Researcher, GC–MS',
+    summary: 'Advised on lyophilization for GC–MS sample preparation',
+    date: '10/10/26',
+    purpose: TODO,
+    keyTakeaway: TODO,
+    contribution: TODO,
+    implementation: TODO,
+    references: 'None',
+  },
+  {
+    id: 'prof-shiva',
+    name: 'Prof. Shivasubramanian Gopalakrishnan',
+    affiliation: 'Professor, Mechanical Engineering, IIT Bombay',
+    photo: '/ihp-photos/prof-shiva.jpg',
+    summary: 'Validated our OpenFOAM immersion-cooling simulations',
+    purpose: TODO,
+    keyTakeaway: TODO,
+    contribution: TODO,
+    implementation: TODO,
     references: 'None',
   },
   {
@@ -383,8 +466,11 @@ export const writeUps: WriteUp[] = [
   // On the People Flow board but with no document in the shared Drive folder yet.
   {
     id: 'prof-santanu',
-    name: 'Prof. Santanu',
+    name: 'Prof. Shantanu Ghosh',
     affiliation: 'Professor in Plasmid Design',
+    photo: '/ihp-photos/prof-santanu.jpg',
+    summary: 'Validated Plasmid Map',
+    date: '30/09/26',
     purpose: TODO,
     keyTakeaway: TODO,
     contribution: TODO,
@@ -395,6 +481,9 @@ export const writeUps: WriteUp[] = [
     id: 'shubham',
     name: 'Shubham',
     affiliation: 'PhD researcher in LCA',
+    photo: '/ihp-photos/shubham.jpg',
+    summary: 'Mentored the dry lab team on LCA (via Prof. Shastri)',
+    date: '20/10/2026',
     purpose: TODO,
     keyTakeaway: TODO,
     contribution: TODO,
@@ -405,6 +494,9 @@ export const writeUps: WriteUp[] = [
     id: 'yogendra-shastri',
     name: 'Prof. Yogendra Shastri',
     affiliation: 'Professor, Department of Chemical Engineering, IIT Bombay',
+    photo: '/ihp-photos/yogendra-shastri.jpg',
+    summary: 'Guided our Life Cycle Assessment',
+    date: '01/10/26',
     purpose:
       'To rigorously evaluate the environmental sustainability and carbon footprint of Project BiFrost against conventional petroleum and fluorinated (PFAS) coolants, we needed to conduct a formal Life Cycle Assessment. As an undergraduate team with limited background in standardised LCA methodologies, we needed expert guidance to structure the assessment, define system boundaries, and access reliable industrial inventory data. We consulted him on the core stages of an LCA, on establishing an accurate process flow diagram for our bio-coolant production, and on obtaining the tools and database access to execute the analysis.',
     keyTakeaway:
@@ -419,6 +511,9 @@ export const writeUps: WriteUp[] = [
     id: 'echa',
     name: 'ECHA',
     affiliation: 'European Chemicals Agency',
+    photo: '/ihp-photos/echa.jpg',
+    summary: 'Explained how the EU REACH PFAS restriction is assessed',
+    date: '31/08/2026',
     purpose:
       'Our project was motivated by the proposed PFAS restriction under EU REACH, which affects the fluorinated fluids currently used in data centre immersion cooling. We were building the sustainability case for our bio-coolant as an alternative, but we only understood the restriction at a headline level: we did not know how regulators assess risk, weigh technical feasibility and alternatives, or set timelines. We asked for a brief call or a few thoughts over email on the assessment methodology used to evaluate impact and risk, how technical feasibility and safer alternatives were weighed, and the data points that shaped the restriction timeline.',
     keyTakeaway:

@@ -30,7 +30,6 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
       <div className={styles.header}>
         <div className={styles.titleBtn}>
           <span className={styles.name}>{person.name}</span>
-          {person.affiliation && <span className={styles.aff}>({person.affiliation})</span>}
         </div>
         {onBackToNetwork && (
           <button className={styles.back} onClick={onBackToNetwork}>
@@ -55,8 +54,27 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
       </div>
 
       <div className={styles.box}>
-        <div className={styles.image} aria-label={`Photo of ${person.name}`}>
-          Image
+        {/* photo, then who they are, when we met and what they helped with */}
+        <div className={styles.side}>
+          {person.photo ? (
+            <img src={person.photo} alt={person.name} className={styles.photo} loading="lazy" />
+          ) : (
+            <div className={styles.image} aria-hidden>
+              {person.name
+                .replace(/^(Prof\.|Dr\.)\s*/, '')
+                .split(/\s+/)
+                .slice(0, 2)
+                .map((w) => w[0])
+                .join('')}
+            </div>
+          )}
+          {person.affiliation && <p className={styles.desig}>{person.affiliation}</p>}
+          {person.date && (
+            <p className={styles.date}>
+              <span>Met:</span> {person.date}
+            </p>
+          )}
+          {person.summary && <p className={styles.summary}>{person.summary}</p>}
         </div>
         <p className={styles.answer} key={active as string}>
           {person[active]}
