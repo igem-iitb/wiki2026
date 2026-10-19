@@ -52,7 +52,7 @@ const BOXES: Box[] = [
   },
   {
     id: 'others', label: 'OTHERS', x: 615, y: 582, w: 322, h: 210, head: '#b4c8ef', body: '#e1e9f9', edge: '#2a2f55',
-    people: [['Kadambari', null], ['Hrushikesh', null], ['Archana', null], ['iGEM Denmark', 'igem-denmark'], ['Nicola O’Riordan', null]],
+    people: [['Kadambari', null], ['Hrushikesh', null], ['Archana', null], ['Nicola O’Riordan', null]],
   },
 ];
 

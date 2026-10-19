@@ -99,14 +99,6 @@ export const peopleGroups: PeopleGroup[] = [
     tint: '#C7F0AE',
     memberIds: ['husayn', 'aditya-ict', 'anagdha', 'deepan', 'dawar'],
   },
-  // Not on the People Flow board, but they have a write-up.
-  {
-    id: 'others',
-    label: 'Others',
-    accent: '#9AA8C2',
-    tint: '#DDE4EF',
-    memberIds: ['igem-denmark'],
-  },
 ];
 
 export type WriteUp = {
@@ -163,7 +155,7 @@ export const writeUps: WriteUp[] = [
   {
     id: 'anushka-alikar',
     name: 'Anushka Alikar',
-    affiliation: 'PhD researcher',
+    affiliation: 'PhD Researcher in Yeast Engineering, Department of Biosciences and Bioengineering, IIT Bombay',
     photo: '/ihp-photos/anushka-alikar.jpg',
     summary: 'Advised on chassis comparison, promoter systems and lipid metabolism',
     date: '19/12/25',
@@ -180,7 +172,7 @@ export const writeUps: WriteUp[] = [
   {
     id: 'prachita',
     name: 'Prachita',
-    affiliation: 'PhD researcher in yeast experiments',
+    affiliation: 'PhD in Yeast Engineering, Department of Chemical Engineering, IIT Bombay',
     summary: 'Advised on host selection (S. cerevisiae vs Y. lipolytica) and pathway engineering',
     date: '20/12/2025, 19/01/2026, 3/02/2026',
     purpose:
@@ -199,10 +191,10 @@ export const writeUps: WriteUp[] = [
   {
     id: 'pratik-makhija',
     name: 'Pratik Makhija',
-    affiliation: 'IISER Pune team member who ran the Jetropha project',
+    affiliation: 'IISER Pune iGEM team member, Jetropha project',
     photo: '/ihp-photos/pratik-makhija.jpg',
     summary: 'Advised on strains, vectors and protocols for working with Yarrowia',
-    date: '28/10/25, 10/01/26',
+    date: '10/01/26, 28/01/26',
     purpose: 'Asked how his team ran their Jetropha project, strains, vectors, kits and protocols, to assess feasibility for our own work with Yarrowia lipolytica.',
     keyTakeaway:
       'The team emphasised that for reliable results the Y. lipolytica strain should be sourced from IMTECH (MTCC), Chandigarh, specifically the Po1g strain, a derivative of the W29 lineage, and that it is particularly effective with the pYLEX vector series for genomic integration. On vectors, they highlighted the Yeastern BioKit as an all-in-one solution: pYLEX is the "home" for the gene of interest, designed for precise homologous recombination into the genome, and the kit includes pre-optimised components that simplify transformation, which can otherwise be tricky with non-conventional yeasts. They mentioned using restriction enzymes such as BamHI and PmlI for cloning into the pYLEX backbone, following advice from experts including Dr. Catherine Madzak. On media and growth, cultivation is handled in distinct stages to balance biomass growth against gene induction: standard YPD for general maintenance, then a medium protocol sheet specific to pYLEX for expression and selection, typically YNB without amino acids to maintain selection pressure. They noted pH (around 5.5) and aeration are critical, and explored using perfluorodecalin to enhance oxygen availability, which significantly boosted their lipid and enzyme yields. They also suggested keeping a strict components table for consistency across batches, glucose for normal growth and glycerol for induction, ammonium sulfate or urea as nitrogen source (limitation triggers lipids), EDTA, ZnSO4, MnSO4 and FeSO4 as trace elements, and leucine (LEU2) or uracil (URA3) as selection marker depending on the pYLEX variant. Their mentors, including Dr. Sunish Radhakrishnan, advised that codon optimisation for the Y. lipolytica bias is essential, as rare codons from other species often lead to failed western blots or low protein expression.',
@@ -283,10 +275,10 @@ export const writeUps: WriteUp[] = [
   {
     id: 'parth',
     name: 'Parth',
-    affiliation: 'PhD in Yeast Engineering',
+    affiliation: 'PhD in Yeast Engineering, Department of Biosciences and Bioengineering, IIT Bombay',
     photo: '/ihp-photos/parth.jpg',
     summary: 'PhD Mentor',
-    date: 'Weekly',
+    date: 'Weekly basis',
     purpose: TODO,
     keyTakeaway: TODO,
     contribution: TODO,
@@ -296,7 +288,7 @@ export const writeUps: WriteUp[] = [
   {
     id: 'prof-phale',
     name: 'Prof. Phale',
-    affiliation: 'Professor in metabolic engineering',
+    affiliation: 'Professor, Department of Biosciences and Bioengineering, IIT Bombay',
     photo: '/ihp-photos/prof-phale.jpg',
     summary: 'Advised on gene modifications, metabolic flux and the thioesterase route to C14 fatty acids',
     date: '2/03/26',
@@ -336,7 +328,7 @@ export const writeUps: WriteUp[] = [
     affiliation: 'Team Lead, ICT Mumbai',
     photo: '/ihp-photos/aditya-ict.jpg',
     summary: 'Advised on sponsorship outreach',
-    date: '2/06/26',
+    date: '02/06/2026',
     purpose:
       'Our sponsorship outreach had stalled, cold emails and LinkedIn messages were yielding almost no response (roughly 1–2 replies per 50–60 contacts), and we needed practical, insider guidance on who to target, how to frame the pitch, and when companies are actually receptive.',
     keyTakeaway:
@@ -366,7 +358,7 @@ export const writeUps: WriteUp[] = [
   {
     id: 'rutuja',
     name: 'Rutuja',
-    affiliation: 'Systems biology researcher',
+    affiliation: 'Systems biology researcher, Diagnobacs',
     photo: '/ihp-photos/rutuja.jpg',
     summary: 'Advised on FAS simulations and yeast metabolic models',
     date: '2/06/26',
@@ -433,8 +425,8 @@ export const writeUps: WriteUp[] = [
   {
     id: 'sayali',
     name: 'Sayali Bokare',
-    affiliation: 'PhD Researcher, GC–MS',
-    summary: 'Advised on lyophilization for GC–MS sample preparation',
+    affiliation: 'PhD Researcher, GC–MS, Department of Biosciences and Bioengineering, IIT Bombay',
+    summary: 'Advised on and explained the GC–MS protocols',
     date: '10/10/26',
     purpose: TODO,
     keyTakeaway: TODO,
@@ -454,20 +446,11 @@ export const writeUps: WriteUp[] = [
     implementation: TODO,
     references: 'None',
   },
-  {
-    id: 'igem-denmark',
-    name: 'iGEM Denmark',
-    purpose: TODO,
-    keyTakeaway: TODO,
-    contribution: TODO,
-    implementation: TODO,
-    references: 'None',
-  },
   // On the People Flow board but with no document in the shared Drive folder yet.
   {
     id: 'prof-santanu',
     name: 'Prof. Shantanu Ghosh',
-    affiliation: 'Professor in Plasmid Design',
+    affiliation: 'Professor, Department of Biosciences and Bioengineering, IIT Bombay',
     photo: '/ihp-photos/prof-santanu.jpg',
     summary: 'Validated Plasmid Map',
     date: '30/09/26',
@@ -480,10 +463,10 @@ export const writeUps: WriteUp[] = [
   {
     id: 'shubham',
     name: 'Shubham',
-    affiliation: 'PhD researcher in LCA',
+    affiliation: 'PhD Researcher in LCA, Department of Chemical Engineering, IIT Bombay',
     photo: '/ihp-photos/shubham.jpg',
-    summary: 'Mentored the dry lab team on LCA (via Prof. Shastri)',
-    date: '20/10/2025',
+    summary: 'Validated the dry lab team’s LCA (via Prof. Shastri)',
+    date: '20/10/2026',
     purpose: TODO,
     keyTakeaway: TODO,
     contribution: TODO,

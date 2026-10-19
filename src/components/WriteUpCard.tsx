@@ -71,7 +71,7 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
           )}
           {person.date && (
             <p className={styles.date}>
-              <span>Met:</span> {person.date}
+              <span>Date:</span> {person.date}
             </p>
           )}
         </div>
