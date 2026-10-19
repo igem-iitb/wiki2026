@@ -24,9 +24,9 @@ declare global {
 
 // Same simulation for all three: 1,200 W server, inlet 25 °C at 0.42 m/s.
 const MODELS = [
-  { id: 'mm', label: 'Methyl myristate', file: '/drylab/cfd/models/mm-server.glb', max: '78.1 °C', ok: true },
-  { id: 'mineral', label: 'Mineral oil', file: '/drylab/cfd/models/mineraloil-server.glb', max: '87.2 °C', ok: false },
-  { id: 'ester', label: 'Ester-based coolant', file: '/drylab/cfd/models/ester-server.glb', max: '88.0 °C', ok: false },
+  { id: 'mm', label: 'Methyl myristate', file: '/iit-bombay/drylab/cfd/models/mm-server.glb', max: '78.1 °C', ok: true },
+  { id: 'mineral', label: 'Mineral oil', file: '/iit-bombay/drylab/cfd/models/mineraloil-server.glb', max: '87.2 °C', ok: false },
+  { id: 'ester', label: 'Ester-based coolant', file: '/iit-bombay/drylab/cfd/models/ester-server.glb', max: '88.0 °C', ok: false },
 ];
 
 /**

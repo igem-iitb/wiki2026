@@ -5,17 +5,17 @@ import styles from './wetlab.module.css';
 
 // Captions from "wiki wetlab doccumentation.pdf" pages 20–22. Image 1 is the Figma export.
 const slides = [
-  { src: '/wetlab/safety/image1.webp', caption: 'LAF cabinet used as a workbench for microbial samples where contamination may be an issue' },
-  { src: '/wetlab/safety/pdf-image2.jpeg', caption: 'Gloves were used throughout the experiments for handling all samples and chemicals' },
-  { src: '/wetlab/safety/pdf-image3.jpeg', caption: 'All high temperature chemicals were handled using heat resistant gloves' },
-  { src: '/wetlab/safety/pdf-image4.jpeg', caption: '70% ethanol was used to disinfect all workbenches before and after experiments daily' },
+  { src: '/iit-bombay/wetlab/safety/image1.webp', caption: 'LAF cabinet used as a workbench for microbial samples where contamination may be an issue' },
+  { src: '/iit-bombay/wetlab/safety/pdf-image2.jpeg', caption: 'Gloves were used throughout the experiments for handling all samples and chemicals' },
+  { src: '/iit-bombay/wetlab/safety/pdf-image3.jpeg', caption: 'All high temperature chemicals were handled using heat resistant gloves' },
+  { src: '/iit-bombay/wetlab/safety/pdf-image4.jpeg', caption: '70% ethanol was used to disinfect all workbenches before and after experiments daily' },
   {
-    src: '/wetlab/safety/pdf-image5.jpeg',
+    src: '/iit-bombay/wetlab/safety/pdf-image5.jpeg',
     caption: 'All discarded biological samples were placed in biohazard bags and stored in designated biosafety containers prior to autoclaving.',
   },
-  { src: '/wetlab/safety/pdf-image6.jpeg', caption: 'A team member working in the LAF cabinet' },
+  { src: '/iit-bombay/wetlab/safety/pdf-image6.jpeg', caption: 'A team member working in the LAF cabinet' },
   {
-    src: '/wetlab/safety/pdf-image7.jpeg',
+    src: '/iit-bombay/wetlab/safety/pdf-image7.jpeg',
     caption:
       'A team member wearing a lab coat and goggles. Lab coats were worn throughout all laboratory experiments. Goggles were worn as additional eye protection alongside face shields during gel extraction.',
   },

@@ -11,7 +11,7 @@ export default function CardSection() {
       >
         {/* Background Card Image */}
         <img
-          src="/card_ps.png"
+          src="/iit-bombay/card_ps.png"
           alt="Card Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -56,7 +56,7 @@ export default function CardSection() {
           style={{ containerType: 'inline-size' }}
         >
           <img
-            src="/card_sol.png"
+            src="/iit-bombay/card_sol.png"
             alt="Current Solution Background"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -96,7 +96,7 @@ export default function CardSection() {
           style={{ containerType: 'inline-size' }}
         >
           <img
-            src="/card_sol.png"
+            src="/iit-bombay/card_sol.png"
             alt="Our Solution Background"
             className="absolute inset-0 w-full h-full object-cover"
           />

@@ -127,18 +127,18 @@ export default function IhpPage() {
             <figure className={styles.profCard}>
               <div
                 className={styles.profPhotoWrap}
-                style={{ ['--photo-src' as string]: "url('/members/profRajesh.webp')" }}
+                style={{ ['--photo-src' as string]: "url('/iit-bombay/members/profRajesh.webp')" }}
               >
-                <img src="/members/profRajesh.webp" alt="Prof. Rajesh Patkar" className={styles.profPhoto} />
+                <img src="/iit-bombay/members/profRajesh.webp" alt="Prof. Rajesh Patkar" className={styles.profPhoto} />
               </div>
               <figcaption className={styles.profName}>Prof. Rajesh Patkar</figcaption>
             </figure>
             <figure className={styles.profCard}>
               <div
                 className={styles.profPhotoWrap}
-                style={{ ['--photo-src' as string]: "url('/members/profSaket.webp')" }}
+                style={{ ['--photo-src' as string]: "url('/iit-bombay/members/profSaket.webp')" }}
               >
-                <img src="/members/profSaket.webp" alt="Prof. Saket Choudhary" className={styles.profPhoto} />
+                <img src="/iit-bombay/members/profSaket.webp" alt="Prof. Saket Choudhary" className={styles.profPhoto} />
               </div>
               <figcaption className={styles.profName}>Prof. Saket Choudhary</figcaption>
             </figure>

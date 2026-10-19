@@ -145,7 +145,7 @@ export default function ProtocolsPage() {
       <div id="wheel" className={styles.wheelCard}>
         <div className={styles.wheelWrap}>
         <img
-          src="/wetlab/protocols/wheel.png"
+          src="/iit-bombay/wetlab/protocols/wheel.png"
           alt="Protocol wheel: Media Preparation, DNA Extraction, PCR & Analysis, Restriction & Cloning, Transformation, Culture & Storage"
           className={styles.wheelImg}
           style={{ cursor: hover ? 'pointer' : 'default' }}

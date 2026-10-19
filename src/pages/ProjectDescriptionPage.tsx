@@ -3,7 +3,7 @@ import IndexedEmbed from '../components/IndexedEmbed';
 export default function ProjectDescriptionPage() {
   return (
     <IndexedEmbed
-      src="/pages/project-description.html"
+      src="/iit-bombay/pages/project-description.html"
       title="Project Description"
       sectionSelector="main > section:has(h2)"
       describe={(el, i) => {

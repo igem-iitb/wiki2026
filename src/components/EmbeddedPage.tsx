@@ -5,7 +5,7 @@ import footerCss from './Footer.module.css?inline';
 import waveCss from './WaveFooter.module.css?inline';
 
 type EmbeddedPageProps = {
-  /** Path to the HTML file served from the public/ folder, e.g. "/pages/home.html" */
+  /** Path to the HTML file served from the public/ folder, e.g. "/iit-bombay/pages/home.html" */
   src: string;
   title: string;
 };

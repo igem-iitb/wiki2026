@@ -91,7 +91,7 @@ export default function Navbar() {
           style={{ marginLeft: '-24px' }}
         >
           <img
-            src="/igem-iitb-logo.webp"
+            src="/iit-bombay/igem-iitb-logo.webp"
             alt="iGEM IITB Logo"
             width={68}
             height={68}

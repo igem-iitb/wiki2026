@@ -35,7 +35,7 @@ export default function ResultsPage() {
           <h4 className={styles.h3}>Basis 1: same flow rate, 0.42 m/s</h4>
           <figure className={styles.figure}>
             <video
-              src="/drylab/cfd/comparison-3coolants-temperature-speed.mp4"
+              src="/iit-bombay/drylab/cfd/comparison-3coolants-temperature-speed.mp4"
               controls
               muted
               loop
@@ -97,7 +97,7 @@ export default function ResultsPage() {
           <h4 className={styles.h3}>Basis 2: steady-state temperature fixed at 85 °C</h4>
           <figure className={styles.figure}>
             <img
-              src="/drylab/cfd/fig2-tmax-vs-velocity.jpg"
+              src="/iit-bombay/drylab/cfd/fig2-tmax-vs-velocity.jpg"
               alt="Hottest server temperature against inlet velocity for each coolant, with the 85 °C limit marked"
               loading="lazy"
             />
@@ -211,7 +211,7 @@ export default function ResultsPage() {
           </p>
           <figure className={styles.figure}>
             <img
-              src="/project/results/plasmid-map.png"
+              src="/iit-bombay/project/results/plasmid-map.png"
               alt="Plasmid map of the final recombinant construct with the mutated FAS2 ORF and 3′ flank in p426GPD"
               loading="lazy"
               style={{ maxWidth: 560 }}
@@ -233,7 +233,7 @@ export default function ResultsPage() {
           <div className={styles.figPair}>
             <figure className={styles.figure}>
               <img
-                src="/project/results/gel-fas2-orf.png"
+                src="/iit-bombay/project/results/gel-fas2-orf.png"
                 alt="Agarose gel of the amplified FAS2 ORF with a 1 kb plus ladder"
                 loading="lazy"
               />
@@ -243,7 +243,7 @@ export default function ResultsPage() {
             </figure>
             <figure className={styles.figure}>
               <img
-                src="/project/results/gel-3-flank.png"
+                src="/iit-bombay/project/results/gel-3-flank.png"
                 alt="Agarose gel of the amplified 3′ genomic flanking region with a 1 kb plus ladder"
                 loading="lazy"
               />
@@ -266,7 +266,7 @@ export default function ResultsPage() {
             substitution, supporting successful incorporation of the mutation into the recombinant plasmid.
           </p>
           <figure className={styles.figure}>
-            <DocViewer docs={[{ title: 'Sanger sequencing electropherogram (5 pages)', file: '/project/results/sanger-sequencing.pdf' }]} />
+            <DocViewer docs={[{ title: 'Sanger sequencing electropherogram (5 pages)', file: '/iit-bombay/project/results/sanger-sequencing.pdf' }]} />
             <figcaption>
               <b>Figure 6.</b> Sanger sequencing chromatogram showing the intended V1254W substitution in the{' '}
               <i>FAS2</i> ORF.
@@ -287,7 +287,7 @@ export default function ResultsPage() {
           <div className={styles.figPair}>
             <figure className={styles.figure}>
               <img
-                src="/project/results/lca-pump-power.png"
+                src="/iit-bombay/project/results/lca-pump-power.png"
                 alt="Pumping power: 6.1 W for methyl myristate against 158.9 W for the ester-based coolant, 96% lower"
                 loading="lazy"
               />
@@ -297,7 +297,7 @@ export default function ResultsPage() {
             </figure>
             <figure className={styles.figure}>
               <img
-                src="/project/results/lca-co2.png"
+                src="/iit-bombay/project/results/lca-co2.png"
                 alt="CO2 emissions per server-year: 5,012 kg for methyl myristate against 6,071 kg for the ester-based coolant, 17% lower"
                 loading="lazy"
               />

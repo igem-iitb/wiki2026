@@ -102,7 +102,7 @@ export default function ContributionPage() {
           <h4 className={styles.h3}>Education and outreach: two booklets, built to be reused</h4>
           <div className={styles.booklets}>
             <div className={styles.booklet}>
-              <img src="/project/contribution/fas-booklet-cover.jpg" alt="Cover of the FAS Booklet, first edition" loading="lazy" />
+              <img src="/iit-bombay/project/contribution/fas-booklet-cover.jpg" alt="Cover of the FAS Booklet, first edition" loading="lazy" />
               <div>
                 <h4>FAS booklet</h4>
                 <p>
@@ -110,14 +110,14 @@ export default function ContributionPage() {
                   background needed. Teams can hand it to schools or community groups as is, adapt it to their own
                   project, or use it as a template for making complex science accessible.
                 </p>
-                <a href="/eo/docs/fas-booklet/fas-booklet.pdf" target="_blank" rel="noreferrer" className={styles.more}>
+                <a href="/iit-bombay/eo/docs/fas-booklet/fas-booklet.pdf" target="_blank" rel="noreferrer" className={styles.more}>
                   Read the FAS booklet (PDF) ↗
                 </a>
               </div>
             </div>
             <div className={styles.booklet}>
               <img
-                src="/project/contribution/synbio-reality-check-cover.jpg"
+                src="/iit-bombay/project/contribution/synbio-reality-check-cover.jpg"
                 alt="Cover of the SynBio Reality Check booklet, Beyond the Green Promise"
                 loading="lazy"
               />
@@ -132,7 +132,7 @@ export default function ContributionPage() {
                   discussion tool for workshops and events, and helps teams stress-test their own claims early.
                 </p>
                 <a
-                  href="/eo/docs/synbio-sustainable/synbio-reality-check-booklet.pdf"
+                  href="/iit-bombay/eo/docs/synbio-sustainable/synbio-reality-check-booklet.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.more}
@@ -154,7 +154,7 @@ export default function ContributionPage() {
             to any audience, and makes concepts hands-on. We hope other teams will run or modify it for their own events.
           </p>
           <figure className={styles.figure}>
-            <video src="/project/contribution/simulation-website.mp4" controls muted playsInline preload="metadata" />
+            <video src="/iit-bombay/project/contribution/simulation-website.mp4" controls muted playsInline preload="metadata" />
             <figcaption>A walk-through of the gene cloning simulation website.</figcaption>
           </figure>
           <a href="https://igem-simulation-beta.vercel.app/" target="_blank" rel="noreferrer" className={styles.more}>

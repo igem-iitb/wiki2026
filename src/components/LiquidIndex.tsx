@@ -328,7 +328,7 @@ export default function LiquidIndex({ items, header, className, geometry, childr
               <path ref={sparkRef} d={flowPath} className="flow-spark" />
 
               {/* connectors */}
-              {items.map((it, i) => {
+              {items.map((_it, i) => {
                 const n = positions[i];
                 const lit = i <= active;
                 return (

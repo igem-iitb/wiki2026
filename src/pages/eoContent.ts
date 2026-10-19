@@ -79,7 +79,7 @@ export const EVENTS: EventItem[] = [
   // 1 ────────────────────────────────────────────────────────────────────────
   {
     name: 'BioTL: BioTinkerers’ Laboratory',
-    docs: [{ title: 'BioTL proposal deck', file: '/eo/docs/biotl/biotl-deck.pdf' }, { title: 'BioTL floor plan', file: '/eo/docs/biotl/floor-plan.pdf' }, { title: 'BioTL interest survey responses (names removed)', file: '/eo/docs/biotl/survey-responses.csv' }],
+    docs: [{ title: 'BioTL proposal deck', file: '/iit-bombay/eo/docs/biotl/biotl-deck.pdf' }, { title: 'BioTL floor plan', file: '/iit-bombay/eo/docs/biotl/floor-plan.pdf' }, { title: 'BioTL interest survey responses (names removed)', file: '/iit-bombay/eo/docs/biotl/survey-responses.csv' }],
     photos: shots('biotl', 5),
     meta: 'A 24 x 7 student-run tinkering lab · MoU signed 11 March 2026 · @biotl.iitb',
     tabs: {
@@ -177,7 +177,7 @@ export const EVENTS: EventItem[] = [
   // 2 ────────────────────────────────────────────────────────────────────────
   {
     name: 'AIIM 2026: All India iGEM Meet',
-    docs: [{ title: 'Research poster', file: '/eo/docs/aiim/research-poster.pdf' }, { title: 'Judging presentation', file: '/eo/docs/aiim/judging-presentation.pdf' }],
+    docs: [{ title: 'Research poster', file: '/iit-bombay/eo/docs/aiim/research-poster.pdf' }, { title: 'Judging presentation', file: '/iit-bombay/eo/docs/aiim/judging-presentation.pdf' }],
     photos: shots('aiim', 18),
     meta: 'Best Human Practices and Best Overall Team',
     highlight: {
@@ -254,7 +254,7 @@ export const EVENTS: EventItem[] = [
   // 3 ────────────────────────────────────────────────────────────────────────
   {
     name: 'SYNBIOCON 2026',
-    docs: [{ title: 'Conference schedule', file: '/eo/docs/synbiocon/conference-schedule.pdf' }, { title: 'SynBioCon 2026 brochure', file: '/eo/docs/synbiocon/synbiocon-brochure.pdf' }, { title: 'Participation certificate (template)', file: '/eo/docs/synbiocon/participation-certificate-template.pdf' }],
+    docs: [{ title: 'Conference schedule', file: '/iit-bombay/eo/docs/synbiocon/conference-schedule.pdf' }, { title: 'SynBioCon 2026 brochure', file: '/iit-bombay/eo/docs/synbiocon/synbiocon-brochure.pdf' }, { title: 'Participation certificate (template)', file: '/iit-bombay/eo/docs/synbiocon/participation-certificate-template.pdf' }],
     photos: shots('synbiocon', 19),
     meta: 'iGEM IIT Bombay × iGEM IIT Kharagpur · 7–8 March 2026 · synbiocon2026.in',
     tabs: {
@@ -357,7 +357,7 @@ export const EVENTS: EventItem[] = [
   // 4 ────────────────────────────────────────────────────────────────────────
   {
     name: 'SynBio Explorers at AECS No. 3',
-    docs: [{ title: 'Activity booklet', file: '/eo/docs/aecs/activity-booklet.pdf' }, { title: 'Chromatography session slides', file: '/eo/docs/aecs/chromatography-slides.pdf' }, { title: 'iGEM introduction slides', file: '/eo/docs/aecs/igem-introduction.pdf' }],
+    docs: [{ title: 'Activity booklet', file: '/iit-bombay/eo/docs/aecs/activity-booklet.pdf' }, { title: 'Chromatography session slides', file: '/iit-bombay/eo/docs/aecs/chromatography-slides.pdf' }, { title: 'iGEM introduction slides', file: '/iit-bombay/eo/docs/aecs/igem-introduction.pdf' }],
     photos: shots('aecs', 13),
     meta: 'Atomic Energy Central School No. 3 · 80+ Grade 8 students · our flagship school visit',
     tabs: {
@@ -429,7 +429,7 @@ export const EVENTS: EventItem[] = [
   // 5 ────────────────────────────────────────────────────────────────────────
   {
     name: 'GnaanU 2026',
-    docs: [{ title: 'Blood testing session slides', file: '/eo/docs/gnaanu/blood-testing-slides.pdf' }],
+    docs: [{ title: 'Blood testing session slides', file: '/iit-bombay/eo/docs/gnaanu/blood-testing-slides.pdf' }],
     photos: shots('gnaanu', 9),
     meta: 'GnaanU (NGO) × iGEM IIT Bombay × IITB Biology Club · classes 6–8 · 16 January 2026',
     tabs: {
@@ -489,7 +489,7 @@ export const EVENTS: EventItem[] = [
   // 6 ────────────────────────────────────────────────────────────────────────
   {
     name: 'The AI Cooling Crisis Audit (Survey)',
-    docs: [{ title: 'Survey responses (anonymised)', file: '/eo/docs/survey/survey-responses.csv' }],
+    docs: [{ title: 'Survey responses (anonymised)', file: '/iit-bombay/eo/docs/survey/survey-responses.csv' }],
     meta: 'Two-round online survey · 62 respondents · pilot 23 June to 7 July, main round 13 to 19 October 2026',
     tabs: {
       Purpose: [
@@ -596,7 +596,7 @@ export const EVENTS: EventItem[] = [
   // 7 ────────────────────────────────────────────────────────────────────────
   {
     name: 'TechConnect at TechFest',
-    docs: [{ title: 'Breaking the Biofilm Barrier: research poster', file: '/eo/docs/techconnect/biofilm-poster.pdf' }, { title: 'Team iGEM IIT Bombay at TechConnect', file: '/eo/docs/techconnect/team-igem-techconnect.pdf' }, { title: 'Stall video 1', file: '/eo/docs/techconnect/stall-video-1.mp4' }, { title: 'Stall video 2', file: '/eo/docs/techconnect/stall-video-2.mp4' }, { title: 'Stall video 3', file: '/eo/docs/techconnect/stall-video-3.mp4' }, { title: 'Stall video 4', file: '/eo/docs/techconnect/stall-video-4.mp4' }],
+    docs: [{ title: 'Breaking the Biofilm Barrier: research poster', file: '/iit-bombay/eo/docs/techconnect/biofilm-poster.pdf' }, { title: 'Team iGEM IIT Bombay at TechConnect', file: '/iit-bombay/eo/docs/techconnect/team-igem-techconnect.pdf' }, { title: 'Stall video 1', file: '/iit-bombay/eo/docs/techconnect/stall-video-1.mp4' }, { title: 'Stall video 2', file: '/iit-bombay/eo/docs/techconnect/stall-video-2.mp4' }, { title: 'Stall video 3', file: '/iit-bombay/eo/docs/techconnect/stall-video-3.mp4' }, { title: 'Stall video 4', file: '/iit-bombay/eo/docs/techconnect/stall-video-4.mp4' }],
     photos: shots('techconnect', 3),
     meta: 'IIT Bombay TechFest: Asia’s largest technology fest · 1,000+ stall visitors',
     tabs: {
@@ -647,7 +647,7 @@ export const EVENTS: EventItem[] = [
   // 8 ────────────────────────────────────────────────────────────────────────
   {
     name: 'Is SynBio Really Sustainable?',
-    docs: [{ title: 'SynBio Reality Check: discussion booklet (IIT Delhi × IIT Bombay)', file: '/eo/docs/synbio-sustainable/synbio-reality-check-booklet.pdf' }, { title: 'Episode 1', file: '/eo/docs/synbio-sustainable/episode-1.mp4' }, { title: 'Episode 2', file: '/eo/docs/synbio-sustainable/episode-2.mp4' }],
+    docs: [{ title: 'SynBio Reality Check: discussion booklet (IIT Delhi × IIT Bombay)', file: '/iit-bombay/eo/docs/synbio-sustainable/synbio-reality-check-booklet.pdf' }, { title: 'Episode 1', file: '/iit-bombay/eo/docs/synbio-sustainable/episode-1.mp4' }, { title: 'Episode 2', file: '/iit-bombay/eo/docs/synbio-sustainable/episode-2.mp4' }],
     meta: 'SynBio Reality Check · iGEM IIT Delhi × iGEM IIT Bombay · two-episode video series',
     tabs: {
       Purpose: [
@@ -719,7 +719,7 @@ export const EVENTS: EventItem[] = [
   // 9 ────────────────────────────────────────────────────────────────────────
   {
     name: 'Do IITB Freshers Know SynBio?',
-    docs: [{ title: 'Interview clips, part 1', file: '/eo/docs/freshers/interviews-1.mp4' }, { title: 'Interview clips, part 2', file: '/eo/docs/freshers/interviews-2.mp4' }],
+    docs: [{ title: 'Interview clips, part 1', file: '/iit-bombay/eo/docs/freshers/interviews-1.mp4' }, { title: 'Interview clips, part 2', file: '/iit-bombay/eo/docs/freshers/interviews-2.mp4' }],
     photos: shots('freshers', 3),
     meta: 'Hostel 16 mess, dinner, 5 October 2026 · 40+ on-camera interviews',
     tabs: {
@@ -772,7 +772,7 @@ export const EVENTS: EventItem[] = [
   {
     name: 'Careers in SynBio ft. iGEM IITB Alumni',
     photos: shots('careers', 8),
-    docs: [{ title: 'Careers in SynBio: session slides', file: '/eo/docs/careers/careers-in-synbio-slides.pdf' }],
+    docs: [{ title: 'Careers in SynBio: session slides', file: '/iit-bombay/eo/docs/careers/careers-in-synbio-slides.pdf' }],
     meta: 'Online · 18 October 2026 · 2 sessions · 3 speakers · 20 students',
     tabs: {
       Purpose: [
@@ -875,7 +875,7 @@ export const EVENTS: EventItem[] = [
   // 12 ───────────────────────────────────────────────────────────────────────
   {
     name: 'The FAS Booklet: First Edition',
-    docs: [{ title: 'The FAS Booklet, first edition', file: '/eo/docs/fas-booklet/fas-booklet.pdf' }],
+    docs: [{ title: 'The FAS Booklet, first edition', file: '/iit-bombay/eo/docs/fas-booklet/fas-booklet.pdf' }],
     meta: 'A Field Guide to Fungal Fatty Acid Synthase · emailed to 100+ readers',
     tabs: {
       Purpose: [
@@ -949,7 +949,7 @@ export const EVENTS: EventItem[] = [
   // 13 ───────────────────────────────────────────────────────────────────────
   {
     name: 'Gene Cloning Simulation Website 2.0',
-    docs: [{ title: 'Walk-through of the simulation website', file: '/project/contribution/simulation-website.mp4' }],
+    docs: [{ title: 'Walk-through of the simulation website', file: '/iit-bombay/project/contribution/simulation-website.mp4' }],
     photos: shots('gene-cloning', 3),
     meta: '400+ students · igem-simulation-beta.vercel.app',
     tabs: {
@@ -1073,7 +1073,7 @@ export const EVENTS: EventItem[] = [
   {
     name: 'Internal AI Audit',
     photos: shots('ai-audit', 6),
-    docs: [{ title: 'Survey responses (names removed)', file: '/eo/docs/ai-audit/responses.csv' }],
+    docs: [{ title: 'Survey responses (names removed)', file: '/iit-bombay/eo/docs/ai-audit/responses.csv' }],
     meta: '19 team members across all 5 subsystems',
     tabs: {
       Purpose: [
@@ -1137,7 +1137,7 @@ export const EVENTS: EventItem[] = [
   // 18 ───────────────────────────────────────────────────────────────────────
   {
     name: 'Junicorn by 100 GIGA',
-    docs: [{ title: 'Junicorn pitch deck', file: '/eo/docs/junicorn/junicorn-pitch.pdf' }],
+    docs: [{ title: 'Junicorn pitch deck', file: '/iit-bombay/eo/docs/junicorn/junicorn-pitch.pdf' }],
     photos: shots('junicorn', 1),
     meta: 'Dayananda Sagar University, International StartUp Fair · a cohort of 40 girl founders',
     tabs: {

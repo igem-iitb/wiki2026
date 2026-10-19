@@ -4,7 +4,7 @@ import { HP_TYPOGRAPHY_CSS } from '../components/hpTypography';
 export default function SustainabilityPage() {
   return (
     <IndexedEmbed
-      src="/pages/sustainability.html"
+      src="/iit-bombay/pages/sustainability.html"
       title="Sustainability"
       art="leaf"
       sectionSelector="main > section"

@@ -7,7 +7,7 @@ import styles from './eo.module.css';
 import { EVENTS, HUBS, SUBTABS, SUBTAB_PROMPTS, type Block, type EventItem, type Tab } from './eoContent';
 
 // Team photos for the gallery card.
-const TEAM_PHOTOS = ['/eo/team.jpg', '/team_pic.webp', '/eo/team2.webp', '/eo/team3.webp'];
+const TEAM_PHOTOS = ['/iit-bombay/eo/team.jpg', '/iit-bombay/team_pic.webp', '/iit-bombay/eo/team2.webp', '/iit-bombay/eo/team3.webp'];
 
 // ─── helpers ─────────────────────────────────────────────────────────────────
 
@@ -221,7 +221,7 @@ function Initiative({ item, index, isOpen, onToggle }: { item: EventItem; index:
             </span>
             {item.meta && <small>{item.meta}</small>}
           </span>
-          <img src="/eo/atom/arrow.svg" alt="" className={styles.initArrow} />
+          <img src="/iit-bombay/eo/atom/arrow.svg" alt="" className={styles.initArrow} />
         </button>
       )}
 

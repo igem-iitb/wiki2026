@@ -19,7 +19,7 @@ export default function Footer({ bgColor = '#181830' }: FooterProps) {
           {/* Left: iGEM IITB logo */}
           <div className={styles.logoBox}>
             <img
-              src="/igem-iitb-logo.webp"
+              src="/iit-bombay/igem-iitb-logo.webp"
               alt="iGEM IIT Bombay"
               className={styles.logo}
             />
@@ -29,7 +29,7 @@ export default function Footer({ bgColor = '#181830' }: FooterProps) {
           <div className={styles.middle}>
             <div className={styles.bifrostBox}>
               <img
-                src="/bifrost-logo.svg"
+                src="/iit-bombay/bifrost-logo.svg"
                 alt="BiFrost"
                 className={styles.bifrostLogo}
               />

@@ -4,7 +4,7 @@ import { HP_TYPOGRAPHY_CSS } from '../components/hpTypography';
 export default function EntrepreneurshipPage() {
   return (
     <IndexedEmbed
-      src="/pages/entrepreneurship.html"
+      src="/iit-bombay/pages/entrepreneurship.html"
       title="Entrepreneurship"
       art="bulb"
       sectionSelector="section.sec"

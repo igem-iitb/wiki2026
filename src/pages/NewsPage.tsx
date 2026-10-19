@@ -20,19 +20,19 @@ function renderRich(text: string) {
 // Photos (cut-outs, kept PNG for transparency) + charts/infographics (JPEG),
 // extracted from the Figma SVG and placed at their exact canvas rects.
 const images: { src: string; left: number; top: number; width: number; height: number }[] = [
-  { src: '/news/img/n1.webp', left: 68, top: 179, width: 169, height: 232 },   // Katie Muth
-  { src: '/news/img/n0.webp', left: 1182, top: 174, width: 190, height: 237 }, // Ashwini Vaishnaw
-  { src: '/news/img/n2.jpg', left: 307, top: 515, width: 480, height: 329 },
-  { src: '/news/img/n7.jpg', left: 829, top: 902, width: 521, height: 339 },
-  { src: '/news/img/n3.jpg', left: 83, top: 1198, width: 469, height: 267 },
-  { src: '/news/img/n9.webp', left: 829, top: 1478, width: 322, height: 208 }, // Modi
-  { src: '/news/img/n10.webp', left: 815, top: 1700, width: 550, height: 307 },
-  { src: '/news/img/n4.jpg', left: 327, top: 1750, width: 461, height: 252 },
-  { src: '/news/img/n5.jpg', left: 83, top: 2031, width: 706, height: 353 },
-  { src: '/news/img/n6.webp', left: 1066, top: 565, width: 284, height: 301 },
-  { src: '/news/img/n8.jpg', left: 1018, top: 2378, width: 347, height: 168 },
-  { src: '/news/img/n11.webp', left: 825, top: 2783, width: 525, height: 311 },
-  { src: '/news/img/n12.webp', left: 71, top: 3306, width: 1272, height: 559 },
+  { src: '/iit-bombay/news/img/n1.webp', left: 68, top: 179, width: 169, height: 232 },   // Katie Muth
+  { src: '/iit-bombay/news/img/n0.webp', left: 1182, top: 174, width: 190, height: 237 }, // Ashwini Vaishnaw
+  { src: '/iit-bombay/news/img/n2.jpg', left: 307, top: 515, width: 480, height: 329 },
+  { src: '/iit-bombay/news/img/n7.jpg', left: 829, top: 902, width: 521, height: 339 },
+  { src: '/iit-bombay/news/img/n3.jpg', left: 83, top: 1198, width: 469, height: 267 },
+  { src: '/iit-bombay/news/img/n9.webp', left: 829, top: 1478, width: 322, height: 208 }, // Modi
+  { src: '/iit-bombay/news/img/n10.webp', left: 815, top: 1700, width: 550, height: 307 },
+  { src: '/iit-bombay/news/img/n4.jpg', left: 327, top: 1750, width: 461, height: 252 },
+  { src: '/iit-bombay/news/img/n5.jpg', left: 83, top: 2031, width: 706, height: 353 },
+  { src: '/iit-bombay/news/img/n6.webp', left: 1066, top: 565, width: 284, height: 301 },
+  { src: '/iit-bombay/news/img/n8.jpg', left: 1018, top: 2378, width: 347, height: 168 },
+  { src: '/iit-bombay/news/img/n11.webp', left: 825, top: 2783, width: 525, height: 311 },
+  { src: '/iit-bombay/news/img/n12.webp', left: 71, top: 3306, width: 1272, height: 559 },
 ];
 
 // Filled color blocks + bordered boxes (Figma rectangles).

@@ -161,7 +161,7 @@ export default function DryLabPage({ slug }: { slug: string }) {
         window.history.replaceState(window.history.state, '', href);
         e.preventDefault();
       }
-    } else if (href.startsWith('/dry-lab')) {
+    } else if (/^\/(dry-lab|project|wet-lab|human-practices|team|education|sustainability)(\/|#|$)/.test(href)) {
       e.preventDefault();
       navigate(href);
     }
