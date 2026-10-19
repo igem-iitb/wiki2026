@@ -1,6 +1,6 @@
 // Educational Outreach content.
 // The LEARN hubs stay as the process breakdown; the events below are a single
-// flat list in the order of "EO Flow" (helper set day 2/EO), not grouped by LEARN.
+// flat list in the order of "EO Flow" (DAY4/EO wiki content), not grouped by LEARN.
 // Each event's six tabs follow the team's own outreach write-up template.
 
 export type Block =
@@ -76,12 +76,12 @@ export const HUBS: Hub[] = [
 ];
 
 export const EVENTS: EventItem[] = [
-  // 1 ─────────────────────────────────────────────────────────────────────────
+  // 1 ────────────────────────────────────────────────────────────────────────
   {
     name: 'BioTL: BioTinkerers’ Laboratory',
-    docs: [{ title: 'BioTL proposal deck', file: '/eo/docs/biotl/biotl-deck.pdf' }, { title: 'BioTL floor plan', file: '/eo/docs/biotl/floor-plan.pdf' }],
+    docs: [{ title: 'BioTL proposal deck', file: '/eo/docs/biotl/biotl-deck.pdf' }, { title: 'BioTL floor plan', file: '/eo/docs/biotl/floor-plan.pdf' }, { title: 'BioTL interest survey responses (names removed)', file: '/eo/docs/biotl/survey-responses.csv' }],
     photos: shots('biotl', 5),
-    meta: 'A permanent student-run tinkering lab · MoU signed 11 March 2026 · @biotl.iitb',
+    meta: 'A 24 x 7 student-run tinkering lab · MoU signed 11 March 2026 · @biotl.iitb',
     tabs: {
       Purpose: [
         { t: 'p', text: 'Culture it. Test it. Discover it. A permanent, student-run biology tinkering lab at IIT Bombay (2nd floor, DSSE), backed by a ₹2.5 crore gift from the IIT Bombay Class of 1966.' },
@@ -168,12 +168,13 @@ export const EVENTS: EventItem[] = [
           'AIIM 2026 write-up with the judges’ feedback.',
           'Instagram: @biotl.iitb',
           'Gallery: cheque handover, MoU signing and group photographs.',
+          'Instagram post: https://www.instagram.com/p/Dd4Dv_ggnwX/',
         ] },
       ],
     },
   },
 
-  // 2 ─────────────────────────────────────────────────────────────────────────
+  // 2 ────────────────────────────────────────────────────────────────────────
   {
     name: 'AIIM 2026: All India iGEM Meet',
     docs: [{ title: 'Research poster', file: '/eo/docs/aiim/research-poster.pdf' }, { title: 'Judging presentation', file: '/eo/docs/aiim/judging-presentation.pdf' }],
@@ -250,9 +251,10 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 3 ─────────────────────────────────────────────────────────────────────────
+  // 3 ────────────────────────────────────────────────────────────────────────
   {
     name: 'SYNBIOCON 2026',
+    docs: [{ title: 'Conference schedule', file: '/eo/docs/synbiocon/conference-schedule.pdf' }, { title: 'SynBioCon 2026 brochure', file: '/eo/docs/synbiocon/synbiocon-brochure.pdf' }, { title: 'Participation certificate (template)', file: '/eo/docs/synbiocon/participation-certificate-template.pdf' }],
     photos: shots('synbiocon', 19),
     meta: 'iGEM IIT Bombay × iGEM IIT Kharagpur · 7–8 March 2026 · synbiocon2026.in',
     tabs: {
@@ -352,7 +354,7 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 4 ─────────────────────────────────────────────────────────────────────────
+  // 4 ────────────────────────────────────────────────────────────────────────
   {
     name: 'SynBio Explorers at AECS No. 3',
     docs: [{ title: 'Activity booklet', file: '/eo/docs/aecs/activity-booklet.pdf' }, { title: 'Chromatography session slides', file: '/eo/docs/aecs/chromatography-slides.pdf' }, { title: 'iGEM introduction slides', file: '/eo/docs/aecs/igem-introduction.pdf' }],
@@ -424,7 +426,7 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 5 ─────────────────────────────────────────────────────────────────────────
+  // 5 ────────────────────────────────────────────────────────────────────────
   {
     name: 'GnaanU 2026',
     docs: [{ title: 'Blood testing session slides', file: '/eo/docs/gnaanu/blood-testing-slides.pdf' }],
@@ -484,9 +486,117 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 6 ─────────────────────────────────────────────────────────────────────────
+  // 6 ────────────────────────────────────────────────────────────────────────
+  {
+    name: 'The AI Cooling Crisis Audit (Survey)',
+    docs: [{ title: 'Survey responses (anonymised)', file: '/eo/docs/survey/survey-responses.csv' }],
+    meta: 'Two-round online survey · 62 respondents · pilot 23 June to 7 July, main round 13 to 19 October 2026',
+    tabs: {
+      Purpose: [
+        { t: 'ul', items: [
+          ['The gap.', 'AI data centres are driving a water and power crisis, and bio-manufactured coolants are a proposed fix. Yet nobody had asked the public what they know, what they fear, and what proof they would need before trusting a living-organism-made coolant in the infrastructure behind the AI tools they use every day.'],
+          ['Our answer.', 'The AI Cooling Crisis Audit, a two-round online survey run by iGEM IIT Bombay that doubles as a learning experience. Participants ranked trade-offs, argued through dilemmas, and told us what they would say to tech leaders.'],
+          ['The goal.', 'Find out what the public understands, worries about and demands, and use it to shape our project’s design, safety case and communication. We also wanted participants to leave with a sharper view of the problem.'],
+          ['How it started.', 'Our human-practices work asks what society wants from a technology, before we decide how to build it.'],
+        ] },
+      ],
+      'Who We Reached': [
+        { t: 'ul', items: ['62 respondents in total, from India.'] },
+        { t: 'table', head: ['Age range', 'Respondents', 'Share'], rows: [
+          ['Under 18', '6', '10%'], ['18–24', '36', '58%'], ['25–34', '1', '2%'], ['35–49', '14', '23%'], ['50 and above', '5', '8%'],
+        ] },
+        { t: 'table', head: ['Background', 'Respondents'], rows: [
+          ['Engineering', '16'], ['Computer science, AI, ML', '13'], ['Student (not yet specialised)', '9'], ['Business, finance, policy', '6'],
+          ['Arts, humanities, social sciences', '3'], ['Mixed backgrounds (picked 2 or more)', '15, of which 9 include synthetic biology or life sciences'],
+        ] },
+        { t: 'ul', items: [
+          ['iGEM connection (n = 11 who answered).', '6 on an active team, 1 alumnus, 3 familiar with iGEM and 1 new to it.'],
+          ['Scale and setting.', 'Online, open to the public, shared through WhatsApp groups, campus channels, LinkedIn and iGEM networks.'],
+          ['Reach beyond the event.', 'Respondents who offered to contribute through igem.iitb@gmail.com, mentors who asked for the results, and other iGEM teams who want to reuse the survey.'],
+        ] },
+      ],
+      'What We Did': [
+        { t: 'p', text: 'A two-round public "audit" that moved from awareness, to ranking trade-offs, to ethical dilemmas, to an India-specific module, and ended by asking whether the survey itself changed anyone’s mind.' },
+        { t: 'table', head: ['Activity / Step', 'What participants did', 'What it showed or taught'], rows: [
+          ['1. Pilot round (6 responses, 23 June to 7 July)', 'Took the long form, including safety, disclosure and company-decision questions', 'Which questions worked, and early signals on safety and disclosure'],
+          ['2. Awareness baseline', 'Reported how much they knew about data-centre water and energy use, and about liquid immersion cooling', 'How big the gap is between knowing the problem and knowing the solution'],
+          ['3. Ranking exercises', 'Ranked 4 consequences of data-centre heat by how much each worries them, then ranked 4 factors tech companies should prioritise', 'Forced trade-offs showed what people truly value, not just what they say they value'],
+          ['4. Synbio attitudes and trust', 'Gave their stance on engineered organisms in industry, picked applications they would accept, and rated trust in academic institutions', 'Where public comfort with synthetic biology starts and stops'],
+          ['5. Dilemmas', 'Weighed the Jevons Paradox, speed against biosafety, and a company choice between two coolant options', 'How people reason about rebound effects and risk, not only what they conclude'],
+          ['6. India module (56 responses)', 'Said which real Indian data-centre controversies and policies they knew, then wrote one sentence to tech leaders and policy-makers about a city rationing drinking water next to a data centre', 'How much local reality has reached the public, plus raw moral language we can learn from'],
+          ['7. Reflection', 'Said which of their views the survey changed', 'A direct measure of the survey’s influence'],
+        ] },
+        { t: 'ul', items: [
+          ['What we built ourselves.', 'The survey form, an India module covering real developments (Vizag, Thane/Balkum, Bhogapuram, Ratnagiri, IndiaAI Mission, Semicon India), a Jevons Paradox question, and a two-option coolant case study.'],
+          'We used ranking instead of rating so people had to choose between water, grid power, carbon and heat.',
+          'Dilemma questions said "there is no right answer", to avoid leading respondents.',
+          'The India module started from real local stories instead of abstract numbers.',
+          'We closed with a reflection question to measure change in views.',
+          'The main round used a shorter form than the pilot, with an added India section.',
+        ] },
+      ],
+      'Key Takeaway': [
+        { t: 'ul', items: [
+          ['Headline result.', '62 people across 3 countries, from under 18 to over 50, told us that water comes first: 34 of 62 (55%) ranked water consumption as their top worry, and 34 of 62 (55%) ranked water conservation as the top priority for cooling technology.'],
+          ['Impact on the audience.', '45 of 54 (83%) said the survey changed or nuanced at least one of their views. 26 of 54 (48%) said it changed how seriously they see the data-centre crisis.'],
+          ['What worked.', 'Forced ranking and real Indian examples. Forty of 56 India-module respondents (71%) wrote a full sentence to tech and policy leaders. Most people who saw this question chose to answer it.'],
+        ] },
+        { t: 'table', head: ['Finding', 'Evidence', 'Why it matters for our project'], rows: [
+          ['Water is the public’s top concern', '34 of 62 (55%) ranked it #1 worry; 54 of 62 (87%) ranked it #1 or #2', 'Lead with water savings in our communication'],
+          ['Cost matters least to the public', '38 of 62 (61%) ranked cost and performance last', 'A "green but costly" message may still land'],
+          ['Awareness of the problem is high, of the solution low', '54 of 62 (87%) had heard of the problem; 21 of 62 (34%) had never heard of immersion cooling; only 5 of 56 (9%) knew of bio-based coolants in India', 'Our work fills a real awareness gap'],
+          ['Public is open to industrial synbio, with conditions', '41 of 62 (66%) supportive; 24 (39%) only "with conditions"', 'Safety and containment have to be visible'],
+          ['Industrial uses are the easiest to accept', '46 of 62 (74%) accept engineered microbes for coolants or polymers, versus 27 (44%) for engineered crops', 'Our application sits in the most accepted category'],
+          ['Trust in researchers is conditional', '31 of 62 (50%) moderate trust, 24 (39%) high, 7 (11%) low or very low', 'Publish data and invite independent checks'],
+          ['Rebound effects divide opinion', '21 (34%) net positive, 18 (29%) neutral, 14 (23%) net negative, 9 (15%) unknowable', 'We must show that cheaper cooling does not simply mean more data centres'],
+        ] },
+      ],
+      Feedback: [
+        { t: 'ul', items: [
+          ['Awareness.', '28 of 62 (45%) already followed the topic closely and 26 (42%) knew a little, while 8 (13%) knew vaguely or nothing.'],
+          ['Engagement.', 'Respondents wrote 40 one-sentence messages to leaders, 22 comments on the survey and 13 answers on unsolved problems for bio-based materials.'],
+          ['India’s local stories had real reach.', '47 of 56 (84%) knew at least one data-centre development. 27 (48%) knew of the Vizag protests, 26 (46%) the Thane/Balkum protests, and 17 (30%) the water-footprint controversies.'],
+          ['Cooling policy shifts are less known.', 'Only 13 (23%) knew of the move to dry air cooling.'],
+        ] },
+        { t: 'quote', text: 'Who are you even making this technology for, if the common man is suffering?' },
+        { t: 'quote', text: 'Prioritize people not performance.' },
+        { t: 'quote', text: 'If there are no people then who will use your technology?' },
+        { t: 'quote', text: 'Get to the first few field trials as soon as you can... Fail fast and adapt faster.' },
+        { t: 'quote', text: 'Will building new data centres which use immersion cooling need heavy government involvement, will AI companies lobby against it?' },
+        { t: 'ul', items: [['What people wanted to verify (n = 6 who answered).', 'Net carbon, water and energy savings once making the coolant is counted; cost against petroleum coolants; durability; comparison with what it replaces; and whether it would "increase the opportunity of more data centers".']] },
+        { t: 'table', head: ['Question (pilot round only, small n, treat as directional)', 'Result'], rows: [
+          ['What would make you confident in a bio-coolant? (n = 11)', 'Regulatory approval 9, life-cycle analysis 9, peer-reviewed performance data 8, biodegradability certification 6, contained bioreactor manufacturing 5, adoption by a major tech company 5'],
+          ['Speed against biosafety (n = 11)', 'Parallel track 4, safety first 4, case by case 2, speed first 1'],
+          ['Company choice between two options (n = 6)', 'Blended deployment 5, delay until 5 years of data 1'],
+          ['Should cooling technology be disclosed, like food ingredients? (n = 6)', 'Mandatory 4, summary level 2, no disclosure 0'],
+          ['Personal responsibility for AI’s environmental cost (n = 11)', '9 of 11 (82%) feel at least some responsibility'],
+          ['Effect of bio-coolant on how you see AI tools (n = 6)', 'Slightly more positive 3, no change 2, more cautious 1'],
+        ] },
+        { t: 'table', head: ['You said', 'We did'], rows: [
+          ['"Keep survey shorter"', 'We iterated the survey multiple times; the main round used a shorter form than the pilot'],
+          ['"A deeper explanation of what a biocoolant is"', 'Added a reference to our wiki'],
+          ['"Validate human safety for any allergy occurrences"', 'Our research team has set this research goal for the next tenure'],
+          ['"Does making the coolant use as much energy and water as it saves?"', 'We have fully decoded our LCA on our wiki'],
+        ] },
+        { t: 'ul', items: [
+          ['Limits we want to be honest about.', 'This is a convenience sample, with 58% aged 18–24 and 89% from India. The respondents were already informed: 54 of 62 (87%) had heard of the problem. The two form versions mean several questions have small samples (n = 6 to 11). The survey was not a controlled study.'],
+          ['What it told us.', 'People care about water above everything, ask who benefits, and want proof before trust. The strongest public question was our own: does cheaper cooling just mean more data centres?'],
+        ] },
+      ],
+      References: [
+        { t: 'ul', items: [
+          'AI Cooling Crisis Audit, run by iGEM IIT Bombay, pilot 23 June to 7 July 2026 and main round 13 to 19 October 2026.',
+          'Survey link: https://forms.gle/DztpBMEQn43cEQt56',
+          'Responses sheet (anonymised): in the Event Archive below.',
+        ] },
+      ],
+    },
+  },
+
+  // 7 ────────────────────────────────────────────────────────────────────────
   {
     name: 'TechConnect at TechFest',
+    docs: [{ title: 'Breaking the Biofilm Barrier: research poster', file: '/eo/docs/techconnect/biofilm-poster.pdf' }, { title: 'Team iGEM IIT Bombay at TechConnect', file: '/eo/docs/techconnect/team-igem-techconnect.pdf' }, { title: 'Stall video 1', file: '/eo/docs/techconnect/stall-video-1.mp4' }, { title: 'Stall video 2', file: '/eo/docs/techconnect/stall-video-2.mp4' }, { title: 'Stall video 3', file: '/eo/docs/techconnect/stall-video-3.mp4' }, { title: 'Stall video 4', file: '/eo/docs/techconnect/stall-video-4.mp4' }],
     photos: shots('techconnect', 3),
     meta: 'IIT Bombay TechFest: Asia’s largest technology fest · 1,000+ stall visitors',
     tabs: {
@@ -534,9 +644,10 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 7 ─────────────────────────────────────────────────────────────────────────
+  // 8 ────────────────────────────────────────────────────────────────────────
   {
     name: 'Is SynBio Really Sustainable?',
+    docs: [{ title: 'SynBio Reality Check: discussion booklet (IIT Delhi × IIT Bombay)', file: '/eo/docs/synbio-sustainable/synbio-reality-check-booklet.pdf' }, { title: 'Episode 1', file: '/eo/docs/synbio-sustainable/episode-1.mp4' }, { title: 'Episode 2', file: '/eo/docs/synbio-sustainable/episode-2.mp4' }],
     meta: 'SynBio Reality Check · iGEM IIT Delhi × iGEM IIT Bombay · two-episode video series',
     tabs: {
       Purpose: [
@@ -605,9 +716,10 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 8 ─────────────────────────────────────────────────────────────────────────
+  // 9 ────────────────────────────────────────────────────────────────────────
   {
     name: 'Do IITB Freshers Know SynBio?',
+    docs: [{ title: 'Interview clips, part 1', file: '/eo/docs/freshers/interviews-1.mp4' }, { title: 'Interview clips, part 2', file: '/eo/docs/freshers/interviews-2.mp4' }],
     photos: shots('freshers', 3),
     meta: 'Hostel 16 mess, dinner, 5 October 2026 · 40+ on-camera interviews',
     tabs: {
@@ -656,14 +768,60 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 9 ─────────────────────────────────────────────────────────────────────────
+  // 10 ───────────────────────────────────────────────────────────────────────
   {
     name: 'Careers in SynBio ft. iGEM IITB Alumni',
-    meta: 'Write-up in progress',
-    tabs: {},
+    photos: shots('careers', 8),
+    docs: [{ title: 'Careers in SynBio: session slides', file: '/eo/docs/careers/careers-in-synbio-slides.pdf' }],
+    meta: 'Online · 18 October 2026 · 2 sessions · 3 speakers · 20 students',
+    tabs: {
+      Purpose: [
+        { t: 'ul', items: [
+          ['The gap.', 'Students fascinated by biology often don’t know where synthetic biology could take them. The field is interdisciplinary and fast-moving, and a career in it can feel like "a world of possibilities without a map".'],
+          ['Our answer.', 'Careers in SynBio, a two-session speaker series organised by iGEM IIT Bombay on 18 October 2026.'],
+          ['The goal.', 'Participants should understand which roles exist in SynBio, what skills they need, and what a real journey into the field looks like, so they can start working out where they fit.'],
+          ['How it started.', 'At our orientation, students kept asking what career paths lie ahead in synbio. This series was our direct response to those questions.'],
+        ] },
+      ],
+      'Who We Reached': [
+        { t: 'ul', items: ['20 students, from IITB.', 'Scale and setting: 2 sessions, online, 18 October 2026.'] },
+        { t: 'table', head: ['Speaker', 'Role'], rows: [
+          ['Kadambari Bhide', 'First-year PhD student, Chemical Engineering, MIT; founding member of iGEM IIT Bombay'],
+          ['Husayn Bootwala', 'First-year PhD student, Washington University in St. Louis; founder of iGEM IIT Bombay'],
+          ['Anagha Rajesh', 'CEO of BioCompute, which builds data storage using bacterial DNA'],
+        ] },
+      ],
+      'What We Did': [
+        { t: 'p', text: 'Two speaker sessions, one mapping the whole SynBio career landscape and one built around a founder’s personal journey, both with live Q&A.' },
+        { t: 'table', head: ['Activity / Step', 'What participants did', 'What it showed or taught'], rows: [
+          ['1. Session 1: Understanding the SynBio Career Landscape (45 min talk, 15 min Q&A)', 'Heard about applications and career routes, then questioned two PhD students', 'SynBio is an ecosystem of roles across academia, R&D, biomanufacturing, computational biology, startups, policy, IP and consulting'],
+          ['2. Wet lab vs dry lab', 'Compared experimental and computational work', 'The two sides connect through the Design-Build-Test-Learn cycle, and AI is opening new areas such as protein design'],
+          ['3. Paths into the field', 'Learned about research in India, academia-industry links, internships and higher studies', 'Build foundations and try both wet and dry work before specialising'],
+          ['4. Session 2: Careers, Choices & Conversations (10 min intro, then open discussion)', 'Asked Anagha Rajesh about her journey, her typical day, her team, setbacks and where the field is heading', 'A career is more than a job title: it is the journey, the work and the challenges behind it'],
+        ] },
+      ],
+      'Key Takeaway': [
+        { t: 'ul', items: [
+          ['Headline result.', '20 students attended 2 sessions with 3 speakers, and participants asked questions across the full 45 + 15 and 10 + open-floor formats.'],
+          ['Impact on the audience.', 'Career curiosity became concrete questions about daily work, setbacks, team roles and next steps.'],
+          ['What worked.', 'Pairing a broad overview with one individual’s story, and handing the second session over to participant questions.'],
+          ['Wider impact.', 'The series answers a question first raised at our orientation, and it connects our students to alumni now doing PhDs abroad and to a founder working at the edge of biology and computing.'],
+        ] },
+      ],
+      Feedback: [
+        { t: 'ul', items: [
+          ['What we observed.', 'Participants asked about Anagha’s college journey, her day-to-day work, her co-team members, challenges she faced, and the future scope of the field.'],
+          ['What it told us.', 'Students want the human side of a career, including setbacks and daily routines, not only a list of roles.'],
+        ] },
+        { t: 'table', head: ['You said', 'We did'], rows: [['Record the sessions', 'Recording made available on our Instagram']] },
+      ],
+      References: [
+        { t: 'ul', items: ['Careers in SynBio, organised by iGEM IIT Bombay, 18 October 2026.', 'Related write-up from our team: Orientations.'] },
+      ],
+    },
   },
 
-  // 10 ────────────────────────────────────────────────────────────────────────
+  // 11 ───────────────────────────────────────────────────────────────────────
   {
     name: 'Know Your Lab: iGEM IITB × EnPOWER',
     photos: shots('know-your-lab', 10),
@@ -710,11 +868,11 @@ export const EVENTS: EventItem[] = [
           ['Follow-through.', 'Various biology projects were circulated amongst students for the winter.'],
         ] },
       ],
-      References: [{ t: 'ul', items: ['The two lab introduction posters and the research summary posters.', 'Collaboration: iGEM IIT Bombay × EnPOWER, UGAC.'] }],
+      References: [{ t: 'ul', items: ['The two lab introduction posters and the research summary posters.', 'Collaboration: iGEM IIT Bombay × EnPOWER, UGAC.', 'Instagram post: https://www.instagram.com/p/Dd30q2iAgKu/'] }],
     },
   },
 
-  // 11 ────────────────────────────────────────────────────────────────────────
+  // 12 ───────────────────────────────────────────────────────────────────────
   {
     name: 'The FAS Booklet: First Edition',
     docs: [{ title: 'The FAS Booklet, first edition', file: '/eo/docs/fas-booklet/fas-booklet.pdf' }],
@@ -788,9 +946,10 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 12 ────────────────────────────────────────────────────────────────────────
+  // 13 ───────────────────────────────────────────────────────────────────────
   {
     name: 'Gene Cloning Simulation Website 2.0',
+    docs: [{ title: 'Walk-through of the simulation website', file: '/project/contribution/simulation-website.mp4' }],
     photos: shots('gene-cloning', 3),
     meta: '400+ students · igem-simulation-beta.vercel.app',
     tabs: {
@@ -842,16 +1001,78 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 13 ────────────────────────────────────────────────────────────────────────
+  // 14 ───────────────────────────────────────────────────────────────────────
   {
-    name: 'Orientations',
+    name: 'Market Research for Our SynBio Product',
     meta: 'Write-up in progress',
     tabs: {},
   },
 
-  // 14 ────────────────────────────────────────────────────────────────────────
+  // 15 ───────────────────────────────────────────────────────────────────────
+  {
+    name: 'Orientations',
+    photos: shots('orientations', 19),
+    meta: 'iGEM IITB Orientation, IIT Bombay · 50+ attendees · 40+ signed up or showed interest',
+    tabs: {
+      Purpose: [
+        { t: 'ul', items: [
+          ['The gap.', 'Students curious about synthetic biology, from "not sure what synbio is" to "sure it is my career", have no single place to see what iGEM IITB does, what they would learn and where it can lead.'],
+          ['Our answer.', 'The iGEM IITB Orientation, a one-room event where the whole team presents its work and invites the next generation to join.'],
+          ['The goal.', 'Students leave knowing what synbio is, what they would learn and do on the team, and why joining is worth it. We also want them to feel how much the team has grown through iGEM.'],
+          ['How it started.', 'After 2 years of work and learning, the team wanted to pass it on to the people who will carry the project forward.'],
+        ] },
+      ],
+      'Who We Reached': [
+        { t: 'ul', items: ['Over 50 students and team members, from freshers to sophomores to Masters and PhD.', 'Scale and setting: iGEM IITB Orientation, IIT Bombay, 50+ attendees.', 'Reach beyond the event: the questions asked here led to our Careers in SynBio session.'] },
+        { t: 'table', head: ['Group', 'Why they came'], rows: [
+          ['Freshers', 'Exploring synbio and iGEM for the first time'],
+          ['Sophomores', 'Missed their chance in fresher year'],
+          ['Masters and PhD students', 'Want to mentor'],
+          ['Current teammates and alumni', 'Celebrating the handover'],
+        ] },
+      ],
+      'What We Did': [
+        { t: 'p', text: 'A team-led presentation covering what synbio is, what students will learn, why they should join and what iGEM has meant to us.' },
+        { t: 'table', head: ['Activity / Step', 'What participants did', 'What it showed or taught'], rows: [
+          ['1. What is synbio?', 'Watched the intro and asked questions', 'Synbio basics for students from any starting point'],
+          ['2. What you will learn on the team', 'Heard about the work and skills across the team', 'The range of projects and roles open to them'],
+          ['3. Why join us', 'Heard the pitch, including the trip to Paris for the iGEM Jamboree', 'A concrete reason to commit'],
+          ['4. Our journey', 'Listened to members share how they grew', 'What 2 years in iGEM does to a person'],
+        ] },
+        { t: 'ul', items: [
+          ['What we built ourselves.', 'Orientation slide deck, posters, videos and handouts.'],
+          'One room for every level of interest and every year, so freshers meet seniors, mentors and alumni directly. We went beyond the pitch and shared personal stories.',
+        ] },
+      ],
+      'Key Takeaway': [
+        { t: 'ul', items: [
+          ['Headline result.', '50+ students attended and 40+ signed up or showed interest in joining.'],
+          ['Impact on the audience.', 'Students asked about careers and about balancing iGEM with academics. They arrived curious and left with concrete questions and next steps.'],
+          ['What worked.', 'Mixing all years in one room, and letting teammates and alumni speak from experience.'],
+          ['Wider impact.', 'Student questions led directly to the Careers in SynBio session.'],
+          ['Next steps.', 'Show clearly how iGEM fits around academics in future orientations, and run career sessions as a regular follow-up.'],
+        ] },
+      ],
+      Feedback: [
+        { t: 'ul', items: [['What we observed.', 'Students asked many questions on careers and workload. This showed us how enthusiastic they were and how much they were willing to learn.']] },
+        { t: 'quote', text: 'What’s the scope of SynBio?' },
+        { t: 'quote', text: 'iGEM is our child and it’s a full circle moment for us.' },
+        { t: 'table', head: ['You said', 'We did'], rows: [
+          ['"What are the career paths ahead in synbio?"', 'Ran a dedicated Careers in SynBio session'],
+          ['"How does one manage iGEM with academics?"', 'Explained the team’s flexible work culture'],
+        ] },
+        { t: 'ul', items: [['What it told us.', 'Students want to see where synbio leads, and they want proof that iGEM fits alongside their courses.']] },
+      ],
+      References: [
+        { t: 'ul', items: ['iGEM IITB Orientation, organised by iGEM IITB.', 'Materials we made: orientation slides.', 'Related write-up from our team: Careers in SynBio session.'] },
+      ],
+    },
+  },
+
+  // 16 ───────────────────────────────────────────────────────────────────────
   {
     name: 'Internal AI Audit',
+    photos: shots('ai-audit', 6),
     docs: [{ title: 'Survey responses (names removed)', file: '/eo/docs/ai-audit/responses.csv' }],
     meta: '19 team members across all 5 subsystems',
     tabs: {
@@ -906,7 +1127,14 @@ export const EVENTS: EventItem[] = [
     },
   },
 
-  // 15 ────────────────────────────────────────────────────────────────────────
+  // 17 ───────────────────────────────────────────────────────────────────────
+  {
+    name: 'LCA Guide for SynBiologists',
+    meta: 'Write-up in progress',
+    tabs: {},
+  },
+
+  // 18 ───────────────────────────────────────────────────────────────────────
   {
     name: 'Junicorn by 100 GIGA',
     docs: [{ title: 'Junicorn pitch deck', file: '/eo/docs/junicorn/junicorn-pitch.pdf' }],
@@ -961,4 +1189,5 @@ export const EVENTS: EventItem[] = [
       References: [{ t: 'ul', items: ['Session slides.', 'Junicorn by 100 GIGA, International StartUp Fair, Dayananda Sagar University.'] }],
     },
   },
+
 ];

@@ -1,4 +1,5 @@
 import IndexedEmbed from '../components/IndexedEmbed';
+import { HP_TYPOGRAPHY_CSS } from '../components/hpTypography';
 
 export default function SustainabilityPage() {
   return (
@@ -12,7 +13,7 @@ export default function SustainabilityPage() {
         const m = h.match(/^(SDG \d+)\s*[-\u2013\u2014,:]\s*(.*)$/);
         return m ? { label: m[1], subtitle: m[2] } : { label: i === 0 ? 'Overview' : h, subtitle: '' };
       }}
-      injectCss=".title{display:none!important}.wrap{padding-top:0!important}"
+      injectCss={`.title{display:none!important}.wrap{padding-top:0!important}${HP_TYPOGRAPHY_CSS}`}
     />
   );
 }

@@ -131,6 +131,14 @@ export default function ContributionPage() {
                   structure to discuss sustainability honestly with judges, sponsors and the public. It also works as a
                   discussion tool for workshops and events, and helps teams stress-test their own claims early.
                 </p>
+                <a
+                  href="/eo/docs/synbio-sustainable/synbio-reality-check-booklet.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.more}
+                >
+                  Read the SynBio Reality Check booklet (PDF) ↗
+                </a>
               </div>
             </div>
           </div>

@@ -54,7 +54,7 @@ export default function IndexedEmbed({ src, title, art, sectionSelector, describ
     const doc = frameRef.current?.contentDocument;
     if (!doc) return;
     const style = doc.createElement('style');
-    style.textContent = `@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');html,body{overflow:hidden!important;background:transparent!important}body,h1,h2,h3,h4,p,li,td,th,summary,button{font-family:Montserrat,system-ui,sans-serif!important}${injectCss ?? ''}`;
+    style.textContent = `@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');html,body{overflow:hidden!important;background:transparent!important}body,h1,h2,h3,h4,p,li,td,th,summary,button{font-family:Montserrat,system-ui,sans-serif!important}${injectCss ?? ''}`;
     doc.head.appendChild(style);
     measure();
     const ro = new ResizeObserver(measure);

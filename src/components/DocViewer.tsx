@@ -90,14 +90,16 @@ function CsvTable({ file }: { file: string }) {
 }
 
 /**
- * One event's PDFs and CSVs, one at a time: a PDF opens in the browser's own
- * viewer, a CSV as a scrollable table. Prev / Next step through the files.
+ * One event's PDFs, CSVs and videos, one at a time: a PDF opens in the browser's
+ * own viewer, a CSV as a scrollable table, a video in a player. Prev / Next step
+ * through the files.
  */
 export default function DocViewer({ docs }: { docs: ViewerDoc[] }) {
   const [i, setI] = useState(0);
   const doc = docs[i];
   const isCsv = /\.csv$/i.test(doc.file);
-  const kind = isCsv ? 'CSV' : 'PDF';
+  const isVideo = /\.(mp4|webm)$/i.test(doc.file);
+  const kind = isCsv ? 'CSV' : isVideo ? 'VIDEO' : 'PDF';
   const step = (d: number) => setI((k) => (k + d + docs.length) % docs.length);
 
   return (
@@ -119,6 +121,8 @@ export default function DocViewer({ docs }: { docs: ViewerDoc[] }) {
 
       {isCsv ? (
         <CsvTable file={doc.file} />
+      ) : isVideo ? (
+        <video key={doc.file} src={doc.file} controls playsInline preload="metadata" className={styles.video} />
       ) : (
         <iframe key={doc.file} src={`${doc.file}#view=FitH`} title={doc.title} className={styles.frame} loading="lazy" />
       )}

@@ -11,6 +11,20 @@ const TEAM_PHOTOS = ['/eo/team.jpg', '/team_pic.webp', '/eo/team2.webp', '/eo/te
 
 // ─── helpers ─────────────────────────────────────────────────────────────────
 
+// Turn web addresses inside a line of text into links.
+function linkify(text: string) {
+  const parts = text.split(/(https?:\/\/[^\s)]+)/g);
+  return parts.map((p, i) =>
+    /^https?:\/\//.test(p) ? (
+      <a key={i} href={p} target="_blank" rel="noreferrer" className={styles.link}>
+        {p.length > 60 ? `${p.slice(0, 57)}…` : p}
+      </a>
+    ) : (
+      p
+    ),
+  );
+}
+
 function slug(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-+|-+$)/g, '');
 }
@@ -98,16 +112,16 @@ function Blocks({ blocks }: { blocks: Block[] }) {
       {blocks.map((b, i) => {
         switch (b.t) {
           case 'p':
-            return <p key={i}>{b.text}</p>;
+            return <p key={i}>{linkify(b.text)}</p>;
           case 'ul':
             return (
               <ul key={i} className={styles.points}>
                 {b.items.map((it, k) =>
                   typeof it === 'string' ? (
-                    <li key={k}>{it}</li>
+                    <li key={k}>{linkify(it)}</li>
                   ) : (
                     <li key={k}>
-                      <b>{it[0]}</b> {it[1]}
+                      <b>{it[0]}</b> {linkify(it[1])}
                     </li>
                   ),
                 )}
@@ -128,7 +142,7 @@ function Blocks({ blocks }: { blocks: Block[] }) {
                     {b.rows.map((r, k) => (
                       <tr key={k}>
                         {r.map((c, j) => (
-                          <td key={j}>{c}</td>
+                          <td key={j}>{linkify(c)}</td>
                         ))}
                       </tr>
                     ))}
@@ -248,16 +262,7 @@ function Initiative({ item, index, isOpen, onToggle }: { item: EventItem; index:
               ))}
             </div>
             <div className={styles.panelBox}>
-              {blocks?.length ? (
-                subtab === 'References' ? (
-                  <details className={styles.refDrop}>
-                    <summary>Files, slides and references</summary>
-                    <Blocks blocks={blocks} />
-                  </details>
-                ) : (
-                  <Blocks blocks={blocks} />
-                )
-              ) : <p className={styles.prompt}>{SUBTAB_PROMPTS[subtab]}</p>}
+              {blocks?.length ? <Blocks blocks={blocks} /> : <p className={styles.prompt}>{SUBTAB_PROMPTS[subtab]}</p>}
             </div>
           </div>
 
@@ -365,8 +370,8 @@ export default function EducationPage() {
           Our initiatives
         </h2>
         <p className={styles.eventsLead}>
-          Fifteen initiatives, in order. Open any one for its purpose, reach, what we ran, what we learned and what
-          participants told us.
+          {EVENTS.length} initiatives, in order. Open any one for its purpose, reach, what we ran, what we learned and
+          what participants told us.
         </p>
         <div className={styles.inits}>
           {EVENTS.map((ev, i) => (

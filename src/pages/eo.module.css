@@ -1034,3 +1034,11 @@
     margin: 16px 16px 0;
   }
 }
+
+/* links inside event text (references, Instagram posts, survey forms) */
+.link {
+  color: #0b62c4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-all;
+}
