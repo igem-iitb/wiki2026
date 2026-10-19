@@ -348,6 +348,16 @@
     "@eslint/core" "^0.17.0"
     levn "^0.4.1"
 
+"@fontsource/montserrat@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-5.3.0.tgz#218a998a485d41f358d6bacf9edb70e282fadf7a"
+  integrity sha512-iQPDtZOnmM5ih4JBGaMSXisRap0ixb9bAUw2hDtY7EjVfaqiiNlKtVuJl9XclxUwtwMMHNcWXfQR6zI9x05+Tg==
+
+"@fontsource/playfair-display@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/playfair-display/-/playfair-display-5.3.0.tgz#9861f70ae44f2f5899b5a907b127969f18714701"
+  integrity sha512-uJSABalvdWc10fEPppQjQocamT21LEyRfzzWfRfqbkPz+sRv+kKpYDKyluBUskvJREkJTos9epj1WjQROGu99Q==
+
 "@google/model-viewer@3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@google/model-viewer/-/model-viewer-3.5.0.tgz#7ca78b4af7e306e84ad1cb0bb22fcecb6f0086bd"

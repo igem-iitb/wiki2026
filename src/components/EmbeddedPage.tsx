@@ -11,8 +11,6 @@ type EmbeddedPageProps = {
 };
 
 const HOST_ID = 'site-footer-host';
-const MONTSERRAT_HREF =
-  'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap';
 
 // Lives inside the footer's shadow root: `all: initial` stops the embedded
 // page's inherited styles at the boundary, then the base resets the footer gets
@@ -52,14 +50,6 @@ export default function EmbeddedPage({ src, title }: EmbeddedPageProps) {
   const mountFooterHost = () => {
     const doc = iframeRef.current?.contentDocument;
     if (!doc || doc.getElementById(HOST_ID)) return;
-
-    // @font-face must be declared at document level to be usable in the shadow root.
-    if (!doc.querySelector(`link[href="${MONTSERRAT_HREF}"]`)) {
-      const font = doc.createElement('link');
-      font.rel = 'stylesheet';
-      font.href = MONTSERRAT_HREF;
-      doc.head.appendChild(font);
-    }
 
     const host = doc.createElement('div');
     host.id = HOST_ID;

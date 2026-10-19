@@ -30,7 +30,7 @@ export type EventItem = {
 
 /** Photos for an event, copied from "day 3/eo images" as public/eo/events/<slug>/01.jpg… */
 const shots = (slug: string, n: number) =>
-  Array.from({ length: n }, (_, i) => `/eo/events/${slug}/${String(i + 1).padStart(2, '0')}.jpg`);
+  Array.from({ length: n }, (_, i) => `/eo/events/${slug}/${slug}-${String(i + 1).padStart(2, '0')}.jpg`);
 
 export const SUBTABS: Tab[] = ['Purpose', 'Who We Reached', 'What We Did', 'Key Takeaway', 'Feedback', 'References'];
 
