@@ -141,6 +141,7 @@ main>section{padding-bottom:30px}
 .step h4{margin:4px 0 10px;font-size:19px;font-weight:600;color:var(--c,#3F94D2)}
 .step>p:last-child{margin-bottom:0}
 .substep{font-weight:600;margin:18px 0 8px;color:#45546B}
+.primers{margin:14px 0 4px;display:grid;gap:8px}.primer{background:#EAF4FC;border-radius:10px;padding:10px 14px}.primer span{display:block;font-size:14px;font-weight:600;color:#45546B;margin-bottom:2px}.primer code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;letter-spacing:.04em;color:#1E2A3A;overflow-wrap:anywhere}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0 0}
 .pair .fig{margin:0}
 @media(max-width:760px){.pair{grid-template-columns:1fr}.step{padding-left:40px}.step:before{width:28px;height:28px;font-size:15px}}
@@ -237,6 +238,7 @@ figcaption{font-size:16px}
 <div class="step"><h4>Designing the mutation</h4>
 <p>A PCR-based mutagenesis strategy was used to generate the DNA fragments required for the mutation. Two inserts were designed: the first contained the modified <b>FAS2 open reading frame (ORF)</b> carrying the V1254W mutation, while the second contained the <b>3′ flanking region</b> required for the intended construct. Primers were designed to amplify the corresponding regions and introduce the required sequences for assembly.</p>
 <figure class="fig a-wipe" style="max-width:600px"><img src="project-description/orf-primer-design.webp" alt="FAS2 ORF with the V1254W mutation marked and forward and reverse primers at each end"></figure>
+<div class="primers" aria-label="Primer sequences"><div class="primer"><span>Forward primer (FP)</span><code>GTCACTCGAGCTGGTATGGGTGGTTGGTCTGCCTTACG</code></div><div class="primer"><span>Reverse primer (RP)</span><code>GTCAGGTACCGACAACAACCACGGGAGGAATAAA</code></div></div>
 </div>
 
 <div class="step"><h4>Sequential restriction digestion and cloning</h4>
