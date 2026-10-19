@@ -30,6 +30,7 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
       <div className={styles.header}>
         <div className={styles.titleBtn}>
           <span className={styles.name}>{person.name}</span>
+          {person.affiliation && <span className={styles.aff}>{person.affiliation}</span>}
         </div>
         {onBackToNetwork && (
           <button className={styles.back} onClick={onBackToNetwork}>
@@ -37,6 +38,17 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
           </button>
         )}
       </div>
+
+      {(person.date || person.summary) && (
+        <div className={styles.meta}>
+          {person.date && (
+            <p className={styles.date}>
+              <span>Met:</span> {person.date}
+            </p>
+          )}
+          {person.summary && <p className={styles.summary}>{person.summary}</p>}
+        </div>
+      )}
 
       {/* Section tabs, laid out across the card */}
       <div className={styles.tabs} role="tablist" aria-label={`${person.name} write-up sections`}>
@@ -68,17 +80,10 @@ export default function WriteUpCard({ person, onBackToNetwork }: Props) {
                 .join('')}
             </div>
           )}
-          {person.affiliation && <p className={styles.desig}>{person.affiliation}</p>}
-          {person.date && (
-            <p className={styles.date}>
-              <span>Met:</span> {person.date}
-            </p>
-          )}
         </div>
         <p className={styles.answer} key={active as string}>
           {person[active]}
         </p>
-        {person.summary && <p className={styles.summary}>{person.summary}</p>}
       </div>
     </div>
   );
