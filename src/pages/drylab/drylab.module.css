@@ -368,7 +368,7 @@
 }
 
 .content :global(details.acc[open]) {
-  background: #e4f3ee;
+  background: var(--acc-tint, #eef8f1);
   padding-bottom: 22px;
   box-shadow: 0 4px 14px rgba(9, 52, 123, 0.12);
 }
@@ -381,8 +381,8 @@
   min-height: 60px;
   padding: 13px 24px;
   border-radius: 30px;
-  background: #245c53;
-  color: #fff;
+  background: var(--acc-bg, #bcdcfa);
+  color: #1f2a44;
   cursor: pointer;
   list-style: none;
   transition: background 0.18s ease;
@@ -402,8 +402,8 @@
   width: 10px;
   height: 10px;
   margin-top: -5px;
-  border-right: 2.5px solid #fff;
-  border-bottom: 2.5px solid #fff;
+  border-right: 2.5px solid #1f2a44;
+  border-bottom: 2.5px solid #1f2a44;
   transform: rotate(45deg);
   transition: transform 0.2s;
 }
@@ -414,7 +414,7 @@
 }
 
 .content :global(details.acc > summary:hover) {
-  background: #1d4a43;
+  filter: brightness(0.96);
 }
 
 .content :global(details.acc > summary:focus-visible) {
@@ -427,18 +427,14 @@
   font-weight: 700;
   font-size: 21px;
   line-height: 1.3;
-  color: #fff;
-}
-
-.content :global(details.acc.refs > summary) {
-  background: #2f6b62;
+  color: #1f2a44;
 }
 
 /* the panel: inset under the bar with the accent line on its left */
 .content :global(details.acc > .acc-body) {
   margin: 18px 26px 0;
   padding: 0 0 0 18px;
-  border-left: 3px solid #63aea6;
+  border-left: 3px solid var(--acc-line, #65b3f9);
 }
 
 .content :global(details.acc > .acc-body > :first-child) {
@@ -649,8 +645,8 @@
   font-size: 0.95em;
   line-height: 1.5;
 }
-.content :global(.c-mm) { background: #e4f3ee; border-color: #63aea6; }
-.content :global(.c-mm h4) { color: #245c53; }
+.content :global(.c-mm) { background: #e8f1fa; border-color: #8fb8dc; }
+.content :global(.c-mm h4) { color: #2c5f94; }
 .content :global(.c-oil) { background: #fbf2dc; border-color: #e0a93c; }
 .content :global(.c-oil h4) { color: #8a6d1f; }
 .content :global(.c-ester) { background: #eeeefd; border-color: #a0a2f5; }
@@ -672,7 +668,7 @@
   box-shadow: 0 6px 20px rgba(9, 52, 123, 0.14);
 }
 .content :global(.cfd-basis-card.b1) { background: #e8f0fb; border-color: #3f94d2; }
-.content :global(.cfd-basis-card.b2) { background: #e4f3ee; border-color: #245c53; }
+.content :global(.cfd-basis-card.b2) { background: #e8f1fa; border-color: #2c5f94; }
 .content :global(.cfd-basis-tag) {
   display: inline-block;
   margin-bottom: 8px;
@@ -722,17 +718,17 @@
 
 /* Green energy box */
 .content :global(.cfd-green) {
-  background: #e4f3ee;
-  border: 2px solid #63aea6;
-  border-left: 8px solid #245c53;
+  background: #e8f1fa;
+  border: 2px solid #8fb8dc;
+  border-left: 8px solid #2c5f94;
   border-radius: 22px;
   padding: 22px 26px;
 }
-.content :global(.cfd-green h3) { margin: 0 0 8px; color: #245c53; }
+.content :global(.cfd-green h3) { margin: 0 0 8px; color: #2c5f94; }
 .content :global(.cfd-green p) { margin: 0; }
 /* Energy implications: the green box stands on its own as a section, no dropdown */
 .content :global(.cfd-energy) { margin: 14px 0 0; }
-.content :global(.cfd-green h2) { margin: 0 0 10px; font-weight: 700; font-size: 22px; line-height: 1.3; color: #245c53; }
+.content :global(.cfd-green h2) { margin: 0 0 10px; font-weight: 700; font-size: 22px; line-height: 1.3; color: #2c5f94; }
 
 /* A section shown open with no dropdown: same bar as the accordions, no chevron */
 .content :global(section.acc-static) { margin: 14px 0 0; }
@@ -768,7 +764,7 @@
   color: #4a5a72;
 }
 .content :global(tr.cfd-hl td) {
-  background: #e4f3ee !important;
+  background: #e8f1fa !important;
   font-weight: 700;
 }
 .content :global(ol.cfd-refs) {
@@ -794,7 +790,7 @@
   padding: 18px 22px 20px;
 }
 .content :global(.lca-fu.f1) { background: #e8f0fb; border-color: #3f94d2; }
-.content :global(.lca-fu.f2) { background: #e4f3ee; border-color: #63aea6; }
+.content :global(.lca-fu.f2) { background: #e8f1fa; border-color: #8fb8dc; }
 .content :global(.lca-fu-tag) {
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -812,9 +808,9 @@
 }
 .content :global(.lca-fu dd) { margin: 2px 0 0; }
 .content :global(.lca-headline) {
-  background: #e4f3ee;
-  border: 2px solid #63aea6;
-  border-left: 8px solid #245c53;
+  background: #e8f1fa;
+  border: 2px solid #8fb8dc;
+  border-left: 8px solid #2c5f94;
   border-radius: 22px;
   padding: 20px 26px;
   margin-bottom: 12px;
@@ -852,20 +848,20 @@
   color: #17365d;
 }
 .content :global(.cfd-basis-card.b1 .cfd-stat) { color: #17365d; }
-.content :global(.cfd-basis-card.b2 .cfd-stat) { color: #245c53; }
+.content :global(.cfd-basis-card.b2 .cfd-stat) { color: #2c5f94; }
 .content :global(.cfd-conclusion) {
-  background: #e4f3ee;
+  background: #e8f1fa;
   color: #1e1e1e;
-  border: 2px solid #63aea6;
-  border-left: 8px solid #245c53;
+  border: 2px solid #8fb8dc;
+  border-left: 8px solid #2c5f94;
   border-radius: 22px;
   box-shadow: none;
   padding: 22px 26px;
 }
-.content :global(.cfd-conclusion-tag) { color: #245c53; font-size: 0.85em; }
+.content :global(.cfd-conclusion-tag) { color: #2c5f94; font-size: 0.85em; }
 .content :global(.cfd-conclusion p) { font-size: 1em; font-weight: 400; line-height: 1.6; color: inherit; }
 .content :global(.cfd-conclusion strong),
-.content :global(.cfd-conclusion p strong) { color: #245c53; font-weight: 700; }
+.content :global(.cfd-conclusion p strong) { color: #2c5f94; font-weight: 700; }
 .content :global(.cfd-note) { font-size: 0.85em; color: #4a5a72; }
 
 /* ---------- LCA page (final doc): built from the CFD components above ---------- */
@@ -892,9 +888,9 @@
   gap: 14px;
   margin: 12px 0 14px;
 }
-.content :global(.lca-tile) { background: #fff; border: 2px solid #63aea6; border-radius: 20px; padding: 16px 18px 18px; }
-.content :global(.lca-facts .lca-tile) { background: #e4f3ee; }
-.content :global(.lca-tile-num) { margin-bottom: 6px; font-size: 2.1em; font-weight: 800; line-height: 1.1; color: #245c53; }
+.content :global(.lca-tile) { background: #fff; border: 2px solid #8fb8dc; border-radius: 20px; padding: 16px 18px 18px; }
+.content :global(.lca-facts .lca-tile) { background: #e8f1fa; }
+.content :global(.lca-tile-num) { margin-bottom: 6px; font-size: 2.1em; font-weight: 800; line-height: 1.1; color: #2c5f94; }
 .content :global(.lca-tile p) { margin: 0; font-size: 0.95em; line-height: 1.45; }
 
 /* Basis boxes hold a table or a figure (the table scrolls inside, so the box may shrink) */
@@ -1016,7 +1012,7 @@
 
 .content :global(*) { font-style: normal; }
 .content :global(details.lca-glow > summary) {
-  box-shadow: 0 0 0 2px #63aea6, 0 0 22px rgba(99, 174, 166, 0.65);
+  box-shadow: 0 0 0 2px #8fb8dc, 0 0 22px rgba(143, 184, 220, 0.65);
 }
 
 .content :global(img.lca-static) { display: block; width: 100%; height: auto; margin: 14px 0 6px; border-radius: 14px; }

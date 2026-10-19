@@ -53,6 +53,30 @@ export default function DryLabPage({ slug }: { slug: string }) {
     setToc(items);
   }, [loaded]);
 
+  // Box colours: each dropdown bar takes the next soft colour from the wiki's
+  // wheel palette, so neighbours always differ. Flat colours, no shine.
+  useEffect(() => {
+    const root = contentRef.current;
+    if (!root || !loaded) return;
+    const palette: [number, number, number][] = [
+      [207, 80, 84], // blue
+      [238, 75, 88], // lavender
+      [318, 50, 86], // orchid
+      [44, 90, 80], // sun yellow
+      [160, 50, 80], // mint
+      [193, 55, 82], // teal
+    ];
+    const paint = () => {
+      root.querySelectorAll<HTMLElement>('details.acc').forEach((b, i) => {
+        const [h, sat, l] = palette[i % palette.length];
+        b.style.setProperty('--acc-bg', `hsl(${h} ${sat}% ${l}%)`);
+        b.style.setProperty('--acc-tint', `hsl(${h} ${Math.min(sat, 70)}% 96%)`);
+        b.style.setProperty('--acc-line', `hsl(${h} ${sat}% ${l - 16}%)`);
+      });
+    };
+    paint();
+  }, [loaded]);
+
   // Spots in the page HTML where a live React widget goes (the CFD 3-D models).
   const [modelMounts, setModelMounts] = useState<HTMLElement[]>([]);
   useEffect(() => {
