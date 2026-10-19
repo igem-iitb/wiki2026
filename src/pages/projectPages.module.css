@@ -30,16 +30,21 @@
 .card {
   margin-top: 30px;
   padding: 28px 30px 30px;
-  border: 2px solid;
-  border-left-width: 8px;
+  border: 1.5px solid #c8dcef;
   border-radius: 26px;
+  background: #eef5fd;
   scroll-margin-top: 96px;
 }
 
-.blue { background: #eef5fd; border-color: #3f94d2; }
-.teal { background: #e8f6f3; border-color: #2a9d8f; }
-.violet { background: #f1f0fd; border-color: #7b7fe8; }
-.amber { background: #fdf6e7; border-color: #d9a441; }
+/* every section uses the same calm blue card; the old per-section colours
+   are kept as names only so the pages need no changes */
+.blue,
+.teal,
+.violet,
+.amber {
+  background: #eef5fd;
+  border-color: #c8dcef;
+}
 
 .cardTitle {
   margin: 0 0 6px;
@@ -179,7 +184,7 @@
   padding: 12px 16px;
   border-radius: 14px;
   background: #fff;
-  border: 1px solid #c9e6dc;
+  border: 1px solid #d5e3f0;
   font-size: 16.5px !important;
 }
 
@@ -198,7 +203,7 @@
   padding: 16px;
   border-radius: 18px;
   background: #fff;
-  border: 1px solid #e3dcc6;
+  border: 1px solid #d5e3f0;
 }
 
 .booklet img {
@@ -213,7 +218,7 @@
   font-family: var(--font-mont);
   font-weight: 700;
   font-size: 17px;
-  color: #3d2f0a;
+  color: #17365d;
 }
 
 .booklet p {
@@ -241,7 +246,6 @@
   }
   .card {
     padding: 20px 16px 22px;
-    border-left-width: 6px;
   }
   .figPair,
   .booklets {
