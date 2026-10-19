@@ -137,7 +137,7 @@ export const writeUps: WriteUp[] = [
     affiliation: 'Professor, Department of Biosciences and Bioengineering, IIT Bombay',
     photo: '/ihp-photos/balaji.jpg',
     summary: 'Assessed the feasibility of the chitinase project',
-    date: '10/12/26',
+    date: '10/12/25',
     purpose:
       'At the start of the cycle we were choosing between two candidate projects and were not sure which was more feasible for a first-time undergraduate team. One of them was an enzymatic approach using a chitinase to degrade chitin waste into chitooligosaccharides. We lacked a clear sense of its scope, its biochemical risks, and how realistic it was to execute within one iGEM cycle. We wanted an expert view on the technical soundness and feasibility of the chitinase idea so we could compare it against our other candidate.',
     keyTakeaway:
@@ -166,7 +166,7 @@ export const writeUps: WriteUp[] = [
     affiliation: 'PhD researcher',
     photo: '/ihp-photos/anushka-alikar.jpg',
     summary: 'Advised on chassis comparison, promoter systems and lipid metabolism',
-    date: '19/12/26',
+    date: '19/12/25',
     purpose:
       'During the initial stages of BiFROST we were exploring metabolic engineering strategies for a yeast-based production platform for lipid-derived compounds. The host chassis, genetic targets and pathway engineering strategy were all still under evaluation. We sought expert input on identifying metabolic bottlenecks, selecting suitable genetic modifications, and balancing pathway optimisation against host viability, assessing the feasibility of knockout and overexpression strategies, exploring promoter systems and comparative genomics, and identifying interventions that fit our experimental and infrastructural constraints.',
     keyTakeaway:
@@ -202,7 +202,7 @@ export const writeUps: WriteUp[] = [
     affiliation: 'IISER Pune team member who ran the Jetropha project',
     photo: '/ihp-photos/pratik-makhija.jpg',
     summary: 'Advised on strains, vectors and protocols for working with Yarrowia',
-    date: '10/01/26, 28/10/26',
+    date: '28/10/25, 10/01/26',
     purpose: 'Asked how his team ran their Jetropha project, strains, vectors, kits and protocols, to assess feasibility for our own work with Yarrowia lipolytica.',
     keyTakeaway:
       'The team emphasised that for reliable results the Y. lipolytica strain should be sourced from IMTECH (MTCC), Chandigarh, specifically the Po1g strain, a derivative of the W29 lineage, and that it is particularly effective with the pYLEX vector series for genomic integration. On vectors, they highlighted the Yeastern BioKit as an all-in-one solution: pYLEX is the "home" for the gene of interest, designed for precise homologous recombination into the genome, and the kit includes pre-optimised components that simplify transformation, which can otherwise be tricky with non-conventional yeasts. They mentioned using restriction enzymes such as BamHI and PmlI for cloning into the pYLEX backbone, following advice from experts including Dr. Catherine Madzak. On media and growth, cultivation is handled in distinct stages to balance biomass growth against gene induction: standard YPD for general maintenance, then a medium protocol sheet specific to pYLEX for expression and selection, typically YNB without amino acids to maintain selection pressure. They noted pH (around 5.5) and aeration are critical, and explored using perfluorodecalin to enhance oxygen availability, which significantly boosted their lipid and enzyme yields. They also suggested keeping a strict components table for consistency across batches, glucose for normal growth and glycerol for induction, ammonium sulfate or urea as nitrogen source (limitation triggers lipids), EDTA, ZnSO4, MnSO4 and FeSO4 as trace elements, and leucine (LEU2) or uracil (URA3) as selection marker depending on the pYLEX variant. Their mentors, including Dr. Sunish Radhakrishnan, advised that codon optimisation for the Y. lipolytica bias is essential, as rare codons from other species often lead to failed western blots or low protein expression.',
@@ -483,7 +483,7 @@ export const writeUps: WriteUp[] = [
     affiliation: 'PhD researcher in LCA',
     photo: '/ihp-photos/shubham.jpg',
     summary: 'Mentored the dry lab team on LCA (via Prof. Shastri)',
-    date: '20/10/2026',
+    date: '20/10/2025',
     purpose: TODO,
     keyTakeaway: TODO,
     contribution: TODO,
